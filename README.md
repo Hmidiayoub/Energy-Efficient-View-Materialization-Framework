@@ -176,8 +176,8 @@ calling the step modules.
 - `step3_Cost-Benefit-Estimator.py` intentionally contains a hyphen in its filename,
   so `pipeline.py` loads it via a dynamic import (see source).
 - The benefit formula in the sources has evolved (the header of
-  `step3_Cost-Benefit-Estimator.py` documents `((exec% + cpu_mean% + cpu_max%)/3) ×
-  similarity − storage%/10`; `pipeline.py` currently implements a slightly different
+  `step3_Cost-Benefit-Estimator.py` documents `exec% × similarity + (cpu_mean% + cpu_max%)/2 − storage_budget%`;
+   `pipeline.py` currently implements a slightly different
   weighted combination) — treat the numbers as internally consistent, not normative.
 - Junk candidates built only from `nation`/`region` are filtered out in step 2.
 - Materialized-view definitions that cannot safely be generalized (
