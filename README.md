@@ -5,17 +5,14 @@ pipeline that discovers, merges, scores, and bundles **candidate materialized vi
 for a given SQL workload. It targets the standard **TPC-H** and **TPC-DS** benchmarks
 and ranks non-redundant *collections* of views by a cost/benefit score that balances
 query execution-time / CPU savings against storage cost — i.e. it answers *"which views
-should I materialize to make this workload faster (and greener), and in what combination?"*
-
-The project folder is named `View_paper`; the codebase itself is referred to as
-"GreenVIEW" throughout the sources.
+should I materialize to make this workload faster (and greener), and in what combinations?"*
 
 ---
 
 ## What the pipeline does
 
-Given a workload (a list of SQL queries) plus measured per-query metrics
-(`time_cpu_*.json`), the pipeline:
+Given a workload (a list of SQL queries) plus per-query metrics
+(`time_cpu_*.json`) that were measured using a Linux machine with the CPU built-in tool RAPL, the pipeline:
 
 1. **Extracts** layered SQL sub-expression candidates (levels **L0–L7**) from every
    query — joins, filters, projections, aggregates — with strict fidelity handling for
