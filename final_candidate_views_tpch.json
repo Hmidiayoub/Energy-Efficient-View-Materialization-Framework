@@ -1,0 +1,6468 @@
+{
+  "pipeline_info": {
+    "workload_size": 557,
+    "database": "TPCH",
+    "pipeline_order": [
+      "1: candidate_views_extractor",
+      "2: candidate_views_merger",
+      "3: sql_embedding_similarity",
+      "4: cost_benefit_estimator",
+      "5: view_collections"
+    ],
+    "step1_raw_candidates": 1106,
+    "step2_merged_candidates": 12,
+    "step3_embedding_scored": 12,
+    "step4_cost_benefit_scored": 12,
+    "step5_collections": 15,
+    "timing_s": {
+      "step1_extract": 2.9,
+      "step2_merge": 0.8,
+      "step3_embedding": 11.4,
+      "step4_cost_benefit": 0.0,
+      "step5_collections": 0.0,
+      "total": 15.2
+    }
+  },
+  "collections": [
+    {
+      "collection_id": 0,
+      "size": 7,
+      "total_score": 0.564827,
+      "unique_queries_covered": 556,
+      "views": [
+        {
+          "view_id": "L0-FULLVIEW_Q0",
+          "view_sql": "SELECT l_returnflag, l_linestatus, SUM(l_quantity) AS sum_qty, SUM(l_extendedprice) AS sum_base_price, SUM(l_extendedprice * (1 - l_discount)) AS sum_disc_price, SUM(l_extendedprice * (1 - l_discount) * (1 + l_tax)) AS sum_charge, AVG(l_quantity) AS avg_qty, AVG(l_extendedprice) AS avg_price, AVG(l_discount) AS avg_disc, COUNT(*) AS count_order FROM lineitem WHERE l_shipdate <= CAST('1992-12-01' AS DATE) - INTERVAL '3' DAY GROUP BY l_linestatus, l_returnflag",
+          "view_tables": [
+            "lineitem"
+          ],
+          "view_joins": [],
+          "view_join_predicates": [],
+          "view_filters": {
+            "__global__": [
+              "l_shipdate <= CAST('1992-12-01' AS DATE) - INTERVAL '3' DAY"
+            ]
+          },
+          "view_aggregates": [
+            "COUNT(*)",
+            "AVG(l_extendedprice)",
+            "SUM(l_quantity)",
+            "SUM(l_extendedprice * (1 - l_discount))",
+            "SUM(l_extendedprice * (1 - l_discount) * (1 + l_tax))",
+            "AVG(l_discount)",
+            "SUM(l_extendedprice)",
+            "AVG(l_quantity)"
+          ],
+          "view_complexity": 9,
+          "covered_query_ids": [
+            "Q0",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6"
+          ],
+          "avg_similarity_score": 0.9757881930896214,
+          "cost_benefit_score": 0.00361,
+          "execution_time_pct": 0.01277,
+          "storage_cost_pct": 0.041177,
+          "avg_cpu": 0.012264,
+          "max_cpu": 0.020061
+        },
+        {
+          "view_id": "L0-FULLVIEW_Q49",
+          "view_sql": "SELECT n_name, SUM(l_extendedprice * (1 - l_discount)) AS revenue FROM customer, orders, lineitem, supplier, nation, region WHERE (((((((c_custkey = o_custkey AND l_orderkey = o_orderkey) AND l_suppkey = s_suppkey) AND c_nationkey = s_nationkey) AND s_nationkey = n_nationkey) AND n_regionkey = r_regionkey) AND r_name IN ('AFRICA', 'AMERICA', 'ASIA', 'EUROPE', 'MIDDLE EAST')) AND o_orderdate >= CAST('1992-01-01' AS DATE)) AND o_orderdate < CAST('1996-01-01' AS DATE) GROUP BY n_name",
+          "view_tables": [
+            "customer",
+            "orders",
+            "lineitem",
+            "supplier",
+            "nation",
+            "region"
+          ],
+          "view_joins": [
+            [
+              "customer",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "supplier"
+            ],
+            [
+              "nation",
+              "region"
+            ],
+            [
+              "nation",
+              "supplier"
+            ]
+          ],
+          "view_join_predicates": [
+            "c_custkey = o_custkey",
+            "l_orderkey = o_orderkey",
+            "l_suppkey = s_suppkey",
+            "c_nationkey = s_nationkey",
+            "s_nationkey = n_nationkey",
+            "n_regionkey = r_regionkey"
+          ],
+          "view_filters": {
+            "__global__": [
+              "r_name IN ('AFRICA', 'AMERICA', 'ASIA', 'EUROPE', 'MIDDLE EAST')",
+              "o_orderdate >= CAST('1992-01-01' AS DATE)",
+              "o_orderdate < CAST('1996-01-01' AS DATE)"
+            ]
+          },
+          "view_aggregates": [
+            "SUM(l_extendedprice * (1 - l_discount))"
+          ],
+          "view_complexity": 9,
+          "covered_query_ids": [
+            "Q49",
+            "Q50",
+            "Q51",
+            "Q52",
+            "Q53"
+          ],
+          "avg_similarity_score": 0.9025585174560546,
+          "cost_benefit_score": -0.007635,
+          "execution_time_pct": 0.01523,
+          "storage_cost_pct": 0.049412,
+          "avg_cpu": 0.011543,
+          "max_cpu": 0.016488
+        },
+        {
+          "view_id": "L0-FULLVIEW_Q445",
+          "view_sql": "SELECT EXTRACT(YEAR FROM o_orderdate) AS o_year, l_extendedprice * (1 - l_discount) AS volume, n2.n_name AS nation, p_type, o_orderdate FROM part, supplier, lineitem, orders, customer, nation AS n1, nation AS n2, region WHERE (((((((p_partkey = l_partkey AND s_suppkey = l_suppkey) AND l_orderkey = o_orderkey) AND o_custkey = c_custkey) AND c_nationkey = n1.n_nationkey) AND n1.n_regionkey = r_regionkey) AND s_nationkey = n2.n_nationkey) AND o_orderdate BETWEEN CAST('1992-01-01' AS DATE) AND CAST('1992-12-31' AS DATE)) AND p_type IN ('ECONOMY ANODIZED STEEL', 'LARGE PLATED STEEL', 'PROMO BRUSHED BRASS', 'MEDIUM BURNISHED COPPER', 'LARGE PLATED BRASS', 'SMALL BRUSHED TIN')",
+          "view_tables": [
+            "part",
+            "supplier",
+            "lineitem",
+            "orders",
+            "customer",
+            "nation:n1",
+            "nation:n2",
+            "region"
+          ],
+          "view_joins": [
+            [
+              "customer",
+              "nation"
+            ],
+            [
+              "customer",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "supplier"
+            ],
+            [
+              "nation",
+              "region"
+            ],
+            [
+              "part",
+              "supplier"
+            ]
+          ],
+          "view_join_predicates": [
+            "p_partkey = l_partkey",
+            "s_suppkey = l_suppkey",
+            "l_orderkey = o_orderkey",
+            "o_custkey = c_custkey",
+            "c_nationkey = n1.n_nationkey",
+            "n1.n_regionkey = r_regionkey",
+            "s_nationkey = n2.n_nationkey"
+          ],
+          "view_filters": {
+            "__global__": [
+              "p_type IN ('ECONOMY ANODIZED STEEL', 'LARGE PLATED STEEL', 'PROMO BRUSHED BRASS', 'MEDIUM BURNISHED COPPER', 'LARGE PLATED BRASS', 'SMALL BRUSHED TIN')"
+            ]
+          },
+          "view_aggregates": [],
+          "view_complexity": 7,
+          "covered_query_ids": [
+            "Q445",
+            "Q446",
+            "Q447",
+            "Q448",
+            "Q449",
+            "Q450",
+            "Q451",
+            "Q452",
+            "Q453",
+            "Q454",
+            "Q455",
+            "Q456",
+            "Q457",
+            "Q458",
+            "Q459",
+            "Q460",
+            "Q461",
+            "Q462",
+            "Q463",
+            "Q464",
+            "Q465",
+            "Q466",
+            "Q467",
+            "Q468",
+            "Q469",
+            "Q470",
+            "Q471",
+            "Q472",
+            "Q473",
+            "Q474",
+            "Q475",
+            "Q476",
+            "Q477",
+            "Q478",
+            "Q479",
+            "Q480",
+            "Q481",
+            "Q482",
+            "Q483",
+            "Q484",
+            "Q485",
+            "Q486",
+            "Q487",
+            "Q488",
+            "Q489",
+            "Q490",
+            "Q491",
+            "Q492",
+            "Q493",
+            "Q494",
+            "Q495",
+            "Q496",
+            "Q497",
+            "Q498",
+            "Q499",
+            "Q500",
+            "Q501",
+            "Q502",
+            "Q503",
+            "Q504",
+            "Q505",
+            "Q506",
+            "Q507",
+            "Q508",
+            "Q509",
+            "Q510",
+            "Q511",
+            "Q512",
+            "Q513",
+            "Q514",
+            "Q515",
+            "Q516",
+            "Q517",
+            "Q518",
+            "Q519",
+            "Q520",
+            "Q521",
+            "Q522",
+            "Q523",
+            "Q524",
+            "Q525",
+            "Q526",
+            "Q527",
+            "Q528",
+            "Q529",
+            "Q530",
+            "Q531",
+            "Q532",
+            "Q533",
+            "Q534",
+            "Q535",
+            "Q536",
+            "Q537",
+            "Q538",
+            "Q539",
+            "Q540",
+            "Q541",
+            "Q542",
+            "Q543",
+            "Q544",
+            "Q545",
+            "Q546"
+          ],
+          "avg_similarity_score": 0.8162250074685788,
+          "cost_benefit_score": 0.07842,
+          "execution_time_pct": 0.262969,
+          "storage_cost_pct": 0.164708,
+          "avg_cpu": 0.011312,
+          "max_cpu": 0.017174
+        },
+        {
+          "view_id": "L1-JOINS_Q7",
+          "view_sql": "SELECT s_acctbal, s_name, n_name, p_mfgr, s_address, s_phone, s_comment, ps_supplycost, r_name, p_type, p_size FROM part , supplier , partsupp , nation , region WHERE p_partkey = ps_partkey AND s_suppkey = ps_suppkey AND s_nationkey = n_nationkey AND n_regionkey = r_regionkey",
+          "view_tables": [
+            "part",
+            "supplier",
+            "partsupp",
+            "nation",
+            "region",
+            "partsupp",
+            "supplier",
+            "nation",
+            "region"
+          ],
+          "view_joins": [
+            [
+              "nation",
+              "partsupp"
+            ],
+            [
+              "nation",
+              "region"
+            ],
+            [
+              "nation",
+              "supplier"
+            ],
+            [
+              "part",
+              "supplier"
+            ],
+            [
+              "partsupp",
+              "region"
+            ],
+            [
+              "partsupp",
+              "supplier"
+            ]
+          ],
+          "view_join_predicates": [
+            "p_partkey = ps_partkey",
+            "s_suppkey = ps_suppkey",
+            "s_nationkey = n_nationkey",
+            "n_regionkey = r_regionkey"
+          ],
+          "view_filters": {},
+          "view_aggregates": [],
+          "view_complexity": 6,
+          "covered_query_ids": [
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "Q14",
+            "Q15",
+            "Q16",
+            "Q17",
+            "Q18",
+            "Q19",
+            "Q20",
+            "Q21",
+            "Q22",
+            "Q23",
+            "Q24",
+            "Q25",
+            "Q26",
+            "Q27",
+            "Q28",
+            "Q29",
+            "Q30",
+            "Q31",
+            "Q32",
+            "Q33",
+            "Q34",
+            "Q35",
+            "Q36",
+            "Q37",
+            "Q38",
+            "Q39",
+            "Q40",
+            "Q41",
+            "Q42",
+            "Q54",
+            "Q55",
+            "Q56",
+            "Q57",
+            "Q58",
+            "Q59",
+            "Q60",
+            "Q61",
+            "Q62",
+            "Q63",
+            "Q64",
+            "Q65",
+            "Q66",
+            "Q67",
+            "Q68",
+            "Q69",
+            "Q70",
+            "Q71",
+            "Q72",
+            "Q73",
+            "Q74",
+            "Q75",
+            "Q76",
+            "Q77",
+            "Q78",
+            "Q79",
+            "Q80",
+            "Q81",
+            "Q82",
+            "Q83",
+            "Q84",
+            "Q85",
+            "Q86",
+            "Q87",
+            "Q88",
+            "Q89",
+            "Q90",
+            "Q91",
+            "Q92",
+            "Q93",
+            "Q94",
+            "Q95",
+            "Q96",
+            "Q97",
+            "Q98",
+            "Q99",
+            "Q100",
+            "Q101",
+            "Q102",
+            "Q103",
+            "Q104",
+            "Q105",
+            "Q106",
+            "Q107",
+            "Q108",
+            "Q109",
+            "Q110",
+            "Q111",
+            "Q112",
+            "Q113",
+            "Q114",
+            "Q115",
+            "Q116",
+            "Q117",
+            "Q118",
+            "Q119",
+            "Q120",
+            "Q121",
+            "Q122",
+            "Q123",
+            "Q124",
+            "Q125",
+            "Q126",
+            "Q127",
+            "Q128",
+            "Q129",
+            "Q130",
+            "Q131",
+            "Q132",
+            "Q133",
+            "Q134",
+            "Q135",
+            "Q136",
+            "Q137",
+            "Q138",
+            "Q139",
+            "Q140",
+            "Q141",
+            "Q142",
+            "Q143",
+            "Q144",
+            "Q145",
+            "Q146",
+            "Q147",
+            "Q148",
+            "Q149",
+            "Q150",
+            "Q151",
+            "Q152",
+            "Q153",
+            "Q154",
+            "Q155",
+            "Q156",
+            "Q157",
+            "Q158",
+            "Q159",
+            "Q160",
+            "Q161",
+            "Q162",
+            "Q163",
+            "Q164",
+            "Q165",
+            "Q166",
+            "Q167",
+            "Q168",
+            "Q169",
+            "Q170",
+            "Q171",
+            "Q172",
+            "Q173",
+            "Q174",
+            "Q175",
+            "Q176",
+            "Q177",
+            "Q178",
+            "Q179",
+            "Q180",
+            "Q181",
+            "Q182",
+            "Q183",
+            "Q184",
+            "Q185",
+            "Q186",
+            "Q187",
+            "Q188",
+            "Q189",
+            "Q190",
+            "Q191",
+            "Q192",
+            "Q193",
+            "Q194",
+            "Q195",
+            "Q196",
+            "Q197",
+            "Q198",
+            "Q199",
+            "Q200",
+            "Q201",
+            "Q202",
+            "Q203",
+            "Q204",
+            "Q205",
+            "Q206",
+            "Q207",
+            "Q208",
+            "Q209",
+            "Q210",
+            "Q211",
+            "Q212",
+            "Q213",
+            "Q214",
+            "Q215",
+            "Q216",
+            "Q217",
+            "Q218",
+            "Q219",
+            "Q220",
+            "Q221",
+            "Q222",
+            "Q223",
+            "Q224",
+            "Q225",
+            "Q226",
+            "Q227",
+            "Q228",
+            "Q229",
+            "Q230",
+            "Q231",
+            "Q232",
+            "Q233"
+          ],
+          "avg_similarity_score": 0.8464680841123616,
+          "cost_benefit_score": 0.096875,
+          "execution_time_pct": 0.098092,
+          "storage_cost_pct": 0.016985,
+          "avg_cpu": 0.013791,
+          "max_cpu": 0.017038
+        },
+        {
+          "view_id": "L0-FULLVIEW_Q43",
+          "view_sql": "SELECT SUM(l_extendedprice * (1 - l_discount)) AS revenue, o_orderdate, o_shippriority FROM customer, orders, lineitem WHERE (((c_custkey = o_custkey AND l_orderkey = o_orderkey) AND c_mktsegment IN ('AUTOMOBILE', 'BUILDING', 'FURNITURE', 'HOUSEHOLD', 'MACHINERY')) AND o_orderdate < CAST('1992-08-02' AS DATE)) AND l_shipdate > CAST('1992-08-02' AS DATE) GROUP BY l_orderkey, o_orderdate, o_shippriority",
+          "view_tables": [
+            "customer",
+            "orders",
+            "lineitem"
+          ],
+          "view_joins": [
+            [
+              "customer",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "orders"
+            ]
+          ],
+          "view_join_predicates": [
+            "c_custkey = o_custkey",
+            "l_orderkey = o_orderkey"
+          ],
+          "view_filters": {
+            "__global__": [
+              "c_mktsegment IN ('AUTOMOBILE', 'BUILDING', 'FURNITURE', 'HOUSEHOLD', 'MACHINERY')",
+              "o_orderdate < CAST('1992-08-02' AS DATE)",
+              "l_shipdate > CAST('1992-08-02' AS DATE)"
+            ]
+          },
+          "view_aggregates": [
+            "SUM(l_extendedprice * (1 - l_discount))"
+          ],
+          "view_complexity": 6,
+          "covered_query_ids": [
+            "Q43",
+            "Q44",
+            "Q45",
+            "Q46",
+            "Q47"
+          ],
+          "avg_similarity_score": 0.9375717878341675,
+          "cost_benefit_score": 0.070514,
+          "execution_time_pct": 0.00916,
+          "storage_cost_pct": 0.037059,
+          "avg_cpu": 0.022322,
+          "max_cpu": 0.076663
+        },
+        {
+          "view_id": "L0-FULLVIEW_Q234",
+          "view_sql": "SELECT n1.n_name AS supp_nation, n2.n_name AS cust_nation, EXTRACT(YEAR FROM l_shipdate) AS l_year, l_extendedprice * (1 - l_discount) AS volume, l_shipdate, n1.n_name, n2.n_name FROM supplier, lineitem, orders, customer, nation AS n1, nation AS n2 WHERE ((((s_suppkey = l_suppkey AND o_orderkey = l_orderkey) AND c_custkey = o_custkey) AND s_nationkey = n1.n_nationkey) AND c_nationkey = n2.n_nationkey) AND l_shipdate BETWEEN CAST('1992-01-01' AS DATE) AND CAST('1992-12-31' AS DATE)",
+          "view_tables": [
+            "supplier",
+            "lineitem",
+            "orders",
+            "customer",
+            "nation:n1",
+            "nation:n2"
+          ],
+          "view_joins": [
+            [
+              "customer",
+              "nation"
+            ],
+            [
+              "customer",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "supplier"
+            ]
+          ],
+          "view_join_predicates": [
+            "s_suppkey = l_suppkey",
+            "o_orderkey = l_orderkey",
+            "c_custkey = o_custkey",
+            "s_nationkey = n1.n_nationkey",
+            "c_nationkey = n2.n_nationkey"
+          ],
+          "view_filters": {
+            "__global__": [
+              "l_shipdate BETWEEN CAST('1992-01-01' AS DATE) AND CAST('1992-12-31' AS DATE)"
+            ]
+          },
+          "view_aggregates": [],
+          "view_complexity": 5,
+          "covered_query_ids": [
+            "Q234",
+            "Q235",
+            "Q236",
+            "Q237",
+            "Q238",
+            "Q239",
+            "Q240",
+            "Q241",
+            "Q242",
+            "Q243",
+            "Q244",
+            "Q245",
+            "Q246",
+            "Q247",
+            "Q248",
+            "Q249",
+            "Q250",
+            "Q251",
+            "Q252",
+            "Q253",
+            "Q254",
+            "Q255",
+            "Q256",
+            "Q257",
+            "Q258",
+            "Q259",
+            "Q260",
+            "Q261",
+            "Q262",
+            "Q263",
+            "Q264",
+            "Q265",
+            "Q266",
+            "Q267",
+            "Q268",
+            "Q269",
+            "Q270",
+            "Q271",
+            "Q272",
+            "Q273",
+            "Q274",
+            "Q275",
+            "Q276",
+            "Q277",
+            "Q278",
+            "Q279",
+            "Q280",
+            "Q281",
+            "Q282",
+            "Q283",
+            "Q284",
+            "Q285",
+            "Q286",
+            "Q287",
+            "Q288",
+            "Q289",
+            "Q290",
+            "Q291",
+            "Q292",
+            "Q293",
+            "Q294",
+            "Q295",
+            "Q296",
+            "Q297",
+            "Q298",
+            "Q299",
+            "Q300",
+            "Q301",
+            "Q302",
+            "Q303",
+            "Q304",
+            "Q305",
+            "Q306",
+            "Q307",
+            "Q308",
+            "Q309",
+            "Q310",
+            "Q311",
+            "Q312",
+            "Q313",
+            "Q314",
+            "Q315",
+            "Q316",
+            "Q317",
+            "Q318",
+            "Q319",
+            "Q320",
+            "Q321",
+            "Q322",
+            "Q323",
+            "Q324",
+            "Q325",
+            "Q326",
+            "Q327",
+            "Q328",
+            "Q329",
+            "Q330",
+            "Q331",
+            "Q332",
+            "Q333",
+            "Q334",
+            "Q335",
+            "Q336",
+            "Q337",
+            "Q338",
+            "Q339",
+            "Q340",
+            "Q341",
+            "Q342",
+            "Q343",
+            "Q344",
+            "Q345",
+            "Q346",
+            "Q347",
+            "Q348",
+            "Q349",
+            "Q350",
+            "Q351",
+            "Q352",
+            "Q353",
+            "Q354",
+            "Q355",
+            "Q356",
+            "Q357",
+            "Q358",
+            "Q359",
+            "Q360",
+            "Q361",
+            "Q362",
+            "Q363",
+            "Q364",
+            "Q365",
+            "Q366",
+            "Q367",
+            "Q368",
+            "Q369",
+            "Q370",
+            "Q371",
+            "Q372",
+            "Q373",
+            "Q374",
+            "Q375",
+            "Q376",
+            "Q377",
+            "Q378",
+            "Q379",
+            "Q380",
+            "Q381",
+            "Q382",
+            "Q383",
+            "Q384",
+            "Q385",
+            "Q386",
+            "Q387",
+            "Q388",
+            "Q389",
+            "Q390",
+            "Q391",
+            "Q392",
+            "Q393",
+            "Q394",
+            "Q395",
+            "Q396",
+            "Q397",
+            "Q398",
+            "Q399",
+            "Q400",
+            "Q401",
+            "Q402",
+            "Q403",
+            "Q404",
+            "Q405",
+            "Q406",
+            "Q407",
+            "Q408",
+            "Q409",
+            "Q410",
+            "Q411",
+            "Q412",
+            "Q413",
+            "Q414",
+            "Q415",
+            "Q416",
+            "Q417",
+            "Q418",
+            "Q419",
+            "Q420",
+            "Q421",
+            "Q422",
+            "Q423",
+            "Q424",
+            "Q425",
+            "Q426",
+            "Q427",
+            "Q428",
+            "Q429",
+            "Q430",
+            "Q431",
+            "Q432",
+            "Q433",
+            "Q434",
+            "Q435",
+            "Q436",
+            "Q437",
+            "Q438",
+            "Q439",
+            "Q440",
+            "Q441",
+            "Q442",
+            "Q443",
+            "Q444"
+          ],
+          "avg_similarity_score": 0.8886443701400576,
+          "cost_benefit_score": 0.323515,
+          "execution_time_pct": 0.524477,
+          "storage_cost_pct": 0.172943,
+          "avg_cpu": 0.011545,
+          "max_cpu": 0.018839
+        },
+        {
+          "view_id": "L1-JOINS_Q547",
+          "view_sql": "SELECT n_name AS nation, EXTRACT(YEAR FROM o_orderdate) AS o_year, l_extendedprice * (1 - l_discount) - ps_supplycost * l_quantity AS amount, p_name FROM part , supplier , lineitem , partsupp , orders , nation WHERE s_suppkey = l_suppkey AND ps_suppkey = l_suppkey AND ps_partkey = l_partkey AND p_partkey = l_partkey AND o_orderkey = l_orderkey AND s_nationkey = n_nationkey",
+          "view_tables": [
+            "part",
+            "supplier",
+            "lineitem",
+            "partsupp",
+            "orders",
+            "nation"
+          ],
+          "view_joins": [
+            [
+              "lineitem",
+              "partsupp"
+            ],
+            [
+              "lineitem",
+              "supplier"
+            ],
+            [
+              "nation",
+              "orders"
+            ],
+            [
+              "orders",
+              "partsupp"
+            ],
+            [
+              "part",
+              "supplier"
+            ]
+          ],
+          "view_join_predicates": [
+            "s_suppkey = l_suppkey",
+            "ps_suppkey = l_suppkey",
+            "ps_partkey = l_partkey",
+            "p_partkey = l_partkey",
+            "o_orderkey = l_orderkey",
+            "s_nationkey = n_nationkey"
+          ],
+          "view_filters": {},
+          "view_aggregates": [],
+          "view_complexity": 5,
+          "covered_query_ids": [
+            "Q547",
+            "Q548",
+            "Q549",
+            "Q550",
+            "Q551",
+            "Q552",
+            "Q553",
+            "Q554",
+            "Q555",
+            "Q556"
+          ],
+          "avg_similarity_score": 0.8996989130973816,
+          "cost_benefit_score": -0.000472,
+          "execution_time_pct": 0.075643,
+          "storage_cost_pct": 0.098825,
+          "avg_cpu": 0.01161,
+          "max_cpu": 0.018687
+        }
+      ]
+    },
+    {
+      "collection_id": 1,
+      "size": 6,
+      "total_score": 0.467952,
+      "unique_queries_covered": 340,
+      "views": [
+        {
+          "view_id": "L0-FULLVIEW_Q0",
+          "view_sql": "SELECT l_returnflag, l_linestatus, SUM(l_quantity) AS sum_qty, SUM(l_extendedprice) AS sum_base_price, SUM(l_extendedprice * (1 - l_discount)) AS sum_disc_price, SUM(l_extendedprice * (1 - l_discount) * (1 + l_tax)) AS sum_charge, AVG(l_quantity) AS avg_qty, AVG(l_extendedprice) AS avg_price, AVG(l_discount) AS avg_disc, COUNT(*) AS count_order FROM lineitem WHERE l_shipdate <= CAST('1992-12-01' AS DATE) - INTERVAL '3' DAY GROUP BY l_linestatus, l_returnflag",
+          "view_tables": [
+            "lineitem"
+          ],
+          "view_joins": [],
+          "view_join_predicates": [],
+          "view_filters": {
+            "__global__": [
+              "l_shipdate <= CAST('1992-12-01' AS DATE) - INTERVAL '3' DAY"
+            ]
+          },
+          "view_aggregates": [
+            "COUNT(*)",
+            "AVG(l_extendedprice)",
+            "SUM(l_quantity)",
+            "SUM(l_extendedprice * (1 - l_discount))",
+            "SUM(l_extendedprice * (1 - l_discount) * (1 + l_tax))",
+            "AVG(l_discount)",
+            "SUM(l_extendedprice)",
+            "AVG(l_quantity)"
+          ],
+          "view_complexity": 9,
+          "covered_query_ids": [
+            "Q0",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6"
+          ],
+          "avg_similarity_score": 0.9757881930896214,
+          "cost_benefit_score": 0.00361,
+          "execution_time_pct": 0.01277,
+          "storage_cost_pct": 0.041177,
+          "avg_cpu": 0.012264,
+          "max_cpu": 0.020061
+        },
+        {
+          "view_id": "L0-FULLVIEW_Q49",
+          "view_sql": "SELECT n_name, SUM(l_extendedprice * (1 - l_discount)) AS revenue FROM customer, orders, lineitem, supplier, nation, region WHERE (((((((c_custkey = o_custkey AND l_orderkey = o_orderkey) AND l_suppkey = s_suppkey) AND c_nationkey = s_nationkey) AND s_nationkey = n_nationkey) AND n_regionkey = r_regionkey) AND r_name IN ('AFRICA', 'AMERICA', 'ASIA', 'EUROPE', 'MIDDLE EAST')) AND o_orderdate >= CAST('1992-01-01' AS DATE)) AND o_orderdate < CAST('1996-01-01' AS DATE) GROUP BY n_name",
+          "view_tables": [
+            "customer",
+            "orders",
+            "lineitem",
+            "supplier",
+            "nation",
+            "region"
+          ],
+          "view_joins": [
+            [
+              "customer",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "supplier"
+            ],
+            [
+              "nation",
+              "region"
+            ],
+            [
+              "nation",
+              "supplier"
+            ]
+          ],
+          "view_join_predicates": [
+            "c_custkey = o_custkey",
+            "l_orderkey = o_orderkey",
+            "l_suppkey = s_suppkey",
+            "c_nationkey = s_nationkey",
+            "s_nationkey = n_nationkey",
+            "n_regionkey = r_regionkey"
+          ],
+          "view_filters": {
+            "__global__": [
+              "r_name IN ('AFRICA', 'AMERICA', 'ASIA', 'EUROPE', 'MIDDLE EAST')",
+              "o_orderdate >= CAST('1992-01-01' AS DATE)",
+              "o_orderdate < CAST('1996-01-01' AS DATE)"
+            ]
+          },
+          "view_aggregates": [
+            "SUM(l_extendedprice * (1 - l_discount))"
+          ],
+          "view_complexity": 9,
+          "covered_query_ids": [
+            "Q49",
+            "Q50",
+            "Q51",
+            "Q52",
+            "Q53"
+          ],
+          "avg_similarity_score": 0.9025585174560546,
+          "cost_benefit_score": -0.007635,
+          "execution_time_pct": 0.01523,
+          "storage_cost_pct": 0.049412,
+          "avg_cpu": 0.011543,
+          "max_cpu": 0.016488
+        },
+        {
+          "view_id": "L0-FULLVIEW_Q445",
+          "view_sql": "SELECT EXTRACT(YEAR FROM o_orderdate) AS o_year, l_extendedprice * (1 - l_discount) AS volume, n2.n_name AS nation, p_type, o_orderdate FROM part, supplier, lineitem, orders, customer, nation AS n1, nation AS n2, region WHERE (((((((p_partkey = l_partkey AND s_suppkey = l_suppkey) AND l_orderkey = o_orderkey) AND o_custkey = c_custkey) AND c_nationkey = n1.n_nationkey) AND n1.n_regionkey = r_regionkey) AND s_nationkey = n2.n_nationkey) AND o_orderdate BETWEEN CAST('1992-01-01' AS DATE) AND CAST('1992-12-31' AS DATE)) AND p_type IN ('ECONOMY ANODIZED STEEL', 'LARGE PLATED STEEL', 'PROMO BRUSHED BRASS', 'MEDIUM BURNISHED COPPER', 'LARGE PLATED BRASS', 'SMALL BRUSHED TIN')",
+          "view_tables": [
+            "part",
+            "supplier",
+            "lineitem",
+            "orders",
+            "customer",
+            "nation:n1",
+            "nation:n2",
+            "region"
+          ],
+          "view_joins": [
+            [
+              "customer",
+              "nation"
+            ],
+            [
+              "customer",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "supplier"
+            ],
+            [
+              "nation",
+              "region"
+            ],
+            [
+              "part",
+              "supplier"
+            ]
+          ],
+          "view_join_predicates": [
+            "p_partkey = l_partkey",
+            "s_suppkey = l_suppkey",
+            "l_orderkey = o_orderkey",
+            "o_custkey = c_custkey",
+            "c_nationkey = n1.n_nationkey",
+            "n1.n_regionkey = r_regionkey",
+            "s_nationkey = n2.n_nationkey"
+          ],
+          "view_filters": {
+            "__global__": [
+              "p_type IN ('ECONOMY ANODIZED STEEL', 'LARGE PLATED STEEL', 'PROMO BRUSHED BRASS', 'MEDIUM BURNISHED COPPER', 'LARGE PLATED BRASS', 'SMALL BRUSHED TIN')"
+            ]
+          },
+          "view_aggregates": [],
+          "view_complexity": 7,
+          "covered_query_ids": [
+            "Q445",
+            "Q446",
+            "Q447",
+            "Q448",
+            "Q449",
+            "Q450",
+            "Q451",
+            "Q452",
+            "Q453",
+            "Q454",
+            "Q455",
+            "Q456",
+            "Q457",
+            "Q458",
+            "Q459",
+            "Q460",
+            "Q461",
+            "Q462",
+            "Q463",
+            "Q464",
+            "Q465",
+            "Q466",
+            "Q467",
+            "Q468",
+            "Q469",
+            "Q470",
+            "Q471",
+            "Q472",
+            "Q473",
+            "Q474",
+            "Q475",
+            "Q476",
+            "Q477",
+            "Q478",
+            "Q479",
+            "Q480",
+            "Q481",
+            "Q482",
+            "Q483",
+            "Q484",
+            "Q485",
+            "Q486",
+            "Q487",
+            "Q488",
+            "Q489",
+            "Q490",
+            "Q491",
+            "Q492",
+            "Q493",
+            "Q494",
+            "Q495",
+            "Q496",
+            "Q497",
+            "Q498",
+            "Q499",
+            "Q500",
+            "Q501",
+            "Q502",
+            "Q503",
+            "Q504",
+            "Q505",
+            "Q506",
+            "Q507",
+            "Q508",
+            "Q509",
+            "Q510",
+            "Q511",
+            "Q512",
+            "Q513",
+            "Q514",
+            "Q515",
+            "Q516",
+            "Q517",
+            "Q518",
+            "Q519",
+            "Q520",
+            "Q521",
+            "Q522",
+            "Q523",
+            "Q524",
+            "Q525",
+            "Q526",
+            "Q527",
+            "Q528",
+            "Q529",
+            "Q530",
+            "Q531",
+            "Q532",
+            "Q533",
+            "Q534",
+            "Q535",
+            "Q536",
+            "Q537",
+            "Q538",
+            "Q539",
+            "Q540",
+            "Q541",
+            "Q542",
+            "Q543",
+            "Q544",
+            "Q545",
+            "Q546"
+          ],
+          "avg_similarity_score": 0.8162250074685788,
+          "cost_benefit_score": 0.07842,
+          "execution_time_pct": 0.262969,
+          "storage_cost_pct": 0.164708,
+          "avg_cpu": 0.011312,
+          "max_cpu": 0.017174
+        },
+        {
+          "view_id": "L0-FULLVIEW_Q43",
+          "view_sql": "SELECT SUM(l_extendedprice * (1 - l_discount)) AS revenue, o_orderdate, o_shippriority FROM customer, orders, lineitem WHERE (((c_custkey = o_custkey AND l_orderkey = o_orderkey) AND c_mktsegment IN ('AUTOMOBILE', 'BUILDING', 'FURNITURE', 'HOUSEHOLD', 'MACHINERY')) AND o_orderdate < CAST('1992-08-02' AS DATE)) AND l_shipdate > CAST('1992-08-02' AS DATE) GROUP BY l_orderkey, o_orderdate, o_shippriority",
+          "view_tables": [
+            "customer",
+            "orders",
+            "lineitem"
+          ],
+          "view_joins": [
+            [
+              "customer",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "orders"
+            ]
+          ],
+          "view_join_predicates": [
+            "c_custkey = o_custkey",
+            "l_orderkey = o_orderkey"
+          ],
+          "view_filters": {
+            "__global__": [
+              "c_mktsegment IN ('AUTOMOBILE', 'BUILDING', 'FURNITURE', 'HOUSEHOLD', 'MACHINERY')",
+              "o_orderdate < CAST('1992-08-02' AS DATE)",
+              "l_shipdate > CAST('1992-08-02' AS DATE)"
+            ]
+          },
+          "view_aggregates": [
+            "SUM(l_extendedprice * (1 - l_discount))"
+          ],
+          "view_complexity": 6,
+          "covered_query_ids": [
+            "Q43",
+            "Q44",
+            "Q45",
+            "Q46",
+            "Q47"
+          ],
+          "avg_similarity_score": 0.9375717878341675,
+          "cost_benefit_score": 0.070514,
+          "execution_time_pct": 0.00916,
+          "storage_cost_pct": 0.037059,
+          "avg_cpu": 0.022322,
+          "max_cpu": 0.076663
+        },
+        {
+          "view_id": "L0-FULLVIEW_Q234",
+          "view_sql": "SELECT n1.n_name AS supp_nation, n2.n_name AS cust_nation, EXTRACT(YEAR FROM l_shipdate) AS l_year, l_extendedprice * (1 - l_discount) AS volume, l_shipdate, n1.n_name, n2.n_name FROM supplier, lineitem, orders, customer, nation AS n1, nation AS n2 WHERE ((((s_suppkey = l_suppkey AND o_orderkey = l_orderkey) AND c_custkey = o_custkey) AND s_nationkey = n1.n_nationkey) AND c_nationkey = n2.n_nationkey) AND l_shipdate BETWEEN CAST('1992-01-01' AS DATE) AND CAST('1992-12-31' AS DATE)",
+          "view_tables": [
+            "supplier",
+            "lineitem",
+            "orders",
+            "customer",
+            "nation:n1",
+            "nation:n2"
+          ],
+          "view_joins": [
+            [
+              "customer",
+              "nation"
+            ],
+            [
+              "customer",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "supplier"
+            ]
+          ],
+          "view_join_predicates": [
+            "s_suppkey = l_suppkey",
+            "o_orderkey = l_orderkey",
+            "c_custkey = o_custkey",
+            "s_nationkey = n1.n_nationkey",
+            "c_nationkey = n2.n_nationkey"
+          ],
+          "view_filters": {
+            "__global__": [
+              "l_shipdate BETWEEN CAST('1992-01-01' AS DATE) AND CAST('1992-12-31' AS DATE)"
+            ]
+          },
+          "view_aggregates": [],
+          "view_complexity": 5,
+          "covered_query_ids": [
+            "Q234",
+            "Q235",
+            "Q236",
+            "Q237",
+            "Q238",
+            "Q239",
+            "Q240",
+            "Q241",
+            "Q242",
+            "Q243",
+            "Q244",
+            "Q245",
+            "Q246",
+            "Q247",
+            "Q248",
+            "Q249",
+            "Q250",
+            "Q251",
+            "Q252",
+            "Q253",
+            "Q254",
+            "Q255",
+            "Q256",
+            "Q257",
+            "Q258",
+            "Q259",
+            "Q260",
+            "Q261",
+            "Q262",
+            "Q263",
+            "Q264",
+            "Q265",
+            "Q266",
+            "Q267",
+            "Q268",
+            "Q269",
+            "Q270",
+            "Q271",
+            "Q272",
+            "Q273",
+            "Q274",
+            "Q275",
+            "Q276",
+            "Q277",
+            "Q278",
+            "Q279",
+            "Q280",
+            "Q281",
+            "Q282",
+            "Q283",
+            "Q284",
+            "Q285",
+            "Q286",
+            "Q287",
+            "Q288",
+            "Q289",
+            "Q290",
+            "Q291",
+            "Q292",
+            "Q293",
+            "Q294",
+            "Q295",
+            "Q296",
+            "Q297",
+            "Q298",
+            "Q299",
+            "Q300",
+            "Q301",
+            "Q302",
+            "Q303",
+            "Q304",
+            "Q305",
+            "Q306",
+            "Q307",
+            "Q308",
+            "Q309",
+            "Q310",
+            "Q311",
+            "Q312",
+            "Q313",
+            "Q314",
+            "Q315",
+            "Q316",
+            "Q317",
+            "Q318",
+            "Q319",
+            "Q320",
+            "Q321",
+            "Q322",
+            "Q323",
+            "Q324",
+            "Q325",
+            "Q326",
+            "Q327",
+            "Q328",
+            "Q329",
+            "Q330",
+            "Q331",
+            "Q332",
+            "Q333",
+            "Q334",
+            "Q335",
+            "Q336",
+            "Q337",
+            "Q338",
+            "Q339",
+            "Q340",
+            "Q341",
+            "Q342",
+            "Q343",
+            "Q344",
+            "Q345",
+            "Q346",
+            "Q347",
+            "Q348",
+            "Q349",
+            "Q350",
+            "Q351",
+            "Q352",
+            "Q353",
+            "Q354",
+            "Q355",
+            "Q356",
+            "Q357",
+            "Q358",
+            "Q359",
+            "Q360",
+            "Q361",
+            "Q362",
+            "Q363",
+            "Q364",
+            "Q365",
+            "Q366",
+            "Q367",
+            "Q368",
+            "Q369",
+            "Q370",
+            "Q371",
+            "Q372",
+            "Q373",
+            "Q374",
+            "Q375",
+            "Q376",
+            "Q377",
+            "Q378",
+            "Q379",
+            "Q380",
+            "Q381",
+            "Q382",
+            "Q383",
+            "Q384",
+            "Q385",
+            "Q386",
+            "Q387",
+            "Q388",
+            "Q389",
+            "Q390",
+            "Q391",
+            "Q392",
+            "Q393",
+            "Q394",
+            "Q395",
+            "Q396",
+            "Q397",
+            "Q398",
+            "Q399",
+            "Q400",
+            "Q401",
+            "Q402",
+            "Q403",
+            "Q404",
+            "Q405",
+            "Q406",
+            "Q407",
+            "Q408",
+            "Q409",
+            "Q410",
+            "Q411",
+            "Q412",
+            "Q413",
+            "Q414",
+            "Q415",
+            "Q416",
+            "Q417",
+            "Q418",
+            "Q419",
+            "Q420",
+            "Q421",
+            "Q422",
+            "Q423",
+            "Q424",
+            "Q425",
+            "Q426",
+            "Q427",
+            "Q428",
+            "Q429",
+            "Q430",
+            "Q431",
+            "Q432",
+            "Q433",
+            "Q434",
+            "Q435",
+            "Q436",
+            "Q437",
+            "Q438",
+            "Q439",
+            "Q440",
+            "Q441",
+            "Q442",
+            "Q443",
+            "Q444"
+          ],
+          "avg_similarity_score": 0.8886443701400576,
+          "cost_benefit_score": 0.323515,
+          "execution_time_pct": 0.524477,
+          "storage_cost_pct": 0.172943,
+          "avg_cpu": 0.011545,
+          "max_cpu": 0.018839
+        },
+        {
+          "view_id": "L1-JOINS_Q547",
+          "view_sql": "SELECT n_name AS nation, EXTRACT(YEAR FROM o_orderdate) AS o_year, l_extendedprice * (1 - l_discount) - ps_supplycost * l_quantity AS amount, p_name FROM part , supplier , lineitem , partsupp , orders , nation WHERE s_suppkey = l_suppkey AND ps_suppkey = l_suppkey AND ps_partkey = l_partkey AND p_partkey = l_partkey AND o_orderkey = l_orderkey AND s_nationkey = n_nationkey",
+          "view_tables": [
+            "part",
+            "supplier",
+            "lineitem",
+            "partsupp",
+            "orders",
+            "nation"
+          ],
+          "view_joins": [
+            [
+              "lineitem",
+              "partsupp"
+            ],
+            [
+              "lineitem",
+              "supplier"
+            ],
+            [
+              "nation",
+              "orders"
+            ],
+            [
+              "orders",
+              "partsupp"
+            ],
+            [
+              "part",
+              "supplier"
+            ]
+          ],
+          "view_join_predicates": [
+            "s_suppkey = l_suppkey",
+            "ps_suppkey = l_suppkey",
+            "ps_partkey = l_partkey",
+            "p_partkey = l_partkey",
+            "o_orderkey = l_orderkey",
+            "s_nationkey = n_nationkey"
+          ],
+          "view_filters": {},
+          "view_aggregates": [],
+          "view_complexity": 5,
+          "covered_query_ids": [
+            "Q547",
+            "Q548",
+            "Q549",
+            "Q550",
+            "Q551",
+            "Q552",
+            "Q553",
+            "Q554",
+            "Q555",
+            "Q556"
+          ],
+          "avg_similarity_score": 0.8996989130973816,
+          "cost_benefit_score": -0.000472,
+          "execution_time_pct": 0.075643,
+          "storage_cost_pct": 0.098825,
+          "avg_cpu": 0.01161,
+          "max_cpu": 0.018687
+        }
+      ]
+    },
+    {
+      "collection_id": 2,
+      "size": 4,
+      "total_score": 0.390004,
+      "unique_queries_covered": 228,
+      "views": [
+        {
+          "view_id": "L0-FULLVIEW_Q0",
+          "view_sql": "SELECT l_returnflag, l_linestatus, SUM(l_quantity) AS sum_qty, SUM(l_extendedprice) AS sum_base_price, SUM(l_extendedprice * (1 - l_discount)) AS sum_disc_price, SUM(l_extendedprice * (1 - l_discount) * (1 + l_tax)) AS sum_charge, AVG(l_quantity) AS avg_qty, AVG(l_extendedprice) AS avg_price, AVG(l_discount) AS avg_disc, COUNT(*) AS count_order FROM lineitem WHERE l_shipdate <= CAST('1992-12-01' AS DATE) - INTERVAL '3' DAY GROUP BY l_linestatus, l_returnflag",
+          "view_tables": [
+            "lineitem"
+          ],
+          "view_joins": [],
+          "view_join_predicates": [],
+          "view_filters": {
+            "__global__": [
+              "l_shipdate <= CAST('1992-12-01' AS DATE) - INTERVAL '3' DAY"
+            ]
+          },
+          "view_aggregates": [
+            "COUNT(*)",
+            "AVG(l_extendedprice)",
+            "SUM(l_quantity)",
+            "SUM(l_extendedprice * (1 - l_discount))",
+            "SUM(l_extendedprice * (1 - l_discount) * (1 + l_tax))",
+            "AVG(l_discount)",
+            "SUM(l_extendedprice)",
+            "AVG(l_quantity)"
+          ],
+          "view_complexity": 9,
+          "covered_query_ids": [
+            "Q0",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6"
+          ],
+          "avg_similarity_score": 0.9757881930896214,
+          "cost_benefit_score": 0.00361,
+          "execution_time_pct": 0.01277,
+          "storage_cost_pct": 0.041177,
+          "avg_cpu": 0.012264,
+          "max_cpu": 0.020061
+        },
+        {
+          "view_id": "L0-FULLVIEW_Q49",
+          "view_sql": "SELECT n_name, SUM(l_extendedprice * (1 - l_discount)) AS revenue FROM customer, orders, lineitem, supplier, nation, region WHERE (((((((c_custkey = o_custkey AND l_orderkey = o_orderkey) AND l_suppkey = s_suppkey) AND c_nationkey = s_nationkey) AND s_nationkey = n_nationkey) AND n_regionkey = r_regionkey) AND r_name IN ('AFRICA', 'AMERICA', 'ASIA', 'EUROPE', 'MIDDLE EAST')) AND o_orderdate >= CAST('1992-01-01' AS DATE)) AND o_orderdate < CAST('1996-01-01' AS DATE) GROUP BY n_name",
+          "view_tables": [
+            "customer",
+            "orders",
+            "lineitem",
+            "supplier",
+            "nation",
+            "region"
+          ],
+          "view_joins": [
+            [
+              "customer",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "supplier"
+            ],
+            [
+              "nation",
+              "region"
+            ],
+            [
+              "nation",
+              "supplier"
+            ]
+          ],
+          "view_join_predicates": [
+            "c_custkey = o_custkey",
+            "l_orderkey = o_orderkey",
+            "l_suppkey = s_suppkey",
+            "c_nationkey = s_nationkey",
+            "s_nationkey = n_nationkey",
+            "n_regionkey = r_regionkey"
+          ],
+          "view_filters": {
+            "__global__": [
+              "r_name IN ('AFRICA', 'AMERICA', 'ASIA', 'EUROPE', 'MIDDLE EAST')",
+              "o_orderdate >= CAST('1992-01-01' AS DATE)",
+              "o_orderdate < CAST('1996-01-01' AS DATE)"
+            ]
+          },
+          "view_aggregates": [
+            "SUM(l_extendedprice * (1 - l_discount))"
+          ],
+          "view_complexity": 9,
+          "covered_query_ids": [
+            "Q49",
+            "Q50",
+            "Q51",
+            "Q52",
+            "Q53"
+          ],
+          "avg_similarity_score": 0.9025585174560546,
+          "cost_benefit_score": -0.007635,
+          "execution_time_pct": 0.01523,
+          "storage_cost_pct": 0.049412,
+          "avg_cpu": 0.011543,
+          "max_cpu": 0.016488
+        },
+        {
+          "view_id": "L0-FULLVIEW_Q43",
+          "view_sql": "SELECT SUM(l_extendedprice * (1 - l_discount)) AS revenue, o_orderdate, o_shippriority FROM customer, orders, lineitem WHERE (((c_custkey = o_custkey AND l_orderkey = o_orderkey) AND c_mktsegment IN ('AUTOMOBILE', 'BUILDING', 'FURNITURE', 'HOUSEHOLD', 'MACHINERY')) AND o_orderdate < CAST('1992-08-02' AS DATE)) AND l_shipdate > CAST('1992-08-02' AS DATE) GROUP BY l_orderkey, o_orderdate, o_shippriority",
+          "view_tables": [
+            "customer",
+            "orders",
+            "lineitem"
+          ],
+          "view_joins": [
+            [
+              "customer",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "orders"
+            ]
+          ],
+          "view_join_predicates": [
+            "c_custkey = o_custkey",
+            "l_orderkey = o_orderkey"
+          ],
+          "view_filters": {
+            "__global__": [
+              "c_mktsegment IN ('AUTOMOBILE', 'BUILDING', 'FURNITURE', 'HOUSEHOLD', 'MACHINERY')",
+              "o_orderdate < CAST('1992-08-02' AS DATE)",
+              "l_shipdate > CAST('1992-08-02' AS DATE)"
+            ]
+          },
+          "view_aggregates": [
+            "SUM(l_extendedprice * (1 - l_discount))"
+          ],
+          "view_complexity": 6,
+          "covered_query_ids": [
+            "Q43",
+            "Q44",
+            "Q45",
+            "Q46",
+            "Q47"
+          ],
+          "avg_similarity_score": 0.9375717878341675,
+          "cost_benefit_score": 0.070514,
+          "execution_time_pct": 0.00916,
+          "storage_cost_pct": 0.037059,
+          "avg_cpu": 0.022322,
+          "max_cpu": 0.076663
+        },
+        {
+          "view_id": "L0-FULLVIEW_Q234",
+          "view_sql": "SELECT n1.n_name AS supp_nation, n2.n_name AS cust_nation, EXTRACT(YEAR FROM l_shipdate) AS l_year, l_extendedprice * (1 - l_discount) AS volume, l_shipdate, n1.n_name, n2.n_name FROM supplier, lineitem, orders, customer, nation AS n1, nation AS n2 WHERE ((((s_suppkey = l_suppkey AND o_orderkey = l_orderkey) AND c_custkey = o_custkey) AND s_nationkey = n1.n_nationkey) AND c_nationkey = n2.n_nationkey) AND l_shipdate BETWEEN CAST('1992-01-01' AS DATE) AND CAST('1992-12-31' AS DATE)",
+          "view_tables": [
+            "supplier",
+            "lineitem",
+            "orders",
+            "customer",
+            "nation:n1",
+            "nation:n2"
+          ],
+          "view_joins": [
+            [
+              "customer",
+              "nation"
+            ],
+            [
+              "customer",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "supplier"
+            ]
+          ],
+          "view_join_predicates": [
+            "s_suppkey = l_suppkey",
+            "o_orderkey = l_orderkey",
+            "c_custkey = o_custkey",
+            "s_nationkey = n1.n_nationkey",
+            "c_nationkey = n2.n_nationkey"
+          ],
+          "view_filters": {
+            "__global__": [
+              "l_shipdate BETWEEN CAST('1992-01-01' AS DATE) AND CAST('1992-12-31' AS DATE)"
+            ]
+          },
+          "view_aggregates": [],
+          "view_complexity": 5,
+          "covered_query_ids": [
+            "Q234",
+            "Q235",
+            "Q236",
+            "Q237",
+            "Q238",
+            "Q239",
+            "Q240",
+            "Q241",
+            "Q242",
+            "Q243",
+            "Q244",
+            "Q245",
+            "Q246",
+            "Q247",
+            "Q248",
+            "Q249",
+            "Q250",
+            "Q251",
+            "Q252",
+            "Q253",
+            "Q254",
+            "Q255",
+            "Q256",
+            "Q257",
+            "Q258",
+            "Q259",
+            "Q260",
+            "Q261",
+            "Q262",
+            "Q263",
+            "Q264",
+            "Q265",
+            "Q266",
+            "Q267",
+            "Q268",
+            "Q269",
+            "Q270",
+            "Q271",
+            "Q272",
+            "Q273",
+            "Q274",
+            "Q275",
+            "Q276",
+            "Q277",
+            "Q278",
+            "Q279",
+            "Q280",
+            "Q281",
+            "Q282",
+            "Q283",
+            "Q284",
+            "Q285",
+            "Q286",
+            "Q287",
+            "Q288",
+            "Q289",
+            "Q290",
+            "Q291",
+            "Q292",
+            "Q293",
+            "Q294",
+            "Q295",
+            "Q296",
+            "Q297",
+            "Q298",
+            "Q299",
+            "Q300",
+            "Q301",
+            "Q302",
+            "Q303",
+            "Q304",
+            "Q305",
+            "Q306",
+            "Q307",
+            "Q308",
+            "Q309",
+            "Q310",
+            "Q311",
+            "Q312",
+            "Q313",
+            "Q314",
+            "Q315",
+            "Q316",
+            "Q317",
+            "Q318",
+            "Q319",
+            "Q320",
+            "Q321",
+            "Q322",
+            "Q323",
+            "Q324",
+            "Q325",
+            "Q326",
+            "Q327",
+            "Q328",
+            "Q329",
+            "Q330",
+            "Q331",
+            "Q332",
+            "Q333",
+            "Q334",
+            "Q335",
+            "Q336",
+            "Q337",
+            "Q338",
+            "Q339",
+            "Q340",
+            "Q341",
+            "Q342",
+            "Q343",
+            "Q344",
+            "Q345",
+            "Q346",
+            "Q347",
+            "Q348",
+            "Q349",
+            "Q350",
+            "Q351",
+            "Q352",
+            "Q353",
+            "Q354",
+            "Q355",
+            "Q356",
+            "Q357",
+            "Q358",
+            "Q359",
+            "Q360",
+            "Q361",
+            "Q362",
+            "Q363",
+            "Q364",
+            "Q365",
+            "Q366",
+            "Q367",
+            "Q368",
+            "Q369",
+            "Q370",
+            "Q371",
+            "Q372",
+            "Q373",
+            "Q374",
+            "Q375",
+            "Q376",
+            "Q377",
+            "Q378",
+            "Q379",
+            "Q380",
+            "Q381",
+            "Q382",
+            "Q383",
+            "Q384",
+            "Q385",
+            "Q386",
+            "Q387",
+            "Q388",
+            "Q389",
+            "Q390",
+            "Q391",
+            "Q392",
+            "Q393",
+            "Q394",
+            "Q395",
+            "Q396",
+            "Q397",
+            "Q398",
+            "Q399",
+            "Q400",
+            "Q401",
+            "Q402",
+            "Q403",
+            "Q404",
+            "Q405",
+            "Q406",
+            "Q407",
+            "Q408",
+            "Q409",
+            "Q410",
+            "Q411",
+            "Q412",
+            "Q413",
+            "Q414",
+            "Q415",
+            "Q416",
+            "Q417",
+            "Q418",
+            "Q419",
+            "Q420",
+            "Q421",
+            "Q422",
+            "Q423",
+            "Q424",
+            "Q425",
+            "Q426",
+            "Q427",
+            "Q428",
+            "Q429",
+            "Q430",
+            "Q431",
+            "Q432",
+            "Q433",
+            "Q434",
+            "Q435",
+            "Q436",
+            "Q437",
+            "Q438",
+            "Q439",
+            "Q440",
+            "Q441",
+            "Q442",
+            "Q443",
+            "Q444"
+          ],
+          "avg_similarity_score": 0.8886443701400576,
+          "cost_benefit_score": 0.323515,
+          "execution_time_pct": 0.524477,
+          "storage_cost_pct": 0.172943,
+          "avg_cpu": 0.011545,
+          "max_cpu": 0.018839
+        }
+      ]
+    },
+    {
+      "collection_id": 3,
+      "size": 5,
+      "total_score": 0.389532,
+      "unique_queries_covered": 238,
+      "views": [
+        {
+          "view_id": "L0-FULLVIEW_Q0",
+          "view_sql": "SELECT l_returnflag, l_linestatus, SUM(l_quantity) AS sum_qty, SUM(l_extendedprice) AS sum_base_price, SUM(l_extendedprice * (1 - l_discount)) AS sum_disc_price, SUM(l_extendedprice * (1 - l_discount) * (1 + l_tax)) AS sum_charge, AVG(l_quantity) AS avg_qty, AVG(l_extendedprice) AS avg_price, AVG(l_discount) AS avg_disc, COUNT(*) AS count_order FROM lineitem WHERE l_shipdate <= CAST('1992-12-01' AS DATE) - INTERVAL '3' DAY GROUP BY l_linestatus, l_returnflag",
+          "view_tables": [
+            "lineitem"
+          ],
+          "view_joins": [],
+          "view_join_predicates": [],
+          "view_filters": {
+            "__global__": [
+              "l_shipdate <= CAST('1992-12-01' AS DATE) - INTERVAL '3' DAY"
+            ]
+          },
+          "view_aggregates": [
+            "COUNT(*)",
+            "AVG(l_extendedprice)",
+            "SUM(l_quantity)",
+            "SUM(l_extendedprice * (1 - l_discount))",
+            "SUM(l_extendedprice * (1 - l_discount) * (1 + l_tax))",
+            "AVG(l_discount)",
+            "SUM(l_extendedprice)",
+            "AVG(l_quantity)"
+          ],
+          "view_complexity": 9,
+          "covered_query_ids": [
+            "Q0",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6"
+          ],
+          "avg_similarity_score": 0.9757881930896214,
+          "cost_benefit_score": 0.00361,
+          "execution_time_pct": 0.01277,
+          "storage_cost_pct": 0.041177,
+          "avg_cpu": 0.012264,
+          "max_cpu": 0.020061
+        },
+        {
+          "view_id": "L0-FULLVIEW_Q49",
+          "view_sql": "SELECT n_name, SUM(l_extendedprice * (1 - l_discount)) AS revenue FROM customer, orders, lineitem, supplier, nation, region WHERE (((((((c_custkey = o_custkey AND l_orderkey = o_orderkey) AND l_suppkey = s_suppkey) AND c_nationkey = s_nationkey) AND s_nationkey = n_nationkey) AND n_regionkey = r_regionkey) AND r_name IN ('AFRICA', 'AMERICA', 'ASIA', 'EUROPE', 'MIDDLE EAST')) AND o_orderdate >= CAST('1992-01-01' AS DATE)) AND o_orderdate < CAST('1996-01-01' AS DATE) GROUP BY n_name",
+          "view_tables": [
+            "customer",
+            "orders",
+            "lineitem",
+            "supplier",
+            "nation",
+            "region"
+          ],
+          "view_joins": [
+            [
+              "customer",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "supplier"
+            ],
+            [
+              "nation",
+              "region"
+            ],
+            [
+              "nation",
+              "supplier"
+            ]
+          ],
+          "view_join_predicates": [
+            "c_custkey = o_custkey",
+            "l_orderkey = o_orderkey",
+            "l_suppkey = s_suppkey",
+            "c_nationkey = s_nationkey",
+            "s_nationkey = n_nationkey",
+            "n_regionkey = r_regionkey"
+          ],
+          "view_filters": {
+            "__global__": [
+              "r_name IN ('AFRICA', 'AMERICA', 'ASIA', 'EUROPE', 'MIDDLE EAST')",
+              "o_orderdate >= CAST('1992-01-01' AS DATE)",
+              "o_orderdate < CAST('1996-01-01' AS DATE)"
+            ]
+          },
+          "view_aggregates": [
+            "SUM(l_extendedprice * (1 - l_discount))"
+          ],
+          "view_complexity": 9,
+          "covered_query_ids": [
+            "Q49",
+            "Q50",
+            "Q51",
+            "Q52",
+            "Q53"
+          ],
+          "avg_similarity_score": 0.9025585174560546,
+          "cost_benefit_score": -0.007635,
+          "execution_time_pct": 0.01523,
+          "storage_cost_pct": 0.049412,
+          "avg_cpu": 0.011543,
+          "max_cpu": 0.016488
+        },
+        {
+          "view_id": "L0-FULLVIEW_Q43",
+          "view_sql": "SELECT SUM(l_extendedprice * (1 - l_discount)) AS revenue, o_orderdate, o_shippriority FROM customer, orders, lineitem WHERE (((c_custkey = o_custkey AND l_orderkey = o_orderkey) AND c_mktsegment IN ('AUTOMOBILE', 'BUILDING', 'FURNITURE', 'HOUSEHOLD', 'MACHINERY')) AND o_orderdate < CAST('1992-08-02' AS DATE)) AND l_shipdate > CAST('1992-08-02' AS DATE) GROUP BY l_orderkey, o_orderdate, o_shippriority",
+          "view_tables": [
+            "customer",
+            "orders",
+            "lineitem"
+          ],
+          "view_joins": [
+            [
+              "customer",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "orders"
+            ]
+          ],
+          "view_join_predicates": [
+            "c_custkey = o_custkey",
+            "l_orderkey = o_orderkey"
+          ],
+          "view_filters": {
+            "__global__": [
+              "c_mktsegment IN ('AUTOMOBILE', 'BUILDING', 'FURNITURE', 'HOUSEHOLD', 'MACHINERY')",
+              "o_orderdate < CAST('1992-08-02' AS DATE)",
+              "l_shipdate > CAST('1992-08-02' AS DATE)"
+            ]
+          },
+          "view_aggregates": [
+            "SUM(l_extendedprice * (1 - l_discount))"
+          ],
+          "view_complexity": 6,
+          "covered_query_ids": [
+            "Q43",
+            "Q44",
+            "Q45",
+            "Q46",
+            "Q47"
+          ],
+          "avg_similarity_score": 0.9375717878341675,
+          "cost_benefit_score": 0.070514,
+          "execution_time_pct": 0.00916,
+          "storage_cost_pct": 0.037059,
+          "avg_cpu": 0.022322,
+          "max_cpu": 0.076663
+        },
+        {
+          "view_id": "L0-FULLVIEW_Q234",
+          "view_sql": "SELECT n1.n_name AS supp_nation, n2.n_name AS cust_nation, EXTRACT(YEAR FROM l_shipdate) AS l_year, l_extendedprice * (1 - l_discount) AS volume, l_shipdate, n1.n_name, n2.n_name FROM supplier, lineitem, orders, customer, nation AS n1, nation AS n2 WHERE ((((s_suppkey = l_suppkey AND o_orderkey = l_orderkey) AND c_custkey = o_custkey) AND s_nationkey = n1.n_nationkey) AND c_nationkey = n2.n_nationkey) AND l_shipdate BETWEEN CAST('1992-01-01' AS DATE) AND CAST('1992-12-31' AS DATE)",
+          "view_tables": [
+            "supplier",
+            "lineitem",
+            "orders",
+            "customer",
+            "nation:n1",
+            "nation:n2"
+          ],
+          "view_joins": [
+            [
+              "customer",
+              "nation"
+            ],
+            [
+              "customer",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "supplier"
+            ]
+          ],
+          "view_join_predicates": [
+            "s_suppkey = l_suppkey",
+            "o_orderkey = l_orderkey",
+            "c_custkey = o_custkey",
+            "s_nationkey = n1.n_nationkey",
+            "c_nationkey = n2.n_nationkey"
+          ],
+          "view_filters": {
+            "__global__": [
+              "l_shipdate BETWEEN CAST('1992-01-01' AS DATE) AND CAST('1992-12-31' AS DATE)"
+            ]
+          },
+          "view_aggregates": [],
+          "view_complexity": 5,
+          "covered_query_ids": [
+            "Q234",
+            "Q235",
+            "Q236",
+            "Q237",
+            "Q238",
+            "Q239",
+            "Q240",
+            "Q241",
+            "Q242",
+            "Q243",
+            "Q244",
+            "Q245",
+            "Q246",
+            "Q247",
+            "Q248",
+            "Q249",
+            "Q250",
+            "Q251",
+            "Q252",
+            "Q253",
+            "Q254",
+            "Q255",
+            "Q256",
+            "Q257",
+            "Q258",
+            "Q259",
+            "Q260",
+            "Q261",
+            "Q262",
+            "Q263",
+            "Q264",
+            "Q265",
+            "Q266",
+            "Q267",
+            "Q268",
+            "Q269",
+            "Q270",
+            "Q271",
+            "Q272",
+            "Q273",
+            "Q274",
+            "Q275",
+            "Q276",
+            "Q277",
+            "Q278",
+            "Q279",
+            "Q280",
+            "Q281",
+            "Q282",
+            "Q283",
+            "Q284",
+            "Q285",
+            "Q286",
+            "Q287",
+            "Q288",
+            "Q289",
+            "Q290",
+            "Q291",
+            "Q292",
+            "Q293",
+            "Q294",
+            "Q295",
+            "Q296",
+            "Q297",
+            "Q298",
+            "Q299",
+            "Q300",
+            "Q301",
+            "Q302",
+            "Q303",
+            "Q304",
+            "Q305",
+            "Q306",
+            "Q307",
+            "Q308",
+            "Q309",
+            "Q310",
+            "Q311",
+            "Q312",
+            "Q313",
+            "Q314",
+            "Q315",
+            "Q316",
+            "Q317",
+            "Q318",
+            "Q319",
+            "Q320",
+            "Q321",
+            "Q322",
+            "Q323",
+            "Q324",
+            "Q325",
+            "Q326",
+            "Q327",
+            "Q328",
+            "Q329",
+            "Q330",
+            "Q331",
+            "Q332",
+            "Q333",
+            "Q334",
+            "Q335",
+            "Q336",
+            "Q337",
+            "Q338",
+            "Q339",
+            "Q340",
+            "Q341",
+            "Q342",
+            "Q343",
+            "Q344",
+            "Q345",
+            "Q346",
+            "Q347",
+            "Q348",
+            "Q349",
+            "Q350",
+            "Q351",
+            "Q352",
+            "Q353",
+            "Q354",
+            "Q355",
+            "Q356",
+            "Q357",
+            "Q358",
+            "Q359",
+            "Q360",
+            "Q361",
+            "Q362",
+            "Q363",
+            "Q364",
+            "Q365",
+            "Q366",
+            "Q367",
+            "Q368",
+            "Q369",
+            "Q370",
+            "Q371",
+            "Q372",
+            "Q373",
+            "Q374",
+            "Q375",
+            "Q376",
+            "Q377",
+            "Q378",
+            "Q379",
+            "Q380",
+            "Q381",
+            "Q382",
+            "Q383",
+            "Q384",
+            "Q385",
+            "Q386",
+            "Q387",
+            "Q388",
+            "Q389",
+            "Q390",
+            "Q391",
+            "Q392",
+            "Q393",
+            "Q394",
+            "Q395",
+            "Q396",
+            "Q397",
+            "Q398",
+            "Q399",
+            "Q400",
+            "Q401",
+            "Q402",
+            "Q403",
+            "Q404",
+            "Q405",
+            "Q406",
+            "Q407",
+            "Q408",
+            "Q409",
+            "Q410",
+            "Q411",
+            "Q412",
+            "Q413",
+            "Q414",
+            "Q415",
+            "Q416",
+            "Q417",
+            "Q418",
+            "Q419",
+            "Q420",
+            "Q421",
+            "Q422",
+            "Q423",
+            "Q424",
+            "Q425",
+            "Q426",
+            "Q427",
+            "Q428",
+            "Q429",
+            "Q430",
+            "Q431",
+            "Q432",
+            "Q433",
+            "Q434",
+            "Q435",
+            "Q436",
+            "Q437",
+            "Q438",
+            "Q439",
+            "Q440",
+            "Q441",
+            "Q442",
+            "Q443",
+            "Q444"
+          ],
+          "avg_similarity_score": 0.8886443701400576,
+          "cost_benefit_score": 0.323515,
+          "execution_time_pct": 0.524477,
+          "storage_cost_pct": 0.172943,
+          "avg_cpu": 0.011545,
+          "max_cpu": 0.018839
+        },
+        {
+          "view_id": "L1-JOINS_Q547",
+          "view_sql": "SELECT n_name AS nation, EXTRACT(YEAR FROM o_orderdate) AS o_year, l_extendedprice * (1 - l_discount) - ps_supplycost * l_quantity AS amount, p_name FROM part , supplier , lineitem , partsupp , orders , nation WHERE s_suppkey = l_suppkey AND ps_suppkey = l_suppkey AND ps_partkey = l_partkey AND p_partkey = l_partkey AND o_orderkey = l_orderkey AND s_nationkey = n_nationkey",
+          "view_tables": [
+            "part",
+            "supplier",
+            "lineitem",
+            "partsupp",
+            "orders",
+            "nation"
+          ],
+          "view_joins": [
+            [
+              "lineitem",
+              "partsupp"
+            ],
+            [
+              "lineitem",
+              "supplier"
+            ],
+            [
+              "nation",
+              "orders"
+            ],
+            [
+              "orders",
+              "partsupp"
+            ],
+            [
+              "part",
+              "supplier"
+            ]
+          ],
+          "view_join_predicates": [
+            "s_suppkey = l_suppkey",
+            "ps_suppkey = l_suppkey",
+            "ps_partkey = l_partkey",
+            "p_partkey = l_partkey",
+            "o_orderkey = l_orderkey",
+            "s_nationkey = n_nationkey"
+          ],
+          "view_filters": {},
+          "view_aggregates": [],
+          "view_complexity": 5,
+          "covered_query_ids": [
+            "Q547",
+            "Q548",
+            "Q549",
+            "Q550",
+            "Q551",
+            "Q552",
+            "Q553",
+            "Q554",
+            "Q555",
+            "Q556"
+          ],
+          "avg_similarity_score": 0.8996989130973816,
+          "cost_benefit_score": -0.000472,
+          "execution_time_pct": 0.075643,
+          "storage_cost_pct": 0.098825,
+          "avg_cpu": 0.01161,
+          "max_cpu": 0.018687
+        }
+      ]
+    },
+    {
+      "collection_id": 4,
+      "size": 3,
+      "total_score": 0.386394,
+      "unique_queries_covered": 221,
+      "views": [
+        {
+          "view_id": "L0-FULLVIEW_Q49",
+          "view_sql": "SELECT n_name, SUM(l_extendedprice * (1 - l_discount)) AS revenue FROM customer, orders, lineitem, supplier, nation, region WHERE (((((((c_custkey = o_custkey AND l_orderkey = o_orderkey) AND l_suppkey = s_suppkey) AND c_nationkey = s_nationkey) AND s_nationkey = n_nationkey) AND n_regionkey = r_regionkey) AND r_name IN ('AFRICA', 'AMERICA', 'ASIA', 'EUROPE', 'MIDDLE EAST')) AND o_orderdate >= CAST('1992-01-01' AS DATE)) AND o_orderdate < CAST('1996-01-01' AS DATE) GROUP BY n_name",
+          "view_tables": [
+            "customer",
+            "orders",
+            "lineitem",
+            "supplier",
+            "nation",
+            "region"
+          ],
+          "view_joins": [
+            [
+              "customer",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "supplier"
+            ],
+            [
+              "nation",
+              "region"
+            ],
+            [
+              "nation",
+              "supplier"
+            ]
+          ],
+          "view_join_predicates": [
+            "c_custkey = o_custkey",
+            "l_orderkey = o_orderkey",
+            "l_suppkey = s_suppkey",
+            "c_nationkey = s_nationkey",
+            "s_nationkey = n_nationkey",
+            "n_regionkey = r_regionkey"
+          ],
+          "view_filters": {
+            "__global__": [
+              "r_name IN ('AFRICA', 'AMERICA', 'ASIA', 'EUROPE', 'MIDDLE EAST')",
+              "o_orderdate >= CAST('1992-01-01' AS DATE)",
+              "o_orderdate < CAST('1996-01-01' AS DATE)"
+            ]
+          },
+          "view_aggregates": [
+            "SUM(l_extendedprice * (1 - l_discount))"
+          ],
+          "view_complexity": 9,
+          "covered_query_ids": [
+            "Q49",
+            "Q50",
+            "Q51",
+            "Q52",
+            "Q53"
+          ],
+          "avg_similarity_score": 0.9025585174560546,
+          "cost_benefit_score": -0.007635,
+          "execution_time_pct": 0.01523,
+          "storage_cost_pct": 0.049412,
+          "avg_cpu": 0.011543,
+          "max_cpu": 0.016488
+        },
+        {
+          "view_id": "L0-FULLVIEW_Q43",
+          "view_sql": "SELECT SUM(l_extendedprice * (1 - l_discount)) AS revenue, o_orderdate, o_shippriority FROM customer, orders, lineitem WHERE (((c_custkey = o_custkey AND l_orderkey = o_orderkey) AND c_mktsegment IN ('AUTOMOBILE', 'BUILDING', 'FURNITURE', 'HOUSEHOLD', 'MACHINERY')) AND o_orderdate < CAST('1992-08-02' AS DATE)) AND l_shipdate > CAST('1992-08-02' AS DATE) GROUP BY l_orderkey, o_orderdate, o_shippriority",
+          "view_tables": [
+            "customer",
+            "orders",
+            "lineitem"
+          ],
+          "view_joins": [
+            [
+              "customer",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "orders"
+            ]
+          ],
+          "view_join_predicates": [
+            "c_custkey = o_custkey",
+            "l_orderkey = o_orderkey"
+          ],
+          "view_filters": {
+            "__global__": [
+              "c_mktsegment IN ('AUTOMOBILE', 'BUILDING', 'FURNITURE', 'HOUSEHOLD', 'MACHINERY')",
+              "o_orderdate < CAST('1992-08-02' AS DATE)",
+              "l_shipdate > CAST('1992-08-02' AS DATE)"
+            ]
+          },
+          "view_aggregates": [
+            "SUM(l_extendedprice * (1 - l_discount))"
+          ],
+          "view_complexity": 6,
+          "covered_query_ids": [
+            "Q43",
+            "Q44",
+            "Q45",
+            "Q46",
+            "Q47"
+          ],
+          "avg_similarity_score": 0.9375717878341675,
+          "cost_benefit_score": 0.070514,
+          "execution_time_pct": 0.00916,
+          "storage_cost_pct": 0.037059,
+          "avg_cpu": 0.022322,
+          "max_cpu": 0.076663
+        },
+        {
+          "view_id": "L0-FULLVIEW_Q234",
+          "view_sql": "SELECT n1.n_name AS supp_nation, n2.n_name AS cust_nation, EXTRACT(YEAR FROM l_shipdate) AS l_year, l_extendedprice * (1 - l_discount) AS volume, l_shipdate, n1.n_name, n2.n_name FROM supplier, lineitem, orders, customer, nation AS n1, nation AS n2 WHERE ((((s_suppkey = l_suppkey AND o_orderkey = l_orderkey) AND c_custkey = o_custkey) AND s_nationkey = n1.n_nationkey) AND c_nationkey = n2.n_nationkey) AND l_shipdate BETWEEN CAST('1992-01-01' AS DATE) AND CAST('1992-12-31' AS DATE)",
+          "view_tables": [
+            "supplier",
+            "lineitem",
+            "orders",
+            "customer",
+            "nation:n1",
+            "nation:n2"
+          ],
+          "view_joins": [
+            [
+              "customer",
+              "nation"
+            ],
+            [
+              "customer",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "supplier"
+            ]
+          ],
+          "view_join_predicates": [
+            "s_suppkey = l_suppkey",
+            "o_orderkey = l_orderkey",
+            "c_custkey = o_custkey",
+            "s_nationkey = n1.n_nationkey",
+            "c_nationkey = n2.n_nationkey"
+          ],
+          "view_filters": {
+            "__global__": [
+              "l_shipdate BETWEEN CAST('1992-01-01' AS DATE) AND CAST('1992-12-31' AS DATE)"
+            ]
+          },
+          "view_aggregates": [],
+          "view_complexity": 5,
+          "covered_query_ids": [
+            "Q234",
+            "Q235",
+            "Q236",
+            "Q237",
+            "Q238",
+            "Q239",
+            "Q240",
+            "Q241",
+            "Q242",
+            "Q243",
+            "Q244",
+            "Q245",
+            "Q246",
+            "Q247",
+            "Q248",
+            "Q249",
+            "Q250",
+            "Q251",
+            "Q252",
+            "Q253",
+            "Q254",
+            "Q255",
+            "Q256",
+            "Q257",
+            "Q258",
+            "Q259",
+            "Q260",
+            "Q261",
+            "Q262",
+            "Q263",
+            "Q264",
+            "Q265",
+            "Q266",
+            "Q267",
+            "Q268",
+            "Q269",
+            "Q270",
+            "Q271",
+            "Q272",
+            "Q273",
+            "Q274",
+            "Q275",
+            "Q276",
+            "Q277",
+            "Q278",
+            "Q279",
+            "Q280",
+            "Q281",
+            "Q282",
+            "Q283",
+            "Q284",
+            "Q285",
+            "Q286",
+            "Q287",
+            "Q288",
+            "Q289",
+            "Q290",
+            "Q291",
+            "Q292",
+            "Q293",
+            "Q294",
+            "Q295",
+            "Q296",
+            "Q297",
+            "Q298",
+            "Q299",
+            "Q300",
+            "Q301",
+            "Q302",
+            "Q303",
+            "Q304",
+            "Q305",
+            "Q306",
+            "Q307",
+            "Q308",
+            "Q309",
+            "Q310",
+            "Q311",
+            "Q312",
+            "Q313",
+            "Q314",
+            "Q315",
+            "Q316",
+            "Q317",
+            "Q318",
+            "Q319",
+            "Q320",
+            "Q321",
+            "Q322",
+            "Q323",
+            "Q324",
+            "Q325",
+            "Q326",
+            "Q327",
+            "Q328",
+            "Q329",
+            "Q330",
+            "Q331",
+            "Q332",
+            "Q333",
+            "Q334",
+            "Q335",
+            "Q336",
+            "Q337",
+            "Q338",
+            "Q339",
+            "Q340",
+            "Q341",
+            "Q342",
+            "Q343",
+            "Q344",
+            "Q345",
+            "Q346",
+            "Q347",
+            "Q348",
+            "Q349",
+            "Q350",
+            "Q351",
+            "Q352",
+            "Q353",
+            "Q354",
+            "Q355",
+            "Q356",
+            "Q357",
+            "Q358",
+            "Q359",
+            "Q360",
+            "Q361",
+            "Q362",
+            "Q363",
+            "Q364",
+            "Q365",
+            "Q366",
+            "Q367",
+            "Q368",
+            "Q369",
+            "Q370",
+            "Q371",
+            "Q372",
+            "Q373",
+            "Q374",
+            "Q375",
+            "Q376",
+            "Q377",
+            "Q378",
+            "Q379",
+            "Q380",
+            "Q381",
+            "Q382",
+            "Q383",
+            "Q384",
+            "Q385",
+            "Q386",
+            "Q387",
+            "Q388",
+            "Q389",
+            "Q390",
+            "Q391",
+            "Q392",
+            "Q393",
+            "Q394",
+            "Q395",
+            "Q396",
+            "Q397",
+            "Q398",
+            "Q399",
+            "Q400",
+            "Q401",
+            "Q402",
+            "Q403",
+            "Q404",
+            "Q405",
+            "Q406",
+            "Q407",
+            "Q408",
+            "Q409",
+            "Q410",
+            "Q411",
+            "Q412",
+            "Q413",
+            "Q414",
+            "Q415",
+            "Q416",
+            "Q417",
+            "Q418",
+            "Q419",
+            "Q420",
+            "Q421",
+            "Q422",
+            "Q423",
+            "Q424",
+            "Q425",
+            "Q426",
+            "Q427",
+            "Q428",
+            "Q429",
+            "Q430",
+            "Q431",
+            "Q432",
+            "Q433",
+            "Q434",
+            "Q435",
+            "Q436",
+            "Q437",
+            "Q438",
+            "Q439",
+            "Q440",
+            "Q441",
+            "Q442",
+            "Q443",
+            "Q444"
+          ],
+          "avg_similarity_score": 0.8886443701400576,
+          "cost_benefit_score": 0.323515,
+          "execution_time_pct": 0.524477,
+          "storage_cost_pct": 0.172943,
+          "avg_cpu": 0.011545,
+          "max_cpu": 0.018839
+        }
+      ]
+    },
+    {
+      "collection_id": 5,
+      "size": 6,
+      "total_score": 0.241312,
+      "unique_queries_covered": 345,
+      "views": [
+        {
+          "view_id": "L0-FULLVIEW_Q0",
+          "view_sql": "SELECT l_returnflag, l_linestatus, SUM(l_quantity) AS sum_qty, SUM(l_extendedprice) AS sum_base_price, SUM(l_extendedprice * (1 - l_discount)) AS sum_disc_price, SUM(l_extendedprice * (1 - l_discount) * (1 + l_tax)) AS sum_charge, AVG(l_quantity) AS avg_qty, AVG(l_extendedprice) AS avg_price, AVG(l_discount) AS avg_disc, COUNT(*) AS count_order FROM lineitem WHERE l_shipdate <= CAST('1992-12-01' AS DATE) - INTERVAL '3' DAY GROUP BY l_linestatus, l_returnflag",
+          "view_tables": [
+            "lineitem"
+          ],
+          "view_joins": [],
+          "view_join_predicates": [],
+          "view_filters": {
+            "__global__": [
+              "l_shipdate <= CAST('1992-12-01' AS DATE) - INTERVAL '3' DAY"
+            ]
+          },
+          "view_aggregates": [
+            "COUNT(*)",
+            "AVG(l_extendedprice)",
+            "SUM(l_quantity)",
+            "SUM(l_extendedprice * (1 - l_discount))",
+            "SUM(l_extendedprice * (1 - l_discount) * (1 + l_tax))",
+            "AVG(l_discount)",
+            "SUM(l_extendedprice)",
+            "AVG(l_quantity)"
+          ],
+          "view_complexity": 9,
+          "covered_query_ids": [
+            "Q0",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6"
+          ],
+          "avg_similarity_score": 0.9757881930896214,
+          "cost_benefit_score": 0.00361,
+          "execution_time_pct": 0.01277,
+          "storage_cost_pct": 0.041177,
+          "avg_cpu": 0.012264,
+          "max_cpu": 0.020061
+        },
+        {
+          "view_id": "L0-FULLVIEW_Q49",
+          "view_sql": "SELECT n_name, SUM(l_extendedprice * (1 - l_discount)) AS revenue FROM customer, orders, lineitem, supplier, nation, region WHERE (((((((c_custkey = o_custkey AND l_orderkey = o_orderkey) AND l_suppkey = s_suppkey) AND c_nationkey = s_nationkey) AND s_nationkey = n_nationkey) AND n_regionkey = r_regionkey) AND r_name IN ('AFRICA', 'AMERICA', 'ASIA', 'EUROPE', 'MIDDLE EAST')) AND o_orderdate >= CAST('1992-01-01' AS DATE)) AND o_orderdate < CAST('1996-01-01' AS DATE) GROUP BY n_name",
+          "view_tables": [
+            "customer",
+            "orders",
+            "lineitem",
+            "supplier",
+            "nation",
+            "region"
+          ],
+          "view_joins": [
+            [
+              "customer",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "supplier"
+            ],
+            [
+              "nation",
+              "region"
+            ],
+            [
+              "nation",
+              "supplier"
+            ]
+          ],
+          "view_join_predicates": [
+            "c_custkey = o_custkey",
+            "l_orderkey = o_orderkey",
+            "l_suppkey = s_suppkey",
+            "c_nationkey = s_nationkey",
+            "s_nationkey = n_nationkey",
+            "n_regionkey = r_regionkey"
+          ],
+          "view_filters": {
+            "__global__": [
+              "r_name IN ('AFRICA', 'AMERICA', 'ASIA', 'EUROPE', 'MIDDLE EAST')",
+              "o_orderdate >= CAST('1992-01-01' AS DATE)",
+              "o_orderdate < CAST('1996-01-01' AS DATE)"
+            ]
+          },
+          "view_aggregates": [
+            "SUM(l_extendedprice * (1 - l_discount))"
+          ],
+          "view_complexity": 9,
+          "covered_query_ids": [
+            "Q49",
+            "Q50",
+            "Q51",
+            "Q52",
+            "Q53"
+          ],
+          "avg_similarity_score": 0.9025585174560546,
+          "cost_benefit_score": -0.007635,
+          "execution_time_pct": 0.01523,
+          "storage_cost_pct": 0.049412,
+          "avg_cpu": 0.011543,
+          "max_cpu": 0.016488
+        },
+        {
+          "view_id": "L0-FULLVIEW_Q445",
+          "view_sql": "SELECT EXTRACT(YEAR FROM o_orderdate) AS o_year, l_extendedprice * (1 - l_discount) AS volume, n2.n_name AS nation, p_type, o_orderdate FROM part, supplier, lineitem, orders, customer, nation AS n1, nation AS n2, region WHERE (((((((p_partkey = l_partkey AND s_suppkey = l_suppkey) AND l_orderkey = o_orderkey) AND o_custkey = c_custkey) AND c_nationkey = n1.n_nationkey) AND n1.n_regionkey = r_regionkey) AND s_nationkey = n2.n_nationkey) AND o_orderdate BETWEEN CAST('1992-01-01' AS DATE) AND CAST('1992-12-31' AS DATE)) AND p_type IN ('ECONOMY ANODIZED STEEL', 'LARGE PLATED STEEL', 'PROMO BRUSHED BRASS', 'MEDIUM BURNISHED COPPER', 'LARGE PLATED BRASS', 'SMALL BRUSHED TIN')",
+          "view_tables": [
+            "part",
+            "supplier",
+            "lineitem",
+            "orders",
+            "customer",
+            "nation:n1",
+            "nation:n2",
+            "region"
+          ],
+          "view_joins": [
+            [
+              "customer",
+              "nation"
+            ],
+            [
+              "customer",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "supplier"
+            ],
+            [
+              "nation",
+              "region"
+            ],
+            [
+              "part",
+              "supplier"
+            ]
+          ],
+          "view_join_predicates": [
+            "p_partkey = l_partkey",
+            "s_suppkey = l_suppkey",
+            "l_orderkey = o_orderkey",
+            "o_custkey = c_custkey",
+            "c_nationkey = n1.n_nationkey",
+            "n1.n_regionkey = r_regionkey",
+            "s_nationkey = n2.n_nationkey"
+          ],
+          "view_filters": {
+            "__global__": [
+              "p_type IN ('ECONOMY ANODIZED STEEL', 'LARGE PLATED STEEL', 'PROMO BRUSHED BRASS', 'MEDIUM BURNISHED COPPER', 'LARGE PLATED BRASS', 'SMALL BRUSHED TIN')"
+            ]
+          },
+          "view_aggregates": [],
+          "view_complexity": 7,
+          "covered_query_ids": [
+            "Q445",
+            "Q446",
+            "Q447",
+            "Q448",
+            "Q449",
+            "Q450",
+            "Q451",
+            "Q452",
+            "Q453",
+            "Q454",
+            "Q455",
+            "Q456",
+            "Q457",
+            "Q458",
+            "Q459",
+            "Q460",
+            "Q461",
+            "Q462",
+            "Q463",
+            "Q464",
+            "Q465",
+            "Q466",
+            "Q467",
+            "Q468",
+            "Q469",
+            "Q470",
+            "Q471",
+            "Q472",
+            "Q473",
+            "Q474",
+            "Q475",
+            "Q476",
+            "Q477",
+            "Q478",
+            "Q479",
+            "Q480",
+            "Q481",
+            "Q482",
+            "Q483",
+            "Q484",
+            "Q485",
+            "Q486",
+            "Q487",
+            "Q488",
+            "Q489",
+            "Q490",
+            "Q491",
+            "Q492",
+            "Q493",
+            "Q494",
+            "Q495",
+            "Q496",
+            "Q497",
+            "Q498",
+            "Q499",
+            "Q500",
+            "Q501",
+            "Q502",
+            "Q503",
+            "Q504",
+            "Q505",
+            "Q506",
+            "Q507",
+            "Q508",
+            "Q509",
+            "Q510",
+            "Q511",
+            "Q512",
+            "Q513",
+            "Q514",
+            "Q515",
+            "Q516",
+            "Q517",
+            "Q518",
+            "Q519",
+            "Q520",
+            "Q521",
+            "Q522",
+            "Q523",
+            "Q524",
+            "Q525",
+            "Q526",
+            "Q527",
+            "Q528",
+            "Q529",
+            "Q530",
+            "Q531",
+            "Q532",
+            "Q533",
+            "Q534",
+            "Q535",
+            "Q536",
+            "Q537",
+            "Q538",
+            "Q539",
+            "Q540",
+            "Q541",
+            "Q542",
+            "Q543",
+            "Q544",
+            "Q545",
+            "Q546"
+          ],
+          "avg_similarity_score": 0.8162250074685788,
+          "cost_benefit_score": 0.07842,
+          "execution_time_pct": 0.262969,
+          "storage_cost_pct": 0.164708,
+          "avg_cpu": 0.011312,
+          "max_cpu": 0.017174
+        },
+        {
+          "view_id": "L1-JOINS_Q7",
+          "view_sql": "SELECT s_acctbal, s_name, n_name, p_mfgr, s_address, s_phone, s_comment, ps_supplycost, r_name, p_type, p_size FROM part , supplier , partsupp , nation , region WHERE p_partkey = ps_partkey AND s_suppkey = ps_suppkey AND s_nationkey = n_nationkey AND n_regionkey = r_regionkey",
+          "view_tables": [
+            "part",
+            "supplier",
+            "partsupp",
+            "nation",
+            "region",
+            "partsupp",
+            "supplier",
+            "nation",
+            "region"
+          ],
+          "view_joins": [
+            [
+              "nation",
+              "partsupp"
+            ],
+            [
+              "nation",
+              "region"
+            ],
+            [
+              "nation",
+              "supplier"
+            ],
+            [
+              "part",
+              "supplier"
+            ],
+            [
+              "partsupp",
+              "region"
+            ],
+            [
+              "partsupp",
+              "supplier"
+            ]
+          ],
+          "view_join_predicates": [
+            "p_partkey = ps_partkey",
+            "s_suppkey = ps_suppkey",
+            "s_nationkey = n_nationkey",
+            "n_regionkey = r_regionkey"
+          ],
+          "view_filters": {},
+          "view_aggregates": [],
+          "view_complexity": 6,
+          "covered_query_ids": [
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "Q14",
+            "Q15",
+            "Q16",
+            "Q17",
+            "Q18",
+            "Q19",
+            "Q20",
+            "Q21",
+            "Q22",
+            "Q23",
+            "Q24",
+            "Q25",
+            "Q26",
+            "Q27",
+            "Q28",
+            "Q29",
+            "Q30",
+            "Q31",
+            "Q32",
+            "Q33",
+            "Q34",
+            "Q35",
+            "Q36",
+            "Q37",
+            "Q38",
+            "Q39",
+            "Q40",
+            "Q41",
+            "Q42",
+            "Q54",
+            "Q55",
+            "Q56",
+            "Q57",
+            "Q58",
+            "Q59",
+            "Q60",
+            "Q61",
+            "Q62",
+            "Q63",
+            "Q64",
+            "Q65",
+            "Q66",
+            "Q67",
+            "Q68",
+            "Q69",
+            "Q70",
+            "Q71",
+            "Q72",
+            "Q73",
+            "Q74",
+            "Q75",
+            "Q76",
+            "Q77",
+            "Q78",
+            "Q79",
+            "Q80",
+            "Q81",
+            "Q82",
+            "Q83",
+            "Q84",
+            "Q85",
+            "Q86",
+            "Q87",
+            "Q88",
+            "Q89",
+            "Q90",
+            "Q91",
+            "Q92",
+            "Q93",
+            "Q94",
+            "Q95",
+            "Q96",
+            "Q97",
+            "Q98",
+            "Q99",
+            "Q100",
+            "Q101",
+            "Q102",
+            "Q103",
+            "Q104",
+            "Q105",
+            "Q106",
+            "Q107",
+            "Q108",
+            "Q109",
+            "Q110",
+            "Q111",
+            "Q112",
+            "Q113",
+            "Q114",
+            "Q115",
+            "Q116",
+            "Q117",
+            "Q118",
+            "Q119",
+            "Q120",
+            "Q121",
+            "Q122",
+            "Q123",
+            "Q124",
+            "Q125",
+            "Q126",
+            "Q127",
+            "Q128",
+            "Q129",
+            "Q130",
+            "Q131",
+            "Q132",
+            "Q133",
+            "Q134",
+            "Q135",
+            "Q136",
+            "Q137",
+            "Q138",
+            "Q139",
+            "Q140",
+            "Q141",
+            "Q142",
+            "Q143",
+            "Q144",
+            "Q145",
+            "Q146",
+            "Q147",
+            "Q148",
+            "Q149",
+            "Q150",
+            "Q151",
+            "Q152",
+            "Q153",
+            "Q154",
+            "Q155",
+            "Q156",
+            "Q157",
+            "Q158",
+            "Q159",
+            "Q160",
+            "Q161",
+            "Q162",
+            "Q163",
+            "Q164",
+            "Q165",
+            "Q166",
+            "Q167",
+            "Q168",
+            "Q169",
+            "Q170",
+            "Q171",
+            "Q172",
+            "Q173",
+            "Q174",
+            "Q175",
+            "Q176",
+            "Q177",
+            "Q178",
+            "Q179",
+            "Q180",
+            "Q181",
+            "Q182",
+            "Q183",
+            "Q184",
+            "Q185",
+            "Q186",
+            "Q187",
+            "Q188",
+            "Q189",
+            "Q190",
+            "Q191",
+            "Q192",
+            "Q193",
+            "Q194",
+            "Q195",
+            "Q196",
+            "Q197",
+            "Q198",
+            "Q199",
+            "Q200",
+            "Q201",
+            "Q202",
+            "Q203",
+            "Q204",
+            "Q205",
+            "Q206",
+            "Q207",
+            "Q208",
+            "Q209",
+            "Q210",
+            "Q211",
+            "Q212",
+            "Q213",
+            "Q214",
+            "Q215",
+            "Q216",
+            "Q217",
+            "Q218",
+            "Q219",
+            "Q220",
+            "Q221",
+            "Q222",
+            "Q223",
+            "Q224",
+            "Q225",
+            "Q226",
+            "Q227",
+            "Q228",
+            "Q229",
+            "Q230",
+            "Q231",
+            "Q232",
+            "Q233"
+          ],
+          "avg_similarity_score": 0.8464680841123616,
+          "cost_benefit_score": 0.096875,
+          "execution_time_pct": 0.098092,
+          "storage_cost_pct": 0.016985,
+          "avg_cpu": 0.013791,
+          "max_cpu": 0.017038
+        },
+        {
+          "view_id": "L0-FULLVIEW_Q43",
+          "view_sql": "SELECT SUM(l_extendedprice * (1 - l_discount)) AS revenue, o_orderdate, o_shippriority FROM customer, orders, lineitem WHERE (((c_custkey = o_custkey AND l_orderkey = o_orderkey) AND c_mktsegment IN ('AUTOMOBILE', 'BUILDING', 'FURNITURE', 'HOUSEHOLD', 'MACHINERY')) AND o_orderdate < CAST('1992-08-02' AS DATE)) AND l_shipdate > CAST('1992-08-02' AS DATE) GROUP BY l_orderkey, o_orderdate, o_shippriority",
+          "view_tables": [
+            "customer",
+            "orders",
+            "lineitem"
+          ],
+          "view_joins": [
+            [
+              "customer",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "orders"
+            ]
+          ],
+          "view_join_predicates": [
+            "c_custkey = o_custkey",
+            "l_orderkey = o_orderkey"
+          ],
+          "view_filters": {
+            "__global__": [
+              "c_mktsegment IN ('AUTOMOBILE', 'BUILDING', 'FURNITURE', 'HOUSEHOLD', 'MACHINERY')",
+              "o_orderdate < CAST('1992-08-02' AS DATE)",
+              "l_shipdate > CAST('1992-08-02' AS DATE)"
+            ]
+          },
+          "view_aggregates": [
+            "SUM(l_extendedprice * (1 - l_discount))"
+          ],
+          "view_complexity": 6,
+          "covered_query_ids": [
+            "Q43",
+            "Q44",
+            "Q45",
+            "Q46",
+            "Q47"
+          ],
+          "avg_similarity_score": 0.9375717878341675,
+          "cost_benefit_score": 0.070514,
+          "execution_time_pct": 0.00916,
+          "storage_cost_pct": 0.037059,
+          "avg_cpu": 0.022322,
+          "max_cpu": 0.076663
+        },
+        {
+          "view_id": "L1-JOINS_Q547",
+          "view_sql": "SELECT n_name AS nation, EXTRACT(YEAR FROM o_orderdate) AS o_year, l_extendedprice * (1 - l_discount) - ps_supplycost * l_quantity AS amount, p_name FROM part , supplier , lineitem , partsupp , orders , nation WHERE s_suppkey = l_suppkey AND ps_suppkey = l_suppkey AND ps_partkey = l_partkey AND p_partkey = l_partkey AND o_orderkey = l_orderkey AND s_nationkey = n_nationkey",
+          "view_tables": [
+            "part",
+            "supplier",
+            "lineitem",
+            "partsupp",
+            "orders",
+            "nation"
+          ],
+          "view_joins": [
+            [
+              "lineitem",
+              "partsupp"
+            ],
+            [
+              "lineitem",
+              "supplier"
+            ],
+            [
+              "nation",
+              "orders"
+            ],
+            [
+              "orders",
+              "partsupp"
+            ],
+            [
+              "part",
+              "supplier"
+            ]
+          ],
+          "view_join_predicates": [
+            "s_suppkey = l_suppkey",
+            "ps_suppkey = l_suppkey",
+            "ps_partkey = l_partkey",
+            "p_partkey = l_partkey",
+            "o_orderkey = l_orderkey",
+            "s_nationkey = n_nationkey"
+          ],
+          "view_filters": {},
+          "view_aggregates": [],
+          "view_complexity": 5,
+          "covered_query_ids": [
+            "Q547",
+            "Q548",
+            "Q549",
+            "Q550",
+            "Q551",
+            "Q552",
+            "Q553",
+            "Q554",
+            "Q555",
+            "Q556"
+          ],
+          "avg_similarity_score": 0.8996989130973816,
+          "cost_benefit_score": -0.000472,
+          "execution_time_pct": 0.075643,
+          "storage_cost_pct": 0.098825,
+          "avg_cpu": 0.01161,
+          "max_cpu": 0.018687
+        }
+      ]
+    },
+    {
+      "collection_id": 6,
+      "size": 4,
+      "total_score": 0.163364,
+      "unique_queries_covered": 233,
+      "views": [
+        {
+          "view_id": "L0-FULLVIEW_Q0",
+          "view_sql": "SELECT l_returnflag, l_linestatus, SUM(l_quantity) AS sum_qty, SUM(l_extendedprice) AS sum_base_price, SUM(l_extendedprice * (1 - l_discount)) AS sum_disc_price, SUM(l_extendedprice * (1 - l_discount) * (1 + l_tax)) AS sum_charge, AVG(l_quantity) AS avg_qty, AVG(l_extendedprice) AS avg_price, AVG(l_discount) AS avg_disc, COUNT(*) AS count_order FROM lineitem WHERE l_shipdate <= CAST('1992-12-01' AS DATE) - INTERVAL '3' DAY GROUP BY l_linestatus, l_returnflag",
+          "view_tables": [
+            "lineitem"
+          ],
+          "view_joins": [],
+          "view_join_predicates": [],
+          "view_filters": {
+            "__global__": [
+              "l_shipdate <= CAST('1992-12-01' AS DATE) - INTERVAL '3' DAY"
+            ]
+          },
+          "view_aggregates": [
+            "COUNT(*)",
+            "AVG(l_extendedprice)",
+            "SUM(l_quantity)",
+            "SUM(l_extendedprice * (1 - l_discount))",
+            "SUM(l_extendedprice * (1 - l_discount) * (1 + l_tax))",
+            "AVG(l_discount)",
+            "SUM(l_extendedprice)",
+            "AVG(l_quantity)"
+          ],
+          "view_complexity": 9,
+          "covered_query_ids": [
+            "Q0",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6"
+          ],
+          "avg_similarity_score": 0.9757881930896214,
+          "cost_benefit_score": 0.00361,
+          "execution_time_pct": 0.01277,
+          "storage_cost_pct": 0.041177,
+          "avg_cpu": 0.012264,
+          "max_cpu": 0.020061
+        },
+        {
+          "view_id": "L0-FULLVIEW_Q49",
+          "view_sql": "SELECT n_name, SUM(l_extendedprice * (1 - l_discount)) AS revenue FROM customer, orders, lineitem, supplier, nation, region WHERE (((((((c_custkey = o_custkey AND l_orderkey = o_orderkey) AND l_suppkey = s_suppkey) AND c_nationkey = s_nationkey) AND s_nationkey = n_nationkey) AND n_regionkey = r_regionkey) AND r_name IN ('AFRICA', 'AMERICA', 'ASIA', 'EUROPE', 'MIDDLE EAST')) AND o_orderdate >= CAST('1992-01-01' AS DATE)) AND o_orderdate < CAST('1996-01-01' AS DATE) GROUP BY n_name",
+          "view_tables": [
+            "customer",
+            "orders",
+            "lineitem",
+            "supplier",
+            "nation",
+            "region"
+          ],
+          "view_joins": [
+            [
+              "customer",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "supplier"
+            ],
+            [
+              "nation",
+              "region"
+            ],
+            [
+              "nation",
+              "supplier"
+            ]
+          ],
+          "view_join_predicates": [
+            "c_custkey = o_custkey",
+            "l_orderkey = o_orderkey",
+            "l_suppkey = s_suppkey",
+            "c_nationkey = s_nationkey",
+            "s_nationkey = n_nationkey",
+            "n_regionkey = r_regionkey"
+          ],
+          "view_filters": {
+            "__global__": [
+              "r_name IN ('AFRICA', 'AMERICA', 'ASIA', 'EUROPE', 'MIDDLE EAST')",
+              "o_orderdate >= CAST('1992-01-01' AS DATE)",
+              "o_orderdate < CAST('1996-01-01' AS DATE)"
+            ]
+          },
+          "view_aggregates": [
+            "SUM(l_extendedprice * (1 - l_discount))"
+          ],
+          "view_complexity": 9,
+          "covered_query_ids": [
+            "Q49",
+            "Q50",
+            "Q51",
+            "Q52",
+            "Q53"
+          ],
+          "avg_similarity_score": 0.9025585174560546,
+          "cost_benefit_score": -0.007635,
+          "execution_time_pct": 0.01523,
+          "storage_cost_pct": 0.049412,
+          "avg_cpu": 0.011543,
+          "max_cpu": 0.016488
+        },
+        {
+          "view_id": "L1-JOINS_Q7",
+          "view_sql": "SELECT s_acctbal, s_name, n_name, p_mfgr, s_address, s_phone, s_comment, ps_supplycost, r_name, p_type, p_size FROM part , supplier , partsupp , nation , region WHERE p_partkey = ps_partkey AND s_suppkey = ps_suppkey AND s_nationkey = n_nationkey AND n_regionkey = r_regionkey",
+          "view_tables": [
+            "part",
+            "supplier",
+            "partsupp",
+            "nation",
+            "region",
+            "partsupp",
+            "supplier",
+            "nation",
+            "region"
+          ],
+          "view_joins": [
+            [
+              "nation",
+              "partsupp"
+            ],
+            [
+              "nation",
+              "region"
+            ],
+            [
+              "nation",
+              "supplier"
+            ],
+            [
+              "part",
+              "supplier"
+            ],
+            [
+              "partsupp",
+              "region"
+            ],
+            [
+              "partsupp",
+              "supplier"
+            ]
+          ],
+          "view_join_predicates": [
+            "p_partkey = ps_partkey",
+            "s_suppkey = ps_suppkey",
+            "s_nationkey = n_nationkey",
+            "n_regionkey = r_regionkey"
+          ],
+          "view_filters": {},
+          "view_aggregates": [],
+          "view_complexity": 6,
+          "covered_query_ids": [
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "Q14",
+            "Q15",
+            "Q16",
+            "Q17",
+            "Q18",
+            "Q19",
+            "Q20",
+            "Q21",
+            "Q22",
+            "Q23",
+            "Q24",
+            "Q25",
+            "Q26",
+            "Q27",
+            "Q28",
+            "Q29",
+            "Q30",
+            "Q31",
+            "Q32",
+            "Q33",
+            "Q34",
+            "Q35",
+            "Q36",
+            "Q37",
+            "Q38",
+            "Q39",
+            "Q40",
+            "Q41",
+            "Q42",
+            "Q54",
+            "Q55",
+            "Q56",
+            "Q57",
+            "Q58",
+            "Q59",
+            "Q60",
+            "Q61",
+            "Q62",
+            "Q63",
+            "Q64",
+            "Q65",
+            "Q66",
+            "Q67",
+            "Q68",
+            "Q69",
+            "Q70",
+            "Q71",
+            "Q72",
+            "Q73",
+            "Q74",
+            "Q75",
+            "Q76",
+            "Q77",
+            "Q78",
+            "Q79",
+            "Q80",
+            "Q81",
+            "Q82",
+            "Q83",
+            "Q84",
+            "Q85",
+            "Q86",
+            "Q87",
+            "Q88",
+            "Q89",
+            "Q90",
+            "Q91",
+            "Q92",
+            "Q93",
+            "Q94",
+            "Q95",
+            "Q96",
+            "Q97",
+            "Q98",
+            "Q99",
+            "Q100",
+            "Q101",
+            "Q102",
+            "Q103",
+            "Q104",
+            "Q105",
+            "Q106",
+            "Q107",
+            "Q108",
+            "Q109",
+            "Q110",
+            "Q111",
+            "Q112",
+            "Q113",
+            "Q114",
+            "Q115",
+            "Q116",
+            "Q117",
+            "Q118",
+            "Q119",
+            "Q120",
+            "Q121",
+            "Q122",
+            "Q123",
+            "Q124",
+            "Q125",
+            "Q126",
+            "Q127",
+            "Q128",
+            "Q129",
+            "Q130",
+            "Q131",
+            "Q132",
+            "Q133",
+            "Q134",
+            "Q135",
+            "Q136",
+            "Q137",
+            "Q138",
+            "Q139",
+            "Q140",
+            "Q141",
+            "Q142",
+            "Q143",
+            "Q144",
+            "Q145",
+            "Q146",
+            "Q147",
+            "Q148",
+            "Q149",
+            "Q150",
+            "Q151",
+            "Q152",
+            "Q153",
+            "Q154",
+            "Q155",
+            "Q156",
+            "Q157",
+            "Q158",
+            "Q159",
+            "Q160",
+            "Q161",
+            "Q162",
+            "Q163",
+            "Q164",
+            "Q165",
+            "Q166",
+            "Q167",
+            "Q168",
+            "Q169",
+            "Q170",
+            "Q171",
+            "Q172",
+            "Q173",
+            "Q174",
+            "Q175",
+            "Q176",
+            "Q177",
+            "Q178",
+            "Q179",
+            "Q180",
+            "Q181",
+            "Q182",
+            "Q183",
+            "Q184",
+            "Q185",
+            "Q186",
+            "Q187",
+            "Q188",
+            "Q189",
+            "Q190",
+            "Q191",
+            "Q192",
+            "Q193",
+            "Q194",
+            "Q195",
+            "Q196",
+            "Q197",
+            "Q198",
+            "Q199",
+            "Q200",
+            "Q201",
+            "Q202",
+            "Q203",
+            "Q204",
+            "Q205",
+            "Q206",
+            "Q207",
+            "Q208",
+            "Q209",
+            "Q210",
+            "Q211",
+            "Q212",
+            "Q213",
+            "Q214",
+            "Q215",
+            "Q216",
+            "Q217",
+            "Q218",
+            "Q219",
+            "Q220",
+            "Q221",
+            "Q222",
+            "Q223",
+            "Q224",
+            "Q225",
+            "Q226",
+            "Q227",
+            "Q228",
+            "Q229",
+            "Q230",
+            "Q231",
+            "Q232",
+            "Q233"
+          ],
+          "avg_similarity_score": 0.8464680841123616,
+          "cost_benefit_score": 0.096875,
+          "execution_time_pct": 0.098092,
+          "storage_cost_pct": 0.016985,
+          "avg_cpu": 0.013791,
+          "max_cpu": 0.017038
+        },
+        {
+          "view_id": "L0-FULLVIEW_Q43",
+          "view_sql": "SELECT SUM(l_extendedprice * (1 - l_discount)) AS revenue, o_orderdate, o_shippriority FROM customer, orders, lineitem WHERE (((c_custkey = o_custkey AND l_orderkey = o_orderkey) AND c_mktsegment IN ('AUTOMOBILE', 'BUILDING', 'FURNITURE', 'HOUSEHOLD', 'MACHINERY')) AND o_orderdate < CAST('1992-08-02' AS DATE)) AND l_shipdate > CAST('1992-08-02' AS DATE) GROUP BY l_orderkey, o_orderdate, o_shippriority",
+          "view_tables": [
+            "customer",
+            "orders",
+            "lineitem"
+          ],
+          "view_joins": [
+            [
+              "customer",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "orders"
+            ]
+          ],
+          "view_join_predicates": [
+            "c_custkey = o_custkey",
+            "l_orderkey = o_orderkey"
+          ],
+          "view_filters": {
+            "__global__": [
+              "c_mktsegment IN ('AUTOMOBILE', 'BUILDING', 'FURNITURE', 'HOUSEHOLD', 'MACHINERY')",
+              "o_orderdate < CAST('1992-08-02' AS DATE)",
+              "l_shipdate > CAST('1992-08-02' AS DATE)"
+            ]
+          },
+          "view_aggregates": [
+            "SUM(l_extendedprice * (1 - l_discount))"
+          ],
+          "view_complexity": 6,
+          "covered_query_ids": [
+            "Q43",
+            "Q44",
+            "Q45",
+            "Q46",
+            "Q47"
+          ],
+          "avg_similarity_score": 0.9375717878341675,
+          "cost_benefit_score": 0.070514,
+          "execution_time_pct": 0.00916,
+          "storage_cost_pct": 0.037059,
+          "avg_cpu": 0.022322,
+          "max_cpu": 0.076663
+        }
+      ]
+    },
+    {
+      "collection_id": 7,
+      "size": 5,
+      "total_score": 0.162892,
+      "unique_queries_covered": 243,
+      "views": [
+        {
+          "view_id": "L0-FULLVIEW_Q0",
+          "view_sql": "SELECT l_returnflag, l_linestatus, SUM(l_quantity) AS sum_qty, SUM(l_extendedprice) AS sum_base_price, SUM(l_extendedprice * (1 - l_discount)) AS sum_disc_price, SUM(l_extendedprice * (1 - l_discount) * (1 + l_tax)) AS sum_charge, AVG(l_quantity) AS avg_qty, AVG(l_extendedprice) AS avg_price, AVG(l_discount) AS avg_disc, COUNT(*) AS count_order FROM lineitem WHERE l_shipdate <= CAST('1992-12-01' AS DATE) - INTERVAL '3' DAY GROUP BY l_linestatus, l_returnflag",
+          "view_tables": [
+            "lineitem"
+          ],
+          "view_joins": [],
+          "view_join_predicates": [],
+          "view_filters": {
+            "__global__": [
+              "l_shipdate <= CAST('1992-12-01' AS DATE) - INTERVAL '3' DAY"
+            ]
+          },
+          "view_aggregates": [
+            "COUNT(*)",
+            "AVG(l_extendedprice)",
+            "SUM(l_quantity)",
+            "SUM(l_extendedprice * (1 - l_discount))",
+            "SUM(l_extendedprice * (1 - l_discount) * (1 + l_tax))",
+            "AVG(l_discount)",
+            "SUM(l_extendedprice)",
+            "AVG(l_quantity)"
+          ],
+          "view_complexity": 9,
+          "covered_query_ids": [
+            "Q0",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6"
+          ],
+          "avg_similarity_score": 0.9757881930896214,
+          "cost_benefit_score": 0.00361,
+          "execution_time_pct": 0.01277,
+          "storage_cost_pct": 0.041177,
+          "avg_cpu": 0.012264,
+          "max_cpu": 0.020061
+        },
+        {
+          "view_id": "L0-FULLVIEW_Q49",
+          "view_sql": "SELECT n_name, SUM(l_extendedprice * (1 - l_discount)) AS revenue FROM customer, orders, lineitem, supplier, nation, region WHERE (((((((c_custkey = o_custkey AND l_orderkey = o_orderkey) AND l_suppkey = s_suppkey) AND c_nationkey = s_nationkey) AND s_nationkey = n_nationkey) AND n_regionkey = r_regionkey) AND r_name IN ('AFRICA', 'AMERICA', 'ASIA', 'EUROPE', 'MIDDLE EAST')) AND o_orderdate >= CAST('1992-01-01' AS DATE)) AND o_orderdate < CAST('1996-01-01' AS DATE) GROUP BY n_name",
+          "view_tables": [
+            "customer",
+            "orders",
+            "lineitem",
+            "supplier",
+            "nation",
+            "region"
+          ],
+          "view_joins": [
+            [
+              "customer",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "supplier"
+            ],
+            [
+              "nation",
+              "region"
+            ],
+            [
+              "nation",
+              "supplier"
+            ]
+          ],
+          "view_join_predicates": [
+            "c_custkey = o_custkey",
+            "l_orderkey = o_orderkey",
+            "l_suppkey = s_suppkey",
+            "c_nationkey = s_nationkey",
+            "s_nationkey = n_nationkey",
+            "n_regionkey = r_regionkey"
+          ],
+          "view_filters": {
+            "__global__": [
+              "r_name IN ('AFRICA', 'AMERICA', 'ASIA', 'EUROPE', 'MIDDLE EAST')",
+              "o_orderdate >= CAST('1992-01-01' AS DATE)",
+              "o_orderdate < CAST('1996-01-01' AS DATE)"
+            ]
+          },
+          "view_aggregates": [
+            "SUM(l_extendedprice * (1 - l_discount))"
+          ],
+          "view_complexity": 9,
+          "covered_query_ids": [
+            "Q49",
+            "Q50",
+            "Q51",
+            "Q52",
+            "Q53"
+          ],
+          "avg_similarity_score": 0.9025585174560546,
+          "cost_benefit_score": -0.007635,
+          "execution_time_pct": 0.01523,
+          "storage_cost_pct": 0.049412,
+          "avg_cpu": 0.011543,
+          "max_cpu": 0.016488
+        },
+        {
+          "view_id": "L1-JOINS_Q7",
+          "view_sql": "SELECT s_acctbal, s_name, n_name, p_mfgr, s_address, s_phone, s_comment, ps_supplycost, r_name, p_type, p_size FROM part , supplier , partsupp , nation , region WHERE p_partkey = ps_partkey AND s_suppkey = ps_suppkey AND s_nationkey = n_nationkey AND n_regionkey = r_regionkey",
+          "view_tables": [
+            "part",
+            "supplier",
+            "partsupp",
+            "nation",
+            "region",
+            "partsupp",
+            "supplier",
+            "nation",
+            "region"
+          ],
+          "view_joins": [
+            [
+              "nation",
+              "partsupp"
+            ],
+            [
+              "nation",
+              "region"
+            ],
+            [
+              "nation",
+              "supplier"
+            ],
+            [
+              "part",
+              "supplier"
+            ],
+            [
+              "partsupp",
+              "region"
+            ],
+            [
+              "partsupp",
+              "supplier"
+            ]
+          ],
+          "view_join_predicates": [
+            "p_partkey = ps_partkey",
+            "s_suppkey = ps_suppkey",
+            "s_nationkey = n_nationkey",
+            "n_regionkey = r_regionkey"
+          ],
+          "view_filters": {},
+          "view_aggregates": [],
+          "view_complexity": 6,
+          "covered_query_ids": [
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "Q14",
+            "Q15",
+            "Q16",
+            "Q17",
+            "Q18",
+            "Q19",
+            "Q20",
+            "Q21",
+            "Q22",
+            "Q23",
+            "Q24",
+            "Q25",
+            "Q26",
+            "Q27",
+            "Q28",
+            "Q29",
+            "Q30",
+            "Q31",
+            "Q32",
+            "Q33",
+            "Q34",
+            "Q35",
+            "Q36",
+            "Q37",
+            "Q38",
+            "Q39",
+            "Q40",
+            "Q41",
+            "Q42",
+            "Q54",
+            "Q55",
+            "Q56",
+            "Q57",
+            "Q58",
+            "Q59",
+            "Q60",
+            "Q61",
+            "Q62",
+            "Q63",
+            "Q64",
+            "Q65",
+            "Q66",
+            "Q67",
+            "Q68",
+            "Q69",
+            "Q70",
+            "Q71",
+            "Q72",
+            "Q73",
+            "Q74",
+            "Q75",
+            "Q76",
+            "Q77",
+            "Q78",
+            "Q79",
+            "Q80",
+            "Q81",
+            "Q82",
+            "Q83",
+            "Q84",
+            "Q85",
+            "Q86",
+            "Q87",
+            "Q88",
+            "Q89",
+            "Q90",
+            "Q91",
+            "Q92",
+            "Q93",
+            "Q94",
+            "Q95",
+            "Q96",
+            "Q97",
+            "Q98",
+            "Q99",
+            "Q100",
+            "Q101",
+            "Q102",
+            "Q103",
+            "Q104",
+            "Q105",
+            "Q106",
+            "Q107",
+            "Q108",
+            "Q109",
+            "Q110",
+            "Q111",
+            "Q112",
+            "Q113",
+            "Q114",
+            "Q115",
+            "Q116",
+            "Q117",
+            "Q118",
+            "Q119",
+            "Q120",
+            "Q121",
+            "Q122",
+            "Q123",
+            "Q124",
+            "Q125",
+            "Q126",
+            "Q127",
+            "Q128",
+            "Q129",
+            "Q130",
+            "Q131",
+            "Q132",
+            "Q133",
+            "Q134",
+            "Q135",
+            "Q136",
+            "Q137",
+            "Q138",
+            "Q139",
+            "Q140",
+            "Q141",
+            "Q142",
+            "Q143",
+            "Q144",
+            "Q145",
+            "Q146",
+            "Q147",
+            "Q148",
+            "Q149",
+            "Q150",
+            "Q151",
+            "Q152",
+            "Q153",
+            "Q154",
+            "Q155",
+            "Q156",
+            "Q157",
+            "Q158",
+            "Q159",
+            "Q160",
+            "Q161",
+            "Q162",
+            "Q163",
+            "Q164",
+            "Q165",
+            "Q166",
+            "Q167",
+            "Q168",
+            "Q169",
+            "Q170",
+            "Q171",
+            "Q172",
+            "Q173",
+            "Q174",
+            "Q175",
+            "Q176",
+            "Q177",
+            "Q178",
+            "Q179",
+            "Q180",
+            "Q181",
+            "Q182",
+            "Q183",
+            "Q184",
+            "Q185",
+            "Q186",
+            "Q187",
+            "Q188",
+            "Q189",
+            "Q190",
+            "Q191",
+            "Q192",
+            "Q193",
+            "Q194",
+            "Q195",
+            "Q196",
+            "Q197",
+            "Q198",
+            "Q199",
+            "Q200",
+            "Q201",
+            "Q202",
+            "Q203",
+            "Q204",
+            "Q205",
+            "Q206",
+            "Q207",
+            "Q208",
+            "Q209",
+            "Q210",
+            "Q211",
+            "Q212",
+            "Q213",
+            "Q214",
+            "Q215",
+            "Q216",
+            "Q217",
+            "Q218",
+            "Q219",
+            "Q220",
+            "Q221",
+            "Q222",
+            "Q223",
+            "Q224",
+            "Q225",
+            "Q226",
+            "Q227",
+            "Q228",
+            "Q229",
+            "Q230",
+            "Q231",
+            "Q232",
+            "Q233"
+          ],
+          "avg_similarity_score": 0.8464680841123616,
+          "cost_benefit_score": 0.096875,
+          "execution_time_pct": 0.098092,
+          "storage_cost_pct": 0.016985,
+          "avg_cpu": 0.013791,
+          "max_cpu": 0.017038
+        },
+        {
+          "view_id": "L0-FULLVIEW_Q43",
+          "view_sql": "SELECT SUM(l_extendedprice * (1 - l_discount)) AS revenue, o_orderdate, o_shippriority FROM customer, orders, lineitem WHERE (((c_custkey = o_custkey AND l_orderkey = o_orderkey) AND c_mktsegment IN ('AUTOMOBILE', 'BUILDING', 'FURNITURE', 'HOUSEHOLD', 'MACHINERY')) AND o_orderdate < CAST('1992-08-02' AS DATE)) AND l_shipdate > CAST('1992-08-02' AS DATE) GROUP BY l_orderkey, o_orderdate, o_shippriority",
+          "view_tables": [
+            "customer",
+            "orders",
+            "lineitem"
+          ],
+          "view_joins": [
+            [
+              "customer",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "orders"
+            ]
+          ],
+          "view_join_predicates": [
+            "c_custkey = o_custkey",
+            "l_orderkey = o_orderkey"
+          ],
+          "view_filters": {
+            "__global__": [
+              "c_mktsegment IN ('AUTOMOBILE', 'BUILDING', 'FURNITURE', 'HOUSEHOLD', 'MACHINERY')",
+              "o_orderdate < CAST('1992-08-02' AS DATE)",
+              "l_shipdate > CAST('1992-08-02' AS DATE)"
+            ]
+          },
+          "view_aggregates": [
+            "SUM(l_extendedprice * (1 - l_discount))"
+          ],
+          "view_complexity": 6,
+          "covered_query_ids": [
+            "Q43",
+            "Q44",
+            "Q45",
+            "Q46",
+            "Q47"
+          ],
+          "avg_similarity_score": 0.9375717878341675,
+          "cost_benefit_score": 0.070514,
+          "execution_time_pct": 0.00916,
+          "storage_cost_pct": 0.037059,
+          "avg_cpu": 0.022322,
+          "max_cpu": 0.076663
+        },
+        {
+          "view_id": "L1-JOINS_Q547",
+          "view_sql": "SELECT n_name AS nation, EXTRACT(YEAR FROM o_orderdate) AS o_year, l_extendedprice * (1 - l_discount) - ps_supplycost * l_quantity AS amount, p_name FROM part , supplier , lineitem , partsupp , orders , nation WHERE s_suppkey = l_suppkey AND ps_suppkey = l_suppkey AND ps_partkey = l_partkey AND p_partkey = l_partkey AND o_orderkey = l_orderkey AND s_nationkey = n_nationkey",
+          "view_tables": [
+            "part",
+            "supplier",
+            "lineitem",
+            "partsupp",
+            "orders",
+            "nation"
+          ],
+          "view_joins": [
+            [
+              "lineitem",
+              "partsupp"
+            ],
+            [
+              "lineitem",
+              "supplier"
+            ],
+            [
+              "nation",
+              "orders"
+            ],
+            [
+              "orders",
+              "partsupp"
+            ],
+            [
+              "part",
+              "supplier"
+            ]
+          ],
+          "view_join_predicates": [
+            "s_suppkey = l_suppkey",
+            "ps_suppkey = l_suppkey",
+            "ps_partkey = l_partkey",
+            "p_partkey = l_partkey",
+            "o_orderkey = l_orderkey",
+            "s_nationkey = n_nationkey"
+          ],
+          "view_filters": {},
+          "view_aggregates": [],
+          "view_complexity": 5,
+          "covered_query_ids": [
+            "Q547",
+            "Q548",
+            "Q549",
+            "Q550",
+            "Q551",
+            "Q552",
+            "Q553",
+            "Q554",
+            "Q555",
+            "Q556"
+          ],
+          "avg_similarity_score": 0.8996989130973816,
+          "cost_benefit_score": -0.000472,
+          "execution_time_pct": 0.075643,
+          "storage_cost_pct": 0.098825,
+          "avg_cpu": 0.01161,
+          "max_cpu": 0.018687
+        }
+      ]
+    },
+    {
+      "collection_id": 8,
+      "size": 3,
+      "total_score": 0.159754,
+      "unique_queries_covered": 226,
+      "views": [
+        {
+          "view_id": "L0-FULLVIEW_Q49",
+          "view_sql": "SELECT n_name, SUM(l_extendedprice * (1 - l_discount)) AS revenue FROM customer, orders, lineitem, supplier, nation, region WHERE (((((((c_custkey = o_custkey AND l_orderkey = o_orderkey) AND l_suppkey = s_suppkey) AND c_nationkey = s_nationkey) AND s_nationkey = n_nationkey) AND n_regionkey = r_regionkey) AND r_name IN ('AFRICA', 'AMERICA', 'ASIA', 'EUROPE', 'MIDDLE EAST')) AND o_orderdate >= CAST('1992-01-01' AS DATE)) AND o_orderdate < CAST('1996-01-01' AS DATE) GROUP BY n_name",
+          "view_tables": [
+            "customer",
+            "orders",
+            "lineitem",
+            "supplier",
+            "nation",
+            "region"
+          ],
+          "view_joins": [
+            [
+              "customer",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "supplier"
+            ],
+            [
+              "nation",
+              "region"
+            ],
+            [
+              "nation",
+              "supplier"
+            ]
+          ],
+          "view_join_predicates": [
+            "c_custkey = o_custkey",
+            "l_orderkey = o_orderkey",
+            "l_suppkey = s_suppkey",
+            "c_nationkey = s_nationkey",
+            "s_nationkey = n_nationkey",
+            "n_regionkey = r_regionkey"
+          ],
+          "view_filters": {
+            "__global__": [
+              "r_name IN ('AFRICA', 'AMERICA', 'ASIA', 'EUROPE', 'MIDDLE EAST')",
+              "o_orderdate >= CAST('1992-01-01' AS DATE)",
+              "o_orderdate < CAST('1996-01-01' AS DATE)"
+            ]
+          },
+          "view_aggregates": [
+            "SUM(l_extendedprice * (1 - l_discount))"
+          ],
+          "view_complexity": 9,
+          "covered_query_ids": [
+            "Q49",
+            "Q50",
+            "Q51",
+            "Q52",
+            "Q53"
+          ],
+          "avg_similarity_score": 0.9025585174560546,
+          "cost_benefit_score": -0.007635,
+          "execution_time_pct": 0.01523,
+          "storage_cost_pct": 0.049412,
+          "avg_cpu": 0.011543,
+          "max_cpu": 0.016488
+        },
+        {
+          "view_id": "L1-JOINS_Q7",
+          "view_sql": "SELECT s_acctbal, s_name, n_name, p_mfgr, s_address, s_phone, s_comment, ps_supplycost, r_name, p_type, p_size FROM part , supplier , partsupp , nation , region WHERE p_partkey = ps_partkey AND s_suppkey = ps_suppkey AND s_nationkey = n_nationkey AND n_regionkey = r_regionkey",
+          "view_tables": [
+            "part",
+            "supplier",
+            "partsupp",
+            "nation",
+            "region",
+            "partsupp",
+            "supplier",
+            "nation",
+            "region"
+          ],
+          "view_joins": [
+            [
+              "nation",
+              "partsupp"
+            ],
+            [
+              "nation",
+              "region"
+            ],
+            [
+              "nation",
+              "supplier"
+            ],
+            [
+              "part",
+              "supplier"
+            ],
+            [
+              "partsupp",
+              "region"
+            ],
+            [
+              "partsupp",
+              "supplier"
+            ]
+          ],
+          "view_join_predicates": [
+            "p_partkey = ps_partkey",
+            "s_suppkey = ps_suppkey",
+            "s_nationkey = n_nationkey",
+            "n_regionkey = r_regionkey"
+          ],
+          "view_filters": {},
+          "view_aggregates": [],
+          "view_complexity": 6,
+          "covered_query_ids": [
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "Q14",
+            "Q15",
+            "Q16",
+            "Q17",
+            "Q18",
+            "Q19",
+            "Q20",
+            "Q21",
+            "Q22",
+            "Q23",
+            "Q24",
+            "Q25",
+            "Q26",
+            "Q27",
+            "Q28",
+            "Q29",
+            "Q30",
+            "Q31",
+            "Q32",
+            "Q33",
+            "Q34",
+            "Q35",
+            "Q36",
+            "Q37",
+            "Q38",
+            "Q39",
+            "Q40",
+            "Q41",
+            "Q42",
+            "Q54",
+            "Q55",
+            "Q56",
+            "Q57",
+            "Q58",
+            "Q59",
+            "Q60",
+            "Q61",
+            "Q62",
+            "Q63",
+            "Q64",
+            "Q65",
+            "Q66",
+            "Q67",
+            "Q68",
+            "Q69",
+            "Q70",
+            "Q71",
+            "Q72",
+            "Q73",
+            "Q74",
+            "Q75",
+            "Q76",
+            "Q77",
+            "Q78",
+            "Q79",
+            "Q80",
+            "Q81",
+            "Q82",
+            "Q83",
+            "Q84",
+            "Q85",
+            "Q86",
+            "Q87",
+            "Q88",
+            "Q89",
+            "Q90",
+            "Q91",
+            "Q92",
+            "Q93",
+            "Q94",
+            "Q95",
+            "Q96",
+            "Q97",
+            "Q98",
+            "Q99",
+            "Q100",
+            "Q101",
+            "Q102",
+            "Q103",
+            "Q104",
+            "Q105",
+            "Q106",
+            "Q107",
+            "Q108",
+            "Q109",
+            "Q110",
+            "Q111",
+            "Q112",
+            "Q113",
+            "Q114",
+            "Q115",
+            "Q116",
+            "Q117",
+            "Q118",
+            "Q119",
+            "Q120",
+            "Q121",
+            "Q122",
+            "Q123",
+            "Q124",
+            "Q125",
+            "Q126",
+            "Q127",
+            "Q128",
+            "Q129",
+            "Q130",
+            "Q131",
+            "Q132",
+            "Q133",
+            "Q134",
+            "Q135",
+            "Q136",
+            "Q137",
+            "Q138",
+            "Q139",
+            "Q140",
+            "Q141",
+            "Q142",
+            "Q143",
+            "Q144",
+            "Q145",
+            "Q146",
+            "Q147",
+            "Q148",
+            "Q149",
+            "Q150",
+            "Q151",
+            "Q152",
+            "Q153",
+            "Q154",
+            "Q155",
+            "Q156",
+            "Q157",
+            "Q158",
+            "Q159",
+            "Q160",
+            "Q161",
+            "Q162",
+            "Q163",
+            "Q164",
+            "Q165",
+            "Q166",
+            "Q167",
+            "Q168",
+            "Q169",
+            "Q170",
+            "Q171",
+            "Q172",
+            "Q173",
+            "Q174",
+            "Q175",
+            "Q176",
+            "Q177",
+            "Q178",
+            "Q179",
+            "Q180",
+            "Q181",
+            "Q182",
+            "Q183",
+            "Q184",
+            "Q185",
+            "Q186",
+            "Q187",
+            "Q188",
+            "Q189",
+            "Q190",
+            "Q191",
+            "Q192",
+            "Q193",
+            "Q194",
+            "Q195",
+            "Q196",
+            "Q197",
+            "Q198",
+            "Q199",
+            "Q200",
+            "Q201",
+            "Q202",
+            "Q203",
+            "Q204",
+            "Q205",
+            "Q206",
+            "Q207",
+            "Q208",
+            "Q209",
+            "Q210",
+            "Q211",
+            "Q212",
+            "Q213",
+            "Q214",
+            "Q215",
+            "Q216",
+            "Q217",
+            "Q218",
+            "Q219",
+            "Q220",
+            "Q221",
+            "Q222",
+            "Q223",
+            "Q224",
+            "Q225",
+            "Q226",
+            "Q227",
+            "Q228",
+            "Q229",
+            "Q230",
+            "Q231",
+            "Q232",
+            "Q233"
+          ],
+          "avg_similarity_score": 0.8464680841123616,
+          "cost_benefit_score": 0.096875,
+          "execution_time_pct": 0.098092,
+          "storage_cost_pct": 0.016985,
+          "avg_cpu": 0.013791,
+          "max_cpu": 0.017038
+        },
+        {
+          "view_id": "L0-FULLVIEW_Q43",
+          "view_sql": "SELECT SUM(l_extendedprice * (1 - l_discount)) AS revenue, o_orderdate, o_shippriority FROM customer, orders, lineitem WHERE (((c_custkey = o_custkey AND l_orderkey = o_orderkey) AND c_mktsegment IN ('AUTOMOBILE', 'BUILDING', 'FURNITURE', 'HOUSEHOLD', 'MACHINERY')) AND o_orderdate < CAST('1992-08-02' AS DATE)) AND l_shipdate > CAST('1992-08-02' AS DATE) GROUP BY l_orderkey, o_orderdate, o_shippriority",
+          "view_tables": [
+            "customer",
+            "orders",
+            "lineitem"
+          ],
+          "view_joins": [
+            [
+              "customer",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "orders"
+            ]
+          ],
+          "view_join_predicates": [
+            "c_custkey = o_custkey",
+            "l_orderkey = o_orderkey"
+          ],
+          "view_filters": {
+            "__global__": [
+              "c_mktsegment IN ('AUTOMOBILE', 'BUILDING', 'FURNITURE', 'HOUSEHOLD', 'MACHINERY')",
+              "o_orderdate < CAST('1992-08-02' AS DATE)",
+              "l_shipdate > CAST('1992-08-02' AS DATE)"
+            ]
+          },
+          "view_aggregates": [
+            "SUM(l_extendedprice * (1 - l_discount))"
+          ],
+          "view_complexity": 6,
+          "covered_query_ids": [
+            "Q43",
+            "Q44",
+            "Q45",
+            "Q46",
+            "Q47"
+          ],
+          "avg_similarity_score": 0.9375717878341675,
+          "cost_benefit_score": 0.070514,
+          "execution_time_pct": 0.00916,
+          "storage_cost_pct": 0.037059,
+          "avg_cpu": 0.022322,
+          "max_cpu": 0.076663
+        }
+      ]
+    },
+    {
+      "collection_id": 9,
+      "size": 4,
+      "total_score": 0.144909,
+      "unique_queries_covered": 119,
+      "views": [
+        {
+          "view_id": "L0-FULLVIEW_Q0",
+          "view_sql": "SELECT l_returnflag, l_linestatus, SUM(l_quantity) AS sum_qty, SUM(l_extendedprice) AS sum_base_price, SUM(l_extendedprice * (1 - l_discount)) AS sum_disc_price, SUM(l_extendedprice * (1 - l_discount) * (1 + l_tax)) AS sum_charge, AVG(l_quantity) AS avg_qty, AVG(l_extendedprice) AS avg_price, AVG(l_discount) AS avg_disc, COUNT(*) AS count_order FROM lineitem WHERE l_shipdate <= CAST('1992-12-01' AS DATE) - INTERVAL '3' DAY GROUP BY l_linestatus, l_returnflag",
+          "view_tables": [
+            "lineitem"
+          ],
+          "view_joins": [],
+          "view_join_predicates": [],
+          "view_filters": {
+            "__global__": [
+              "l_shipdate <= CAST('1992-12-01' AS DATE) - INTERVAL '3' DAY"
+            ]
+          },
+          "view_aggregates": [
+            "COUNT(*)",
+            "AVG(l_extendedprice)",
+            "SUM(l_quantity)",
+            "SUM(l_extendedprice * (1 - l_discount))",
+            "SUM(l_extendedprice * (1 - l_discount) * (1 + l_tax))",
+            "AVG(l_discount)",
+            "SUM(l_extendedprice)",
+            "AVG(l_quantity)"
+          ],
+          "view_complexity": 9,
+          "covered_query_ids": [
+            "Q0",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6"
+          ],
+          "avg_similarity_score": 0.9757881930896214,
+          "cost_benefit_score": 0.00361,
+          "execution_time_pct": 0.01277,
+          "storage_cost_pct": 0.041177,
+          "avg_cpu": 0.012264,
+          "max_cpu": 0.020061
+        },
+        {
+          "view_id": "L0-FULLVIEW_Q49",
+          "view_sql": "SELECT n_name, SUM(l_extendedprice * (1 - l_discount)) AS revenue FROM customer, orders, lineitem, supplier, nation, region WHERE (((((((c_custkey = o_custkey AND l_orderkey = o_orderkey) AND l_suppkey = s_suppkey) AND c_nationkey = s_nationkey) AND s_nationkey = n_nationkey) AND n_regionkey = r_regionkey) AND r_name IN ('AFRICA', 'AMERICA', 'ASIA', 'EUROPE', 'MIDDLE EAST')) AND o_orderdate >= CAST('1992-01-01' AS DATE)) AND o_orderdate < CAST('1996-01-01' AS DATE) GROUP BY n_name",
+          "view_tables": [
+            "customer",
+            "orders",
+            "lineitem",
+            "supplier",
+            "nation",
+            "region"
+          ],
+          "view_joins": [
+            [
+              "customer",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "supplier"
+            ],
+            [
+              "nation",
+              "region"
+            ],
+            [
+              "nation",
+              "supplier"
+            ]
+          ],
+          "view_join_predicates": [
+            "c_custkey = o_custkey",
+            "l_orderkey = o_orderkey",
+            "l_suppkey = s_suppkey",
+            "c_nationkey = s_nationkey",
+            "s_nationkey = n_nationkey",
+            "n_regionkey = r_regionkey"
+          ],
+          "view_filters": {
+            "__global__": [
+              "r_name IN ('AFRICA', 'AMERICA', 'ASIA', 'EUROPE', 'MIDDLE EAST')",
+              "o_orderdate >= CAST('1992-01-01' AS DATE)",
+              "o_orderdate < CAST('1996-01-01' AS DATE)"
+            ]
+          },
+          "view_aggregates": [
+            "SUM(l_extendedprice * (1 - l_discount))"
+          ],
+          "view_complexity": 9,
+          "covered_query_ids": [
+            "Q49",
+            "Q50",
+            "Q51",
+            "Q52",
+            "Q53"
+          ],
+          "avg_similarity_score": 0.9025585174560546,
+          "cost_benefit_score": -0.007635,
+          "execution_time_pct": 0.01523,
+          "storage_cost_pct": 0.049412,
+          "avg_cpu": 0.011543,
+          "max_cpu": 0.016488
+        },
+        {
+          "view_id": "L0-FULLVIEW_Q445",
+          "view_sql": "SELECT EXTRACT(YEAR FROM o_orderdate) AS o_year, l_extendedprice * (1 - l_discount) AS volume, n2.n_name AS nation, p_type, o_orderdate FROM part, supplier, lineitem, orders, customer, nation AS n1, nation AS n2, region WHERE (((((((p_partkey = l_partkey AND s_suppkey = l_suppkey) AND l_orderkey = o_orderkey) AND o_custkey = c_custkey) AND c_nationkey = n1.n_nationkey) AND n1.n_regionkey = r_regionkey) AND s_nationkey = n2.n_nationkey) AND o_orderdate BETWEEN CAST('1992-01-01' AS DATE) AND CAST('1992-12-31' AS DATE)) AND p_type IN ('ECONOMY ANODIZED STEEL', 'LARGE PLATED STEEL', 'PROMO BRUSHED BRASS', 'MEDIUM BURNISHED COPPER', 'LARGE PLATED BRASS', 'SMALL BRUSHED TIN')",
+          "view_tables": [
+            "part",
+            "supplier",
+            "lineitem",
+            "orders",
+            "customer",
+            "nation:n1",
+            "nation:n2",
+            "region"
+          ],
+          "view_joins": [
+            [
+              "customer",
+              "nation"
+            ],
+            [
+              "customer",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "supplier"
+            ],
+            [
+              "nation",
+              "region"
+            ],
+            [
+              "part",
+              "supplier"
+            ]
+          ],
+          "view_join_predicates": [
+            "p_partkey = l_partkey",
+            "s_suppkey = l_suppkey",
+            "l_orderkey = o_orderkey",
+            "o_custkey = c_custkey",
+            "c_nationkey = n1.n_nationkey",
+            "n1.n_regionkey = r_regionkey",
+            "s_nationkey = n2.n_nationkey"
+          ],
+          "view_filters": {
+            "__global__": [
+              "p_type IN ('ECONOMY ANODIZED STEEL', 'LARGE PLATED STEEL', 'PROMO BRUSHED BRASS', 'MEDIUM BURNISHED COPPER', 'LARGE PLATED BRASS', 'SMALL BRUSHED TIN')"
+            ]
+          },
+          "view_aggregates": [],
+          "view_complexity": 7,
+          "covered_query_ids": [
+            "Q445",
+            "Q446",
+            "Q447",
+            "Q448",
+            "Q449",
+            "Q450",
+            "Q451",
+            "Q452",
+            "Q453",
+            "Q454",
+            "Q455",
+            "Q456",
+            "Q457",
+            "Q458",
+            "Q459",
+            "Q460",
+            "Q461",
+            "Q462",
+            "Q463",
+            "Q464",
+            "Q465",
+            "Q466",
+            "Q467",
+            "Q468",
+            "Q469",
+            "Q470",
+            "Q471",
+            "Q472",
+            "Q473",
+            "Q474",
+            "Q475",
+            "Q476",
+            "Q477",
+            "Q478",
+            "Q479",
+            "Q480",
+            "Q481",
+            "Q482",
+            "Q483",
+            "Q484",
+            "Q485",
+            "Q486",
+            "Q487",
+            "Q488",
+            "Q489",
+            "Q490",
+            "Q491",
+            "Q492",
+            "Q493",
+            "Q494",
+            "Q495",
+            "Q496",
+            "Q497",
+            "Q498",
+            "Q499",
+            "Q500",
+            "Q501",
+            "Q502",
+            "Q503",
+            "Q504",
+            "Q505",
+            "Q506",
+            "Q507",
+            "Q508",
+            "Q509",
+            "Q510",
+            "Q511",
+            "Q512",
+            "Q513",
+            "Q514",
+            "Q515",
+            "Q516",
+            "Q517",
+            "Q518",
+            "Q519",
+            "Q520",
+            "Q521",
+            "Q522",
+            "Q523",
+            "Q524",
+            "Q525",
+            "Q526",
+            "Q527",
+            "Q528",
+            "Q529",
+            "Q530",
+            "Q531",
+            "Q532",
+            "Q533",
+            "Q534",
+            "Q535",
+            "Q536",
+            "Q537",
+            "Q538",
+            "Q539",
+            "Q540",
+            "Q541",
+            "Q542",
+            "Q543",
+            "Q544",
+            "Q545",
+            "Q546"
+          ],
+          "avg_similarity_score": 0.8162250074685788,
+          "cost_benefit_score": 0.07842,
+          "execution_time_pct": 0.262969,
+          "storage_cost_pct": 0.164708,
+          "avg_cpu": 0.011312,
+          "max_cpu": 0.017174
+        },
+        {
+          "view_id": "L0-FULLVIEW_Q43",
+          "view_sql": "SELECT SUM(l_extendedprice * (1 - l_discount)) AS revenue, o_orderdate, o_shippriority FROM customer, orders, lineitem WHERE (((c_custkey = o_custkey AND l_orderkey = o_orderkey) AND c_mktsegment IN ('AUTOMOBILE', 'BUILDING', 'FURNITURE', 'HOUSEHOLD', 'MACHINERY')) AND o_orderdate < CAST('1992-08-02' AS DATE)) AND l_shipdate > CAST('1992-08-02' AS DATE) GROUP BY l_orderkey, o_orderdate, o_shippriority",
+          "view_tables": [
+            "customer",
+            "orders",
+            "lineitem"
+          ],
+          "view_joins": [
+            [
+              "customer",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "orders"
+            ]
+          ],
+          "view_join_predicates": [
+            "c_custkey = o_custkey",
+            "l_orderkey = o_orderkey"
+          ],
+          "view_filters": {
+            "__global__": [
+              "c_mktsegment IN ('AUTOMOBILE', 'BUILDING', 'FURNITURE', 'HOUSEHOLD', 'MACHINERY')",
+              "o_orderdate < CAST('1992-08-02' AS DATE)",
+              "l_shipdate > CAST('1992-08-02' AS DATE)"
+            ]
+          },
+          "view_aggregates": [
+            "SUM(l_extendedprice * (1 - l_discount))"
+          ],
+          "view_complexity": 6,
+          "covered_query_ids": [
+            "Q43",
+            "Q44",
+            "Q45",
+            "Q46",
+            "Q47"
+          ],
+          "avg_similarity_score": 0.9375717878341675,
+          "cost_benefit_score": 0.070514,
+          "execution_time_pct": 0.00916,
+          "storage_cost_pct": 0.037059,
+          "avg_cpu": 0.022322,
+          "max_cpu": 0.076663
+        }
+      ]
+    },
+    {
+      "collection_id": 10,
+      "size": 5,
+      "total_score": 0.144437,
+      "unique_queries_covered": 129,
+      "views": [
+        {
+          "view_id": "L0-FULLVIEW_Q0",
+          "view_sql": "SELECT l_returnflag, l_linestatus, SUM(l_quantity) AS sum_qty, SUM(l_extendedprice) AS sum_base_price, SUM(l_extendedprice * (1 - l_discount)) AS sum_disc_price, SUM(l_extendedprice * (1 - l_discount) * (1 + l_tax)) AS sum_charge, AVG(l_quantity) AS avg_qty, AVG(l_extendedprice) AS avg_price, AVG(l_discount) AS avg_disc, COUNT(*) AS count_order FROM lineitem WHERE l_shipdate <= CAST('1992-12-01' AS DATE) - INTERVAL '3' DAY GROUP BY l_linestatus, l_returnflag",
+          "view_tables": [
+            "lineitem"
+          ],
+          "view_joins": [],
+          "view_join_predicates": [],
+          "view_filters": {
+            "__global__": [
+              "l_shipdate <= CAST('1992-12-01' AS DATE) - INTERVAL '3' DAY"
+            ]
+          },
+          "view_aggregates": [
+            "COUNT(*)",
+            "AVG(l_extendedprice)",
+            "SUM(l_quantity)",
+            "SUM(l_extendedprice * (1 - l_discount))",
+            "SUM(l_extendedprice * (1 - l_discount) * (1 + l_tax))",
+            "AVG(l_discount)",
+            "SUM(l_extendedprice)",
+            "AVG(l_quantity)"
+          ],
+          "view_complexity": 9,
+          "covered_query_ids": [
+            "Q0",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6"
+          ],
+          "avg_similarity_score": 0.9757881930896214,
+          "cost_benefit_score": 0.00361,
+          "execution_time_pct": 0.01277,
+          "storage_cost_pct": 0.041177,
+          "avg_cpu": 0.012264,
+          "max_cpu": 0.020061
+        },
+        {
+          "view_id": "L0-FULLVIEW_Q49",
+          "view_sql": "SELECT n_name, SUM(l_extendedprice * (1 - l_discount)) AS revenue FROM customer, orders, lineitem, supplier, nation, region WHERE (((((((c_custkey = o_custkey AND l_orderkey = o_orderkey) AND l_suppkey = s_suppkey) AND c_nationkey = s_nationkey) AND s_nationkey = n_nationkey) AND n_regionkey = r_regionkey) AND r_name IN ('AFRICA', 'AMERICA', 'ASIA', 'EUROPE', 'MIDDLE EAST')) AND o_orderdate >= CAST('1992-01-01' AS DATE)) AND o_orderdate < CAST('1996-01-01' AS DATE) GROUP BY n_name",
+          "view_tables": [
+            "customer",
+            "orders",
+            "lineitem",
+            "supplier",
+            "nation",
+            "region"
+          ],
+          "view_joins": [
+            [
+              "customer",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "supplier"
+            ],
+            [
+              "nation",
+              "region"
+            ],
+            [
+              "nation",
+              "supplier"
+            ]
+          ],
+          "view_join_predicates": [
+            "c_custkey = o_custkey",
+            "l_orderkey = o_orderkey",
+            "l_suppkey = s_suppkey",
+            "c_nationkey = s_nationkey",
+            "s_nationkey = n_nationkey",
+            "n_regionkey = r_regionkey"
+          ],
+          "view_filters": {
+            "__global__": [
+              "r_name IN ('AFRICA', 'AMERICA', 'ASIA', 'EUROPE', 'MIDDLE EAST')",
+              "o_orderdate >= CAST('1992-01-01' AS DATE)",
+              "o_orderdate < CAST('1996-01-01' AS DATE)"
+            ]
+          },
+          "view_aggregates": [
+            "SUM(l_extendedprice * (1 - l_discount))"
+          ],
+          "view_complexity": 9,
+          "covered_query_ids": [
+            "Q49",
+            "Q50",
+            "Q51",
+            "Q52",
+            "Q53"
+          ],
+          "avg_similarity_score": 0.9025585174560546,
+          "cost_benefit_score": -0.007635,
+          "execution_time_pct": 0.01523,
+          "storage_cost_pct": 0.049412,
+          "avg_cpu": 0.011543,
+          "max_cpu": 0.016488
+        },
+        {
+          "view_id": "L0-FULLVIEW_Q445",
+          "view_sql": "SELECT EXTRACT(YEAR FROM o_orderdate) AS o_year, l_extendedprice * (1 - l_discount) AS volume, n2.n_name AS nation, p_type, o_orderdate FROM part, supplier, lineitem, orders, customer, nation AS n1, nation AS n2, region WHERE (((((((p_partkey = l_partkey AND s_suppkey = l_suppkey) AND l_orderkey = o_orderkey) AND o_custkey = c_custkey) AND c_nationkey = n1.n_nationkey) AND n1.n_regionkey = r_regionkey) AND s_nationkey = n2.n_nationkey) AND o_orderdate BETWEEN CAST('1992-01-01' AS DATE) AND CAST('1992-12-31' AS DATE)) AND p_type IN ('ECONOMY ANODIZED STEEL', 'LARGE PLATED STEEL', 'PROMO BRUSHED BRASS', 'MEDIUM BURNISHED COPPER', 'LARGE PLATED BRASS', 'SMALL BRUSHED TIN')",
+          "view_tables": [
+            "part",
+            "supplier",
+            "lineitem",
+            "orders",
+            "customer",
+            "nation:n1",
+            "nation:n2",
+            "region"
+          ],
+          "view_joins": [
+            [
+              "customer",
+              "nation"
+            ],
+            [
+              "customer",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "supplier"
+            ],
+            [
+              "nation",
+              "region"
+            ],
+            [
+              "part",
+              "supplier"
+            ]
+          ],
+          "view_join_predicates": [
+            "p_partkey = l_partkey",
+            "s_suppkey = l_suppkey",
+            "l_orderkey = o_orderkey",
+            "o_custkey = c_custkey",
+            "c_nationkey = n1.n_nationkey",
+            "n1.n_regionkey = r_regionkey",
+            "s_nationkey = n2.n_nationkey"
+          ],
+          "view_filters": {
+            "__global__": [
+              "p_type IN ('ECONOMY ANODIZED STEEL', 'LARGE PLATED STEEL', 'PROMO BRUSHED BRASS', 'MEDIUM BURNISHED COPPER', 'LARGE PLATED BRASS', 'SMALL BRUSHED TIN')"
+            ]
+          },
+          "view_aggregates": [],
+          "view_complexity": 7,
+          "covered_query_ids": [
+            "Q445",
+            "Q446",
+            "Q447",
+            "Q448",
+            "Q449",
+            "Q450",
+            "Q451",
+            "Q452",
+            "Q453",
+            "Q454",
+            "Q455",
+            "Q456",
+            "Q457",
+            "Q458",
+            "Q459",
+            "Q460",
+            "Q461",
+            "Q462",
+            "Q463",
+            "Q464",
+            "Q465",
+            "Q466",
+            "Q467",
+            "Q468",
+            "Q469",
+            "Q470",
+            "Q471",
+            "Q472",
+            "Q473",
+            "Q474",
+            "Q475",
+            "Q476",
+            "Q477",
+            "Q478",
+            "Q479",
+            "Q480",
+            "Q481",
+            "Q482",
+            "Q483",
+            "Q484",
+            "Q485",
+            "Q486",
+            "Q487",
+            "Q488",
+            "Q489",
+            "Q490",
+            "Q491",
+            "Q492",
+            "Q493",
+            "Q494",
+            "Q495",
+            "Q496",
+            "Q497",
+            "Q498",
+            "Q499",
+            "Q500",
+            "Q501",
+            "Q502",
+            "Q503",
+            "Q504",
+            "Q505",
+            "Q506",
+            "Q507",
+            "Q508",
+            "Q509",
+            "Q510",
+            "Q511",
+            "Q512",
+            "Q513",
+            "Q514",
+            "Q515",
+            "Q516",
+            "Q517",
+            "Q518",
+            "Q519",
+            "Q520",
+            "Q521",
+            "Q522",
+            "Q523",
+            "Q524",
+            "Q525",
+            "Q526",
+            "Q527",
+            "Q528",
+            "Q529",
+            "Q530",
+            "Q531",
+            "Q532",
+            "Q533",
+            "Q534",
+            "Q535",
+            "Q536",
+            "Q537",
+            "Q538",
+            "Q539",
+            "Q540",
+            "Q541",
+            "Q542",
+            "Q543",
+            "Q544",
+            "Q545",
+            "Q546"
+          ],
+          "avg_similarity_score": 0.8162250074685788,
+          "cost_benefit_score": 0.07842,
+          "execution_time_pct": 0.262969,
+          "storage_cost_pct": 0.164708,
+          "avg_cpu": 0.011312,
+          "max_cpu": 0.017174
+        },
+        {
+          "view_id": "L0-FULLVIEW_Q43",
+          "view_sql": "SELECT SUM(l_extendedprice * (1 - l_discount)) AS revenue, o_orderdate, o_shippriority FROM customer, orders, lineitem WHERE (((c_custkey = o_custkey AND l_orderkey = o_orderkey) AND c_mktsegment IN ('AUTOMOBILE', 'BUILDING', 'FURNITURE', 'HOUSEHOLD', 'MACHINERY')) AND o_orderdate < CAST('1992-08-02' AS DATE)) AND l_shipdate > CAST('1992-08-02' AS DATE) GROUP BY l_orderkey, o_orderdate, o_shippriority",
+          "view_tables": [
+            "customer",
+            "orders",
+            "lineitem"
+          ],
+          "view_joins": [
+            [
+              "customer",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "orders"
+            ]
+          ],
+          "view_join_predicates": [
+            "c_custkey = o_custkey",
+            "l_orderkey = o_orderkey"
+          ],
+          "view_filters": {
+            "__global__": [
+              "c_mktsegment IN ('AUTOMOBILE', 'BUILDING', 'FURNITURE', 'HOUSEHOLD', 'MACHINERY')",
+              "o_orderdate < CAST('1992-08-02' AS DATE)",
+              "l_shipdate > CAST('1992-08-02' AS DATE)"
+            ]
+          },
+          "view_aggregates": [
+            "SUM(l_extendedprice * (1 - l_discount))"
+          ],
+          "view_complexity": 6,
+          "covered_query_ids": [
+            "Q43",
+            "Q44",
+            "Q45",
+            "Q46",
+            "Q47"
+          ],
+          "avg_similarity_score": 0.9375717878341675,
+          "cost_benefit_score": 0.070514,
+          "execution_time_pct": 0.00916,
+          "storage_cost_pct": 0.037059,
+          "avg_cpu": 0.022322,
+          "max_cpu": 0.076663
+        },
+        {
+          "view_id": "L1-JOINS_Q547",
+          "view_sql": "SELECT n_name AS nation, EXTRACT(YEAR FROM o_orderdate) AS o_year, l_extendedprice * (1 - l_discount) - ps_supplycost * l_quantity AS amount, p_name FROM part , supplier , lineitem , partsupp , orders , nation WHERE s_suppkey = l_suppkey AND ps_suppkey = l_suppkey AND ps_partkey = l_partkey AND p_partkey = l_partkey AND o_orderkey = l_orderkey AND s_nationkey = n_nationkey",
+          "view_tables": [
+            "part",
+            "supplier",
+            "lineitem",
+            "partsupp",
+            "orders",
+            "nation"
+          ],
+          "view_joins": [
+            [
+              "lineitem",
+              "partsupp"
+            ],
+            [
+              "lineitem",
+              "supplier"
+            ],
+            [
+              "nation",
+              "orders"
+            ],
+            [
+              "orders",
+              "partsupp"
+            ],
+            [
+              "part",
+              "supplier"
+            ]
+          ],
+          "view_join_predicates": [
+            "s_suppkey = l_suppkey",
+            "ps_suppkey = l_suppkey",
+            "ps_partkey = l_partkey",
+            "p_partkey = l_partkey",
+            "o_orderkey = l_orderkey",
+            "s_nationkey = n_nationkey"
+          ],
+          "view_filters": {},
+          "view_aggregates": [],
+          "view_complexity": 5,
+          "covered_query_ids": [
+            "Q547",
+            "Q548",
+            "Q549",
+            "Q550",
+            "Q551",
+            "Q552",
+            "Q553",
+            "Q554",
+            "Q555",
+            "Q556"
+          ],
+          "avg_similarity_score": 0.8996989130973816,
+          "cost_benefit_score": -0.000472,
+          "execution_time_pct": 0.075643,
+          "storage_cost_pct": 0.098825,
+          "avg_cpu": 0.01161,
+          "max_cpu": 0.018687
+        }
+      ]
+    },
+    {
+      "collection_id": 11,
+      "size": 3,
+      "total_score": 0.141299,
+      "unique_queries_covered": 112,
+      "views": [
+        {
+          "view_id": "L0-FULLVIEW_Q49",
+          "view_sql": "SELECT n_name, SUM(l_extendedprice * (1 - l_discount)) AS revenue FROM customer, orders, lineitem, supplier, nation, region WHERE (((((((c_custkey = o_custkey AND l_orderkey = o_orderkey) AND l_suppkey = s_suppkey) AND c_nationkey = s_nationkey) AND s_nationkey = n_nationkey) AND n_regionkey = r_regionkey) AND r_name IN ('AFRICA', 'AMERICA', 'ASIA', 'EUROPE', 'MIDDLE EAST')) AND o_orderdate >= CAST('1992-01-01' AS DATE)) AND o_orderdate < CAST('1996-01-01' AS DATE) GROUP BY n_name",
+          "view_tables": [
+            "customer",
+            "orders",
+            "lineitem",
+            "supplier",
+            "nation",
+            "region"
+          ],
+          "view_joins": [
+            [
+              "customer",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "supplier"
+            ],
+            [
+              "nation",
+              "region"
+            ],
+            [
+              "nation",
+              "supplier"
+            ]
+          ],
+          "view_join_predicates": [
+            "c_custkey = o_custkey",
+            "l_orderkey = o_orderkey",
+            "l_suppkey = s_suppkey",
+            "c_nationkey = s_nationkey",
+            "s_nationkey = n_nationkey",
+            "n_regionkey = r_regionkey"
+          ],
+          "view_filters": {
+            "__global__": [
+              "r_name IN ('AFRICA', 'AMERICA', 'ASIA', 'EUROPE', 'MIDDLE EAST')",
+              "o_orderdate >= CAST('1992-01-01' AS DATE)",
+              "o_orderdate < CAST('1996-01-01' AS DATE)"
+            ]
+          },
+          "view_aggregates": [
+            "SUM(l_extendedprice * (1 - l_discount))"
+          ],
+          "view_complexity": 9,
+          "covered_query_ids": [
+            "Q49",
+            "Q50",
+            "Q51",
+            "Q52",
+            "Q53"
+          ],
+          "avg_similarity_score": 0.9025585174560546,
+          "cost_benefit_score": -0.007635,
+          "execution_time_pct": 0.01523,
+          "storage_cost_pct": 0.049412,
+          "avg_cpu": 0.011543,
+          "max_cpu": 0.016488
+        },
+        {
+          "view_id": "L0-FULLVIEW_Q445",
+          "view_sql": "SELECT EXTRACT(YEAR FROM o_orderdate) AS o_year, l_extendedprice * (1 - l_discount) AS volume, n2.n_name AS nation, p_type, o_orderdate FROM part, supplier, lineitem, orders, customer, nation AS n1, nation AS n2, region WHERE (((((((p_partkey = l_partkey AND s_suppkey = l_suppkey) AND l_orderkey = o_orderkey) AND o_custkey = c_custkey) AND c_nationkey = n1.n_nationkey) AND n1.n_regionkey = r_regionkey) AND s_nationkey = n2.n_nationkey) AND o_orderdate BETWEEN CAST('1992-01-01' AS DATE) AND CAST('1992-12-31' AS DATE)) AND p_type IN ('ECONOMY ANODIZED STEEL', 'LARGE PLATED STEEL', 'PROMO BRUSHED BRASS', 'MEDIUM BURNISHED COPPER', 'LARGE PLATED BRASS', 'SMALL BRUSHED TIN')",
+          "view_tables": [
+            "part",
+            "supplier",
+            "lineitem",
+            "orders",
+            "customer",
+            "nation:n1",
+            "nation:n2",
+            "region"
+          ],
+          "view_joins": [
+            [
+              "customer",
+              "nation"
+            ],
+            [
+              "customer",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "supplier"
+            ],
+            [
+              "nation",
+              "region"
+            ],
+            [
+              "part",
+              "supplier"
+            ]
+          ],
+          "view_join_predicates": [
+            "p_partkey = l_partkey",
+            "s_suppkey = l_suppkey",
+            "l_orderkey = o_orderkey",
+            "o_custkey = c_custkey",
+            "c_nationkey = n1.n_nationkey",
+            "n1.n_regionkey = r_regionkey",
+            "s_nationkey = n2.n_nationkey"
+          ],
+          "view_filters": {
+            "__global__": [
+              "p_type IN ('ECONOMY ANODIZED STEEL', 'LARGE PLATED STEEL', 'PROMO BRUSHED BRASS', 'MEDIUM BURNISHED COPPER', 'LARGE PLATED BRASS', 'SMALL BRUSHED TIN')"
+            ]
+          },
+          "view_aggregates": [],
+          "view_complexity": 7,
+          "covered_query_ids": [
+            "Q445",
+            "Q446",
+            "Q447",
+            "Q448",
+            "Q449",
+            "Q450",
+            "Q451",
+            "Q452",
+            "Q453",
+            "Q454",
+            "Q455",
+            "Q456",
+            "Q457",
+            "Q458",
+            "Q459",
+            "Q460",
+            "Q461",
+            "Q462",
+            "Q463",
+            "Q464",
+            "Q465",
+            "Q466",
+            "Q467",
+            "Q468",
+            "Q469",
+            "Q470",
+            "Q471",
+            "Q472",
+            "Q473",
+            "Q474",
+            "Q475",
+            "Q476",
+            "Q477",
+            "Q478",
+            "Q479",
+            "Q480",
+            "Q481",
+            "Q482",
+            "Q483",
+            "Q484",
+            "Q485",
+            "Q486",
+            "Q487",
+            "Q488",
+            "Q489",
+            "Q490",
+            "Q491",
+            "Q492",
+            "Q493",
+            "Q494",
+            "Q495",
+            "Q496",
+            "Q497",
+            "Q498",
+            "Q499",
+            "Q500",
+            "Q501",
+            "Q502",
+            "Q503",
+            "Q504",
+            "Q505",
+            "Q506",
+            "Q507",
+            "Q508",
+            "Q509",
+            "Q510",
+            "Q511",
+            "Q512",
+            "Q513",
+            "Q514",
+            "Q515",
+            "Q516",
+            "Q517",
+            "Q518",
+            "Q519",
+            "Q520",
+            "Q521",
+            "Q522",
+            "Q523",
+            "Q524",
+            "Q525",
+            "Q526",
+            "Q527",
+            "Q528",
+            "Q529",
+            "Q530",
+            "Q531",
+            "Q532",
+            "Q533",
+            "Q534",
+            "Q535",
+            "Q536",
+            "Q537",
+            "Q538",
+            "Q539",
+            "Q540",
+            "Q541",
+            "Q542",
+            "Q543",
+            "Q544",
+            "Q545",
+            "Q546"
+          ],
+          "avg_similarity_score": 0.8162250074685788,
+          "cost_benefit_score": 0.07842,
+          "execution_time_pct": 0.262969,
+          "storage_cost_pct": 0.164708,
+          "avg_cpu": 0.011312,
+          "max_cpu": 0.017174
+        },
+        {
+          "view_id": "L0-FULLVIEW_Q43",
+          "view_sql": "SELECT SUM(l_extendedprice * (1 - l_discount)) AS revenue, o_orderdate, o_shippriority FROM customer, orders, lineitem WHERE (((c_custkey = o_custkey AND l_orderkey = o_orderkey) AND c_mktsegment IN ('AUTOMOBILE', 'BUILDING', 'FURNITURE', 'HOUSEHOLD', 'MACHINERY')) AND o_orderdate < CAST('1992-08-02' AS DATE)) AND l_shipdate > CAST('1992-08-02' AS DATE) GROUP BY l_orderkey, o_orderdate, o_shippriority",
+          "view_tables": [
+            "customer",
+            "orders",
+            "lineitem"
+          ],
+          "view_joins": [
+            [
+              "customer",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "orders"
+            ]
+          ],
+          "view_join_predicates": [
+            "c_custkey = o_custkey",
+            "l_orderkey = o_orderkey"
+          ],
+          "view_filters": {
+            "__global__": [
+              "c_mktsegment IN ('AUTOMOBILE', 'BUILDING', 'FURNITURE', 'HOUSEHOLD', 'MACHINERY')",
+              "o_orderdate < CAST('1992-08-02' AS DATE)",
+              "l_shipdate > CAST('1992-08-02' AS DATE)"
+            ]
+          },
+          "view_aggregates": [
+            "SUM(l_extendedprice * (1 - l_discount))"
+          ],
+          "view_complexity": 6,
+          "covered_query_ids": [
+            "Q43",
+            "Q44",
+            "Q45",
+            "Q46",
+            "Q47"
+          ],
+          "avg_similarity_score": 0.9375717878341675,
+          "cost_benefit_score": 0.070514,
+          "execution_time_pct": 0.00916,
+          "storage_cost_pct": 0.037059,
+          "avg_cpu": 0.022322,
+          "max_cpu": 0.076663
+        }
+      ]
+    },
+    {
+      "collection_id": 12,
+      "size": 3,
+      "total_score": 0.066489,
+      "unique_queries_covered": 17,
+      "views": [
+        {
+          "view_id": "L0-FULLVIEW_Q0",
+          "view_sql": "SELECT l_returnflag, l_linestatus, SUM(l_quantity) AS sum_qty, SUM(l_extendedprice) AS sum_base_price, SUM(l_extendedprice * (1 - l_discount)) AS sum_disc_price, SUM(l_extendedprice * (1 - l_discount) * (1 + l_tax)) AS sum_charge, AVG(l_quantity) AS avg_qty, AVG(l_extendedprice) AS avg_price, AVG(l_discount) AS avg_disc, COUNT(*) AS count_order FROM lineitem WHERE l_shipdate <= CAST('1992-12-01' AS DATE) - INTERVAL '3' DAY GROUP BY l_linestatus, l_returnflag",
+          "view_tables": [
+            "lineitem"
+          ],
+          "view_joins": [],
+          "view_join_predicates": [],
+          "view_filters": {
+            "__global__": [
+              "l_shipdate <= CAST('1992-12-01' AS DATE) - INTERVAL '3' DAY"
+            ]
+          },
+          "view_aggregates": [
+            "COUNT(*)",
+            "AVG(l_extendedprice)",
+            "SUM(l_quantity)",
+            "SUM(l_extendedprice * (1 - l_discount))",
+            "SUM(l_extendedprice * (1 - l_discount) * (1 + l_tax))",
+            "AVG(l_discount)",
+            "SUM(l_extendedprice)",
+            "AVG(l_quantity)"
+          ],
+          "view_complexity": 9,
+          "covered_query_ids": [
+            "Q0",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6"
+          ],
+          "avg_similarity_score": 0.9757881930896214,
+          "cost_benefit_score": 0.00361,
+          "execution_time_pct": 0.01277,
+          "storage_cost_pct": 0.041177,
+          "avg_cpu": 0.012264,
+          "max_cpu": 0.020061
+        },
+        {
+          "view_id": "L0-FULLVIEW_Q49",
+          "view_sql": "SELECT n_name, SUM(l_extendedprice * (1 - l_discount)) AS revenue FROM customer, orders, lineitem, supplier, nation, region WHERE (((((((c_custkey = o_custkey AND l_orderkey = o_orderkey) AND l_suppkey = s_suppkey) AND c_nationkey = s_nationkey) AND s_nationkey = n_nationkey) AND n_regionkey = r_regionkey) AND r_name IN ('AFRICA', 'AMERICA', 'ASIA', 'EUROPE', 'MIDDLE EAST')) AND o_orderdate >= CAST('1992-01-01' AS DATE)) AND o_orderdate < CAST('1996-01-01' AS DATE) GROUP BY n_name",
+          "view_tables": [
+            "customer",
+            "orders",
+            "lineitem",
+            "supplier",
+            "nation",
+            "region"
+          ],
+          "view_joins": [
+            [
+              "customer",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "supplier"
+            ],
+            [
+              "nation",
+              "region"
+            ],
+            [
+              "nation",
+              "supplier"
+            ]
+          ],
+          "view_join_predicates": [
+            "c_custkey = o_custkey",
+            "l_orderkey = o_orderkey",
+            "l_suppkey = s_suppkey",
+            "c_nationkey = s_nationkey",
+            "s_nationkey = n_nationkey",
+            "n_regionkey = r_regionkey"
+          ],
+          "view_filters": {
+            "__global__": [
+              "r_name IN ('AFRICA', 'AMERICA', 'ASIA', 'EUROPE', 'MIDDLE EAST')",
+              "o_orderdate >= CAST('1992-01-01' AS DATE)",
+              "o_orderdate < CAST('1996-01-01' AS DATE)"
+            ]
+          },
+          "view_aggregates": [
+            "SUM(l_extendedprice * (1 - l_discount))"
+          ],
+          "view_complexity": 9,
+          "covered_query_ids": [
+            "Q49",
+            "Q50",
+            "Q51",
+            "Q52",
+            "Q53"
+          ],
+          "avg_similarity_score": 0.9025585174560546,
+          "cost_benefit_score": -0.007635,
+          "execution_time_pct": 0.01523,
+          "storage_cost_pct": 0.049412,
+          "avg_cpu": 0.011543,
+          "max_cpu": 0.016488
+        },
+        {
+          "view_id": "L0-FULLVIEW_Q43",
+          "view_sql": "SELECT SUM(l_extendedprice * (1 - l_discount)) AS revenue, o_orderdate, o_shippriority FROM customer, orders, lineitem WHERE (((c_custkey = o_custkey AND l_orderkey = o_orderkey) AND c_mktsegment IN ('AUTOMOBILE', 'BUILDING', 'FURNITURE', 'HOUSEHOLD', 'MACHINERY')) AND o_orderdate < CAST('1992-08-02' AS DATE)) AND l_shipdate > CAST('1992-08-02' AS DATE) GROUP BY l_orderkey, o_orderdate, o_shippriority",
+          "view_tables": [
+            "customer",
+            "orders",
+            "lineitem"
+          ],
+          "view_joins": [
+            [
+              "customer",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "orders"
+            ]
+          ],
+          "view_join_predicates": [
+            "c_custkey = o_custkey",
+            "l_orderkey = o_orderkey"
+          ],
+          "view_filters": {
+            "__global__": [
+              "c_mktsegment IN ('AUTOMOBILE', 'BUILDING', 'FURNITURE', 'HOUSEHOLD', 'MACHINERY')",
+              "o_orderdate < CAST('1992-08-02' AS DATE)",
+              "l_shipdate > CAST('1992-08-02' AS DATE)"
+            ]
+          },
+          "view_aggregates": [
+            "SUM(l_extendedprice * (1 - l_discount))"
+          ],
+          "view_complexity": 6,
+          "covered_query_ids": [
+            "Q43",
+            "Q44",
+            "Q45",
+            "Q46",
+            "Q47"
+          ],
+          "avg_similarity_score": 0.9375717878341675,
+          "cost_benefit_score": 0.070514,
+          "execution_time_pct": 0.00916,
+          "storage_cost_pct": 0.037059,
+          "avg_cpu": 0.022322,
+          "max_cpu": 0.076663
+        }
+      ]
+    },
+    {
+      "collection_id": 13,
+      "size": 4,
+      "total_score": 0.066017,
+      "unique_queries_covered": 27,
+      "views": [
+        {
+          "view_id": "L0-FULLVIEW_Q0",
+          "view_sql": "SELECT l_returnflag, l_linestatus, SUM(l_quantity) AS sum_qty, SUM(l_extendedprice) AS sum_base_price, SUM(l_extendedprice * (1 - l_discount)) AS sum_disc_price, SUM(l_extendedprice * (1 - l_discount) * (1 + l_tax)) AS sum_charge, AVG(l_quantity) AS avg_qty, AVG(l_extendedprice) AS avg_price, AVG(l_discount) AS avg_disc, COUNT(*) AS count_order FROM lineitem WHERE l_shipdate <= CAST('1992-12-01' AS DATE) - INTERVAL '3' DAY GROUP BY l_linestatus, l_returnflag",
+          "view_tables": [
+            "lineitem"
+          ],
+          "view_joins": [],
+          "view_join_predicates": [],
+          "view_filters": {
+            "__global__": [
+              "l_shipdate <= CAST('1992-12-01' AS DATE) - INTERVAL '3' DAY"
+            ]
+          },
+          "view_aggregates": [
+            "COUNT(*)",
+            "AVG(l_extendedprice)",
+            "SUM(l_quantity)",
+            "SUM(l_extendedprice * (1 - l_discount))",
+            "SUM(l_extendedprice * (1 - l_discount) * (1 + l_tax))",
+            "AVG(l_discount)",
+            "SUM(l_extendedprice)",
+            "AVG(l_quantity)"
+          ],
+          "view_complexity": 9,
+          "covered_query_ids": [
+            "Q0",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6"
+          ],
+          "avg_similarity_score": 0.9757881930896214,
+          "cost_benefit_score": 0.00361,
+          "execution_time_pct": 0.01277,
+          "storage_cost_pct": 0.041177,
+          "avg_cpu": 0.012264,
+          "max_cpu": 0.020061
+        },
+        {
+          "view_id": "L0-FULLVIEW_Q49",
+          "view_sql": "SELECT n_name, SUM(l_extendedprice * (1 - l_discount)) AS revenue FROM customer, orders, lineitem, supplier, nation, region WHERE (((((((c_custkey = o_custkey AND l_orderkey = o_orderkey) AND l_suppkey = s_suppkey) AND c_nationkey = s_nationkey) AND s_nationkey = n_nationkey) AND n_regionkey = r_regionkey) AND r_name IN ('AFRICA', 'AMERICA', 'ASIA', 'EUROPE', 'MIDDLE EAST')) AND o_orderdate >= CAST('1992-01-01' AS DATE)) AND o_orderdate < CAST('1996-01-01' AS DATE) GROUP BY n_name",
+          "view_tables": [
+            "customer",
+            "orders",
+            "lineitem",
+            "supplier",
+            "nation",
+            "region"
+          ],
+          "view_joins": [
+            [
+              "customer",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "supplier"
+            ],
+            [
+              "nation",
+              "region"
+            ],
+            [
+              "nation",
+              "supplier"
+            ]
+          ],
+          "view_join_predicates": [
+            "c_custkey = o_custkey",
+            "l_orderkey = o_orderkey",
+            "l_suppkey = s_suppkey",
+            "c_nationkey = s_nationkey",
+            "s_nationkey = n_nationkey",
+            "n_regionkey = r_regionkey"
+          ],
+          "view_filters": {
+            "__global__": [
+              "r_name IN ('AFRICA', 'AMERICA', 'ASIA', 'EUROPE', 'MIDDLE EAST')",
+              "o_orderdate >= CAST('1992-01-01' AS DATE)",
+              "o_orderdate < CAST('1996-01-01' AS DATE)"
+            ]
+          },
+          "view_aggregates": [
+            "SUM(l_extendedprice * (1 - l_discount))"
+          ],
+          "view_complexity": 9,
+          "covered_query_ids": [
+            "Q49",
+            "Q50",
+            "Q51",
+            "Q52",
+            "Q53"
+          ],
+          "avg_similarity_score": 0.9025585174560546,
+          "cost_benefit_score": -0.007635,
+          "execution_time_pct": 0.01523,
+          "storage_cost_pct": 0.049412,
+          "avg_cpu": 0.011543,
+          "max_cpu": 0.016488
+        },
+        {
+          "view_id": "L0-FULLVIEW_Q43",
+          "view_sql": "SELECT SUM(l_extendedprice * (1 - l_discount)) AS revenue, o_orderdate, o_shippriority FROM customer, orders, lineitem WHERE (((c_custkey = o_custkey AND l_orderkey = o_orderkey) AND c_mktsegment IN ('AUTOMOBILE', 'BUILDING', 'FURNITURE', 'HOUSEHOLD', 'MACHINERY')) AND o_orderdate < CAST('1992-08-02' AS DATE)) AND l_shipdate > CAST('1992-08-02' AS DATE) GROUP BY l_orderkey, o_orderdate, o_shippriority",
+          "view_tables": [
+            "customer",
+            "orders",
+            "lineitem"
+          ],
+          "view_joins": [
+            [
+              "customer",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "orders"
+            ]
+          ],
+          "view_join_predicates": [
+            "c_custkey = o_custkey",
+            "l_orderkey = o_orderkey"
+          ],
+          "view_filters": {
+            "__global__": [
+              "c_mktsegment IN ('AUTOMOBILE', 'BUILDING', 'FURNITURE', 'HOUSEHOLD', 'MACHINERY')",
+              "o_orderdate < CAST('1992-08-02' AS DATE)",
+              "l_shipdate > CAST('1992-08-02' AS DATE)"
+            ]
+          },
+          "view_aggregates": [
+            "SUM(l_extendedprice * (1 - l_discount))"
+          ],
+          "view_complexity": 6,
+          "covered_query_ids": [
+            "Q43",
+            "Q44",
+            "Q45",
+            "Q46",
+            "Q47"
+          ],
+          "avg_similarity_score": 0.9375717878341675,
+          "cost_benefit_score": 0.070514,
+          "execution_time_pct": 0.00916,
+          "storage_cost_pct": 0.037059,
+          "avg_cpu": 0.022322,
+          "max_cpu": 0.076663
+        },
+        {
+          "view_id": "L1-JOINS_Q547",
+          "view_sql": "SELECT n_name AS nation, EXTRACT(YEAR FROM o_orderdate) AS o_year, l_extendedprice * (1 - l_discount) - ps_supplycost * l_quantity AS amount, p_name FROM part , supplier , lineitem , partsupp , orders , nation WHERE s_suppkey = l_suppkey AND ps_suppkey = l_suppkey AND ps_partkey = l_partkey AND p_partkey = l_partkey AND o_orderkey = l_orderkey AND s_nationkey = n_nationkey",
+          "view_tables": [
+            "part",
+            "supplier",
+            "lineitem",
+            "partsupp",
+            "orders",
+            "nation"
+          ],
+          "view_joins": [
+            [
+              "lineitem",
+              "partsupp"
+            ],
+            [
+              "lineitem",
+              "supplier"
+            ],
+            [
+              "nation",
+              "orders"
+            ],
+            [
+              "orders",
+              "partsupp"
+            ],
+            [
+              "part",
+              "supplier"
+            ]
+          ],
+          "view_join_predicates": [
+            "s_suppkey = l_suppkey",
+            "ps_suppkey = l_suppkey",
+            "ps_partkey = l_partkey",
+            "p_partkey = l_partkey",
+            "o_orderkey = l_orderkey",
+            "s_nationkey = n_nationkey"
+          ],
+          "view_filters": {},
+          "view_aggregates": [],
+          "view_complexity": 5,
+          "covered_query_ids": [
+            "Q547",
+            "Q548",
+            "Q549",
+            "Q550",
+            "Q551",
+            "Q552",
+            "Q553",
+            "Q554",
+            "Q555",
+            "Q556"
+          ],
+          "avg_similarity_score": 0.8996989130973816,
+          "cost_benefit_score": -0.000472,
+          "execution_time_pct": 0.075643,
+          "storage_cost_pct": 0.098825,
+          "avg_cpu": 0.01161,
+          "max_cpu": 0.018687
+        }
+      ]
+    },
+    {
+      "collection_id": 14,
+      "size": 3,
+      "total_score": 0.062407,
+      "unique_queries_covered": 20,
+      "views": [
+        {
+          "view_id": "L0-FULLVIEW_Q49",
+          "view_sql": "SELECT n_name, SUM(l_extendedprice * (1 - l_discount)) AS revenue FROM customer, orders, lineitem, supplier, nation, region WHERE (((((((c_custkey = o_custkey AND l_orderkey = o_orderkey) AND l_suppkey = s_suppkey) AND c_nationkey = s_nationkey) AND s_nationkey = n_nationkey) AND n_regionkey = r_regionkey) AND r_name IN ('AFRICA', 'AMERICA', 'ASIA', 'EUROPE', 'MIDDLE EAST')) AND o_orderdate >= CAST('1992-01-01' AS DATE)) AND o_orderdate < CAST('1996-01-01' AS DATE) GROUP BY n_name",
+          "view_tables": [
+            "customer",
+            "orders",
+            "lineitem",
+            "supplier",
+            "nation",
+            "region"
+          ],
+          "view_joins": [
+            [
+              "customer",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "supplier"
+            ],
+            [
+              "nation",
+              "region"
+            ],
+            [
+              "nation",
+              "supplier"
+            ]
+          ],
+          "view_join_predicates": [
+            "c_custkey = o_custkey",
+            "l_orderkey = o_orderkey",
+            "l_suppkey = s_suppkey",
+            "c_nationkey = s_nationkey",
+            "s_nationkey = n_nationkey",
+            "n_regionkey = r_regionkey"
+          ],
+          "view_filters": {
+            "__global__": [
+              "r_name IN ('AFRICA', 'AMERICA', 'ASIA', 'EUROPE', 'MIDDLE EAST')",
+              "o_orderdate >= CAST('1992-01-01' AS DATE)",
+              "o_orderdate < CAST('1996-01-01' AS DATE)"
+            ]
+          },
+          "view_aggregates": [
+            "SUM(l_extendedprice * (1 - l_discount))"
+          ],
+          "view_complexity": 9,
+          "covered_query_ids": [
+            "Q49",
+            "Q50",
+            "Q51",
+            "Q52",
+            "Q53"
+          ],
+          "avg_similarity_score": 0.9025585174560546,
+          "cost_benefit_score": -0.007635,
+          "execution_time_pct": 0.01523,
+          "storage_cost_pct": 0.049412,
+          "avg_cpu": 0.011543,
+          "max_cpu": 0.016488
+        },
+        {
+          "view_id": "L0-FULLVIEW_Q43",
+          "view_sql": "SELECT SUM(l_extendedprice * (1 - l_discount)) AS revenue, o_orderdate, o_shippriority FROM customer, orders, lineitem WHERE (((c_custkey = o_custkey AND l_orderkey = o_orderkey) AND c_mktsegment IN ('AUTOMOBILE', 'BUILDING', 'FURNITURE', 'HOUSEHOLD', 'MACHINERY')) AND o_orderdate < CAST('1992-08-02' AS DATE)) AND l_shipdate > CAST('1992-08-02' AS DATE) GROUP BY l_orderkey, o_orderdate, o_shippriority",
+          "view_tables": [
+            "customer",
+            "orders",
+            "lineitem"
+          ],
+          "view_joins": [
+            [
+              "customer",
+              "orders"
+            ],
+            [
+              "lineitem",
+              "orders"
+            ]
+          ],
+          "view_join_predicates": [
+            "c_custkey = o_custkey",
+            "l_orderkey = o_orderkey"
+          ],
+          "view_filters": {
+            "__global__": [
+              "c_mktsegment IN ('AUTOMOBILE', 'BUILDING', 'FURNITURE', 'HOUSEHOLD', 'MACHINERY')",
+              "o_orderdate < CAST('1992-08-02' AS DATE)",
+              "l_shipdate > CAST('1992-08-02' AS DATE)"
+            ]
+          },
+          "view_aggregates": [
+            "SUM(l_extendedprice * (1 - l_discount))"
+          ],
+          "view_complexity": 6,
+          "covered_query_ids": [
+            "Q43",
+            "Q44",
+            "Q45",
+            "Q46",
+            "Q47"
+          ],
+          "avg_similarity_score": 0.9375717878341675,
+          "cost_benefit_score": 0.070514,
+          "execution_time_pct": 0.00916,
+          "storage_cost_pct": 0.037059,
+          "avg_cpu": 0.022322,
+          "max_cpu": 0.076663
+        },
+        {
+          "view_id": "L1-JOINS_Q547",
+          "view_sql": "SELECT n_name AS nation, EXTRACT(YEAR FROM o_orderdate) AS o_year, l_extendedprice * (1 - l_discount) - ps_supplycost * l_quantity AS amount, p_name FROM part , supplier , lineitem , partsupp , orders , nation WHERE s_suppkey = l_suppkey AND ps_suppkey = l_suppkey AND ps_partkey = l_partkey AND p_partkey = l_partkey AND o_orderkey = l_orderkey AND s_nationkey = n_nationkey",
+          "view_tables": [
+            "part",
+            "supplier",
+            "lineitem",
+            "partsupp",
+            "orders",
+            "nation"
+          ],
+          "view_joins": [
+            [
+              "lineitem",
+              "partsupp"
+            ],
+            [
+              "lineitem",
+              "supplier"
+            ],
+            [
+              "nation",
+              "orders"
+            ],
+            [
+              "orders",
+              "partsupp"
+            ],
+            [
+              "part",
+              "supplier"
+            ]
+          ],
+          "view_join_predicates": [
+            "s_suppkey = l_suppkey",
+            "ps_suppkey = l_suppkey",
+            "ps_partkey = l_partkey",
+            "p_partkey = l_partkey",
+            "o_orderkey = l_orderkey",
+            "s_nationkey = n_nationkey"
+          ],
+          "view_filters": {},
+          "view_aggregates": [],
+          "view_complexity": 5,
+          "covered_query_ids": [
+            "Q547",
+            "Q548",
+            "Q549",
+            "Q550",
+            "Q551",
+            "Q552",
+            "Q553",
+            "Q554",
+            "Q555",
+            "Q556"
+          ],
+          "avg_similarity_score": 0.8996989130973816,
+          "cost_benefit_score": -0.000472,
+          "execution_time_pct": 0.075643,
+          "storage_cost_pct": 0.098825,
+          "avg_cpu": 0.01161,
+          "max_cpu": 0.018687
+        }
+      ]
+    }
+  ]
+}

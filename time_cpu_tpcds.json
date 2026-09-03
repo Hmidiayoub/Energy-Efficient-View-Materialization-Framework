@@ -1,0 +1,3330 @@
+[
+  {
+    "query_id": "q1",
+    "execution_time": 1.615710697020404,
+    "CPU_percentage_mean": 1.3539453320691586,
+    "CPU_percentage_max": 9.838534672448676
+  },
+  {
+    "query_id": "q2",
+    "execution_time": 0.6499125749687664,
+    "CPU_percentage_mean": 1.6245206399308787,
+    "CPU_percentage_max": 6.378033493332301
+  },
+  {
+    "query_id": "q3",
+    "execution_time": 0.5723492039833218,
+    "CPU_percentage_mean": 1.6495786725125956,
+    "CPU_percentage_max": 4.051651880695002
+  },
+  {
+    "query_id": "q4",
+    "execution_time": 0.7873204149655066,
+    "CPU_percentage_mean": 1.7658804939931418,
+    "CPU_percentage_max": 7.206077993127437
+  },
+  {
+    "query_id": "q5",
+    "execution_time": 0.8054083489696495,
+    "CPU_percentage_mean": 1.608402959054402,
+    "CPU_percentage_max": 4.408249922848291
+  },
+  {
+    "query_id": "q6",
+    "execution_time": 0.7925359890214168,
+    "CPU_percentage_mean": 1.6506626697798306,
+    "CPU_percentage_max": 4.738968750969471
+  },
+  {
+    "query_id": "q7",
+    "execution_time": 0.8146286059636623,
+    "CPU_percentage_mean": 1.3953074865389328,
+    "CPU_percentage_max": 3.554143754516687
+  },
+  {
+    "query_id": "q8",
+    "execution_time": 0.8829632609849796,
+    "CPU_percentage_mean": 1.9055617729165393,
+    "CPU_percentage_max": 8.405240515693107
+  },
+  {
+    "query_id": "q9",
+    "execution_time": 26.038768748985603,
+    "CPU_percentage_mean": 1.048525462063156,
+    "CPU_percentage_max": 5.891716600822833
+  },
+  {
+    "query_id": "q10",
+    "execution_time": 23.843467690981925,
+    "CPU_percentage_mean": 1.049499556481057,
+    "CPU_percentage_max": 2.800235697648687
+  },
+  {
+    "query_id": "q11",
+    "execution_time": 52.68604214297375,
+    "CPU_percentage_mean": 1.0697978262018517,
+    "CPU_percentage_max": 17.25073051536055
+  },
+  {
+    "query_id": "q12",
+    "execution_time": 51.00679211795796,
+    "CPU_percentage_mean": 1.0507043105565241,
+    "CPU_percentage_max": 5.820823171328186
+  },
+  {
+    "query_id": "q13",
+    "execution_time": 50.86744605196873,
+    "CPU_percentage_mean": 1.0427203341803206,
+    "CPU_percentage_max": 5.632953959295871
+  },
+  {
+    "query_id": "q14",
+    "execution_time": 50.94375137198949,
+    "CPU_percentage_mean": 1.039380155613153,
+    "CPU_percentage_max": 5.513356312098693
+  },
+  {
+    "query_id": "q15",
+    "execution_time": 60.14073180698324,
+    "CPU_percentage_mean": 2.3004887376914964,
+    "CPU_percentage_max": 28.388251164911033
+  },
+  {
+    "query_id": "q16",
+    "execution_time": 59.92403391201515,
+    "CPU_percentage_mean": 1.0430270720818728,
+    "CPU_percentage_max": 15.103389282394843
+  },
+  {
+    "query_id": "q17",
+    "execution_time": 0.459620441950392,
+    "CPU_percentage_mean": 1.2498662553683957,
+    "CPU_percentage_max": 3.1726760027101593
+  },
+  {
+    "query_id": "q18",
+    "execution_time": 0.36670011101523414,
+    "CPU_percentage_mean": 1.0687860299508054,
+    "CPU_percentage_max": 1.336031556170436
+  },
+  {
+    "query_id": "q19",
+    "execution_time": 0.30704252497525886,
+    "CPU_percentage_mean": 1.0594736711679817,
+    "CPU_percentage_max": 1.403204075124588
+  },
+  {
+    "query_id": "q20",
+    "execution_time": 0.28766652499325573,
+    "CPU_percentage_mean": 1.0852482728342114,
+    "CPU_percentage_max": 1.3864037512649976
+  },
+  {
+    "query_id": "q21",
+    "execution_time": 0.2812978069996461,
+    "CPU_percentage_mean": 1.1202390708563363,
+    "CPU_percentage_max": 1.268962381202196
+  },
+  {
+    "query_id": "q22",
+    "execution_time": 0.17811133299255744,
+    "CPU_percentage_mean": 1.0786431666761014,
+    "CPU_percentage_max": 1.3324438670462782
+  },
+  {
+    "query_id": "q23",
+    "execution_time": 0.1940057349856943,
+    "CPU_percentage_mean": 1.1084289727352028,
+    "CPU_percentage_max": 1.4798223434528852
+  },
+  {
+    "query_id": "q24",
+    "execution_time": 39.98187361401506,
+    "CPU_percentage_mean": 0.9891052260989889,
+    "CPU_percentage_max": 5.86121664902514
+  },
+  {
+    "query_id": "q25",
+    "execution_time": 39.6156444720109,
+    "CPU_percentage_mean": 1.0003760638566797,
+    "CPU_percentage_max": 8.294810410842334
+  },
+  {
+    "query_id": "q26",
+    "execution_time": 37.35772229597205,
+    "CPU_percentage_mean": 1.014785165024557,
+    "CPU_percentage_max": 11.292724838786205
+  },
+  {
+    "query_id": "q27",
+    "execution_time": 37.127825238974765,
+    "CPU_percentage_mean": 1.0292914700068667,
+    "CPU_percentage_max": 13.904647785118199
+  },
+  {
+    "query_id": "q28",
+    "execution_time": 36.811256144952495,
+    "CPU_percentage_mean": 1.0190084007137037,
+    "CPU_percentage_max": 6.190247138787347
+  },
+  {
+    "query_id": "q29",
+    "execution_time": 26.623682860983536,
+    "CPU_percentage_mean": 1.036988668301122,
+    "CPU_percentage_max": 7.918033511889899
+  },
+  {
+    "query_id": "q30",
+    "execution_time": 27.094372537976597,
+    "CPU_percentage_mean": 1.0287121513844069,
+    "CPU_percentage_max": 5.635220034845223
+  },
+  {
+    "query_id": "q31",
+    "execution_time": 22.58705320104491,
+    "CPU_percentage_mean": 1.0510928705303284,
+    "CPU_percentage_max": 8.876180374603845
+  },
+  {
+    "query_id": "q32",
+    "execution_time": 22.187639465963002,
+    "CPU_percentage_mean": 1.0592621740630659,
+    "CPU_percentage_max": 8.793474192992345
+  },
+  {
+    "query_id": "q33",
+    "execution_time": 11.850880845973734,
+    "CPU_percentage_mean": 1.227739768251919,
+    "CPU_percentage_max": 20.096114946757417
+  },
+  {
+    "query_id": "q34",
+    "execution_time": 11.886833651049528,
+    "CPU_percentage_mean": 1.0833726502993841,
+    "CPU_percentage_max": 2.866140650766008
+  },
+  {
+    "query_id": "q35",
+    "execution_time": 11.963120956963394,
+    "CPU_percentage_mean": 1.073107520153315,
+    "CPU_percentage_max": 2.06079693525472
+  },
+  {
+    "query_id": "q36",
+    "execution_time": 11.992308622982819,
+    "CPU_percentage_mean": 1.0658873144391796,
+    "CPU_percentage_max": 1.9092755070099037
+  },
+  {
+    "query_id": "q37",
+    "execution_time": 12.240869643981569,
+    "CPU_percentage_mean": 1.073718042183625,
+    "CPU_percentage_max": 2.2831876343940087
+  },
+  {
+    "query_id": "q38",
+    "execution_time": 0.139763159037102,
+    "CPU_percentage_mean": 1.8893235594216724,
+    "CPU_percentage_max": 2.1072907838353307
+  },
+  {
+    "query_id": "q39",
+    "execution_time": 0.10959060001187027,
+    "CPU_percentage_mean": 1.8838025074676779,
+    "CPU_percentage_max": 1.9225931480546066
+  },
+  {
+    "query_id": "q40",
+    "execution_time": 0.09884014201816171,
+    "CPU_percentage_mean": 1.8878872521878514,
+    "CPU_percentage_max": 1.9982696987533732
+  },
+  {
+    "query_id": "q41",
+    "execution_time": 0.09242338599869981,
+    "CPU_percentage_mean": 1.9878641842836293,
+    "CPU_percentage_max": 2.0488874086690934
+  },
+  {
+    "query_id": "q42",
+    "execution_time": 0.1010746979736723,
+    "CPU_percentage_mean": 1.8470103138693819,
+    "CPU_percentage_max": 2.1253061497958043
+  },
+  {
+    "query_id": "q43",
+    "execution_time": 0.1188948429771699,
+    "CPU_percentage_mean": 1.735278994233271,
+    "CPU_percentage_max": 1.963077629185648
+  },
+  {
+    "query_id": "q44",
+    "execution_time": 0.11052394699072465,
+    "CPU_percentage_mean": 1.4010180839426092,
+    "CPU_percentage_max": 1.7468250010885769
+  },
+  {
+    "query_id": "q45",
+    "execution_time": 0.10686345002613962,
+    "CPU_percentage_mean": 1.2658504511624118,
+    "CPU_percentage_max": 1.3472121104789798
+  },
+  {
+    "query_id": "q46",
+    "execution_time": 0.11382331600179896,
+    "CPU_percentage_mean": 1.1663803583411798,
+    "CPU_percentage_max": 1.3118355113435871
+  },
+  {
+    "query_id": "q47",
+    "execution_time": 0.12550711998483166,
+    "CPU_percentage_mean": 1.1838892354023371,
+    "CPU_percentage_max": 1.3939391293648273
+  },
+  {
+    "query_id": "q48",
+    "execution_time": 0.11955340998247266,
+    "CPU_percentage_mean": 1.195612033440403,
+    "CPU_percentage_max": 1.3304773647693093
+  },
+  {
+    "query_id": "q49",
+    "execution_time": 0.12137862498639151,
+    "CPU_percentage_mean": 1.2086591459657372,
+    "CPU_percentage_max": 1.4027669208426974
+  },
+  {
+    "query_id": "q50",
+    "execution_time": 0.11589591397205368,
+    "CPU_percentage_mean": 1.1334191210633022,
+    "CPU_percentage_max": 1.3733376359872829
+  },
+  {
+    "query_id": "q51",
+    "execution_time": 0.12237113696755841,
+    "CPU_percentage_mean": 1.130906247909422,
+    "CPU_percentage_max": 1.435186826346633
+  },
+  {
+    "query_id": "q52",
+    "execution_time": 0.36706600099569187,
+    "CPU_percentage_mean": 1.072116236813025,
+    "CPU_percentage_max": 1.5207884988507585
+  },
+  {
+    "query_id": "q53",
+    "execution_time": 0.2585981040028855,
+    "CPU_percentage_mean": 1.1294345222966264,
+    "CPU_percentage_max": 1.5376826364587286
+  },
+  {
+    "query_id": "q54",
+    "execution_time": 0.29019395099021494,
+    "CPU_percentage_mean": 1.7786166797707972,
+    "CPU_percentage_max": 5.323854051338644
+  },
+  {
+    "query_id": "q55",
+    "execution_time": 0.25720311095938087,
+    "CPU_percentage_mean": 1.2712228517806536,
+    "CPU_percentage_max": 2.206301772282207
+  },
+  {
+    "query_id": "q56",
+    "execution_time": 0.263366169994697,
+    "CPU_percentage_mean": 1.0883931313335513,
+    "CPU_percentage_max": 1.4462108540899699
+  },
+  {
+    "query_id": "q57",
+    "execution_time": 0.2868752020294778,
+    "CPU_percentage_mean": 1.0980250085692032,
+    "CPU_percentage_max": 1.6179540572570188
+  },
+  {
+    "query_id": "q58",
+    "execution_time": 0.24869325303006917,
+    "CPU_percentage_mean": 1.1924472647835436,
+    "CPU_percentage_max": 1.5525787192199456
+  },
+  {
+    "query_id": "q59",
+    "execution_time": 0.9749720279942267,
+    "CPU_percentage_mean": 1.0229839564946381,
+    "CPU_percentage_max": 1.3940220168177282
+  },
+  {
+    "query_id": "q60",
+    "execution_time": 0.7520333509892225,
+    "CPU_percentage_mean": 0.9933226926297466,
+    "CPU_percentage_max": 1.4426520156847964
+  },
+  {
+    "query_id": "q61",
+    "execution_time": 0.8274948420003057,
+    "CPU_percentage_mean": 1.021373132039301,
+    "CPU_percentage_max": 1.4947455285515159
+  },
+  {
+    "query_id": "q62",
+    "execution_time": 0.857012603955809,
+    "CPU_percentage_mean": 1.0129882498737008,
+    "CPU_percentage_max": 1.5171115754763131
+  },
+  {
+    "query_id": "q63",
+    "execution_time": 0.8570665009901859,
+    "CPU_percentage_mean": 1.0086785385192945,
+    "CPU_percentage_max": 1.3809754267712882
+  },
+  {
+    "query_id": "q64",
+    "execution_time": 0.8637946029775776,
+    "CPU_percentage_mean": 1.0105835087542154,
+    "CPU_percentage_max": 1.4929096319009774
+  },
+  {
+    "query_id": "q65",
+    "execution_time": 0.9498688650201075,
+    "CPU_percentage_mean": 0.9787851233002072,
+    "CPU_percentage_max": 1.4578038915675704
+  },
+  {
+    "query_id": "q66",
+    "execution_time": 2.4745889119803905,
+    "CPU_percentage_mean": 1.154629504826206,
+    "CPU_percentage_max": 3.996832003819179
+  },
+  {
+    "query_id": "q67",
+    "execution_time": 2.4067780670011416,
+    "CPU_percentage_mean": 1.4369126395353093,
+    "CPU_percentage_max": 4.827828438178263
+  },
+  {
+    "query_id": "q68",
+    "execution_time": 1.066503037000075,
+    "CPU_percentage_mean": 1.6097311901046225,
+    "CPU_percentage_max": 2.5281285281284624
+  },
+  {
+    "query_id": "q69",
+    "execution_time": 6.933133793994784,
+    "CPU_percentage_mean": 1.0909220850491108,
+    "CPU_percentage_max": 2.6585470508290636
+  },
+  {
+    "query_id": "q70",
+    "execution_time": 1.1031539579853415,
+    "CPU_percentage_mean": 1.5679556161197545,
+    "CPU_percentage_max": 1.889628412616574
+  },
+  {
+    "query_id": "q71",
+    "execution_time": 1.6024546489934437,
+    "CPU_percentage_mean": 0.9914768926993975,
+    "CPU_percentage_max": 1.5479593537999747
+  },
+  {
+    "query_id": "q72",
+    "execution_time": 0.9004035890102386,
+    "CPU_percentage_mean": 1.0181922263298646,
+    "CPU_percentage_max": 1.4722452146515157
+  },
+  {
+    "query_id": "q73",
+    "execution_time": 5.741640058986377,
+    "CPU_percentage_mean": 1.078786429164695,
+    "CPU_percentage_max": 1.9888977191424757
+  },
+  {
+    "query_id": "q74",
+    "execution_time": 4.171391420008149,
+    "CPU_percentage_mean": 1.2954470566629548,
+    "CPU_percentage_max": 1.8786853732467066
+  },
+  {
+    "query_id": "q75",
+    "execution_time": 4.561096738034394,
+    "CPU_percentage_mean": 1.2498427148677187,
+    "CPU_percentage_max": 1.9364509084430468
+  },
+  {
+    "query_id": "q76",
+    "execution_time": 4.319944504008163,
+    "CPU_percentage_mean": 1.2691470399083242,
+    "CPU_percentage_max": 2.0720323677103516
+  },
+  {
+    "query_id": "q77",
+    "execution_time": 5.7591802349779755,
+    "CPU_percentage_mean": 1.1972933156385932,
+    "CPU_percentage_max": 1.8691495673179976
+  },
+  {
+    "query_id": "q78",
+    "execution_time": 4.740847776003648,
+    "CPU_percentage_mean": 1.2735556568475401,
+    "CPU_percentage_max": 2.5809676178674583
+  },
+  {
+    "query_id": "q79",
+    "execution_time": 4.4193897739751264,
+    "CPU_percentage_mean": 1.2509782450115343,
+    "CPU_percentage_max": 1.8751672275757076
+  },
+  {
+    "query_id": "q80",
+    "execution_time": 0.6710864659980871,
+    "CPU_percentage_mean": 1.7410220867287245,
+    "CPU_percentage_max": 1.998817198568201
+  },
+  {
+    "query_id": "q81",
+    "execution_time": 0.6020332399639301,
+    "CPU_percentage_mean": 1.2225694329400365,
+    "CPU_percentage_max": 1.8331091981981957
+  },
+  {
+    "query_id": "q82",
+    "execution_time": 0.6847386140143499,
+    "CPU_percentage_mean": 1.018372563947579,
+    "CPU_percentage_max": 1.4443407014549774
+  },
+  {
+    "query_id": "q83",
+    "execution_time": 0.6295185179915279,
+    "CPU_percentage_mean": 1.3350162295063095,
+    "CPU_percentage_max": 5.406000162850327
+  },
+  {
+    "query_id": "q84",
+    "execution_time": 0.6742445030249655,
+    "CPU_percentage_mean": 1.0359615998437421,
+    "CPU_percentage_max": 1.4351317742760505
+  },
+  {
+    "query_id": "q85",
+    "execution_time": 0.6684170700027607,
+    "CPU_percentage_mean": 1.0544983932398633,
+    "CPU_percentage_max": 1.5355904379733576
+  },
+  {
+    "query_id": "q86",
+    "execution_time": 0.6531137219863012,
+    "CPU_percentage_mean": 1.037690802041312,
+    "CPU_percentage_max": 1.5169767587370753
+  },
+  {
+    "query_id": "q87",
+    "execution_time": 0.09177437803009525,
+    "CPU_percentage_mean": 1.1774268028024444,
+    "CPU_percentage_max": 1.4164444433484216
+  },
+  {
+    "query_id": "q88",
+    "execution_time": 0.08004669204819947,
+    "CPU_percentage_mean": 1.160106269344084,
+    "CPU_percentage_max": 1.2614014894737193
+  },
+  {
+    "query_id": "q89",
+    "execution_time": 0.07355239999014884,
+    "CPU_percentage_mean": 1.2680662965640361,
+    "CPU_percentage_max": 1.5470380336490799
+  },
+  {
+    "query_id": "q90",
+    "execution_time": 0.019479534996207803,
+    "CPU_percentage_mean": 1.3841648152152668,
+    "CPU_percentage_max": 1.3841648152152668
+  },
+  {
+    "query_id": "q91",
+    "execution_time": 0.02168087603058666,
+    "CPU_percentage_mean": 1.5826540599581056,
+    "CPU_percentage_max": 1.5826540599581056
+  },
+  {
+    "query_id": "q92",
+    "execution_time": 0.017897958983667195,
+    "CPU_percentage_mean": 1.358487705806077,
+    "CPU_percentage_max": 1.358487705806077
+  },
+  {
+    "query_id": "q93",
+    "execution_time": 0.02656396699603647,
+    "CPU_percentage_mean": 1.6216263684430121,
+    "CPU_percentage_max": 1.6216263684430121
+  },
+  {
+    "query_id": "q94",
+    "execution_time": 0.17066622502170503,
+    "CPU_percentage_mean": 1.0835489904733513,
+    "CPU_percentage_max": 1.293238297363559
+  },
+  {
+    "query_id": "q95",
+    "execution_time": 0.16622818197356537,
+    "CPU_percentage_mean": 1.1034810046647106,
+    "CPU_percentage_max": 1.4061250653726396
+  },
+  {
+    "query_id": "q96",
+    "execution_time": 0.17436120798811316,
+    "CPU_percentage_mean": 1.1732167891920535,
+    "CPU_percentage_max": 1.4312709506267376
+  },
+  {
+    "query_id": "q97",
+    "execution_time": 0.16000063600949943,
+    "CPU_percentage_mean": 1.1665794779052565,
+    "CPU_percentage_max": 1.4090833968719518
+  },
+  {
+    "query_id": "q98",
+    "execution_time": 0.15877180499956012,
+    "CPU_percentage_mean": 1.095765174099553,
+    "CPU_percentage_max": 1.3473241326354448
+  },
+  {
+    "query_id": "q99",
+    "execution_time": 0.15035081101814285,
+    "CPU_percentage_mean": 1.1188192919476456,
+    "CPU_percentage_max": 1.4443747757109846
+  },
+  {
+    "query_id": "q100",
+    "execution_time": 0.16527858201880008,
+    "CPU_percentage_mean": 1.1261230468107148,
+    "CPU_percentage_max": 1.4762317856268667
+  },
+  {
+    "query_id": "q101",
+    "execution_time": 485.9186689800117,
+    "CPU_percentage_mean": 1.0119940576194515,
+    "CPU_percentage_max": 21.199115575791787
+  },
+  {
+    "query_id": "q102",
+    "execution_time": 166.22403594199568,
+    "CPU_percentage_mean": 1.0217607376303237,
+    "CPU_percentage_max": 15.797932241303966
+  },
+  {
+    "query_id": "q103",
+    "execution_time": 166.03061744797742,
+    "CPU_percentage_mean": 1.4517904836324804,
+    "CPU_percentage_max": 44.60134516228179
+  },
+  {
+    "query_id": "q104",
+    "execution_time": 165.5554687709664,
+    "CPU_percentage_mean": 1.047406017319884,
+    "CPU_percentage_max": 6.024509402883166
+  },
+  {
+    "query_id": "q105",
+    "execution_time": 471.3628365760087,
+    "CPU_percentage_mean": 1.1888421879215039,
+    "CPU_percentage_max": 28.093854004706298
+  },
+  {
+    "query_id": "q106",
+    "execution_time": 466.2099382120068,
+    "CPU_percentage_mean": 1.0803887359823101,
+    "CPU_percentage_max": 29.41187357655055
+  },
+  {
+    "query_id": "q107",
+    "execution_time": 472.02464751305524,
+    "CPU_percentage_mean": 1.0211852778242585,
+    "CPU_percentage_max": 17.984066839597173
+  },
+  {
+    "query_id": "q108",
+    "execution_time": 469.1968706850312,
+    "CPU_percentage_mean": 1.0162704175771895,
+    "CPU_percentage_max": 16.88167024852547
+  },
+  {
+    "query_id": "q109",
+    "execution_time": 470.87395135400584,
+    "CPU_percentage_mean": 1.0219490637075253,
+    "CPU_percentage_max": 25.089993032816448
+  },
+  {
+    "query_id": "q110",
+    "execution_time": 484.5492619049619,
+    "CPU_percentage_mean": 1.012622459687335,
+    "CPU_percentage_max": 20.834479061896715
+  },
+  {
+    "query_id": "q111",
+    "execution_time": 0.7174512249766849,
+    "CPU_percentage_mean": 1.815788095636129,
+    "CPU_percentage_max": 3.1252439777714693
+  },
+  {
+    "query_id": "q112",
+    "execution_time": 0.7389100190484896,
+    "CPU_percentage_mean": 1.3042152801964824,
+    "CPU_percentage_max": 2.705867824458542
+  },
+  {
+    "query_id": "q113",
+    "execution_time": 0.6786963469930924,
+    "CPU_percentage_mean": 1.2513347270280832,
+    "CPU_percentage_max": 2.7893819500079853
+  },
+  {
+    "query_id": "q114",
+    "execution_time": 0.6914125329931267,
+    "CPU_percentage_mean": 1.2389556119374316,
+    "CPU_percentage_max": 2.8207221180572786
+  },
+  {
+    "query_id": "q115",
+    "execution_time": 0.6899379409733228,
+    "CPU_percentage_mean": 1.2306133041437233,
+    "CPU_percentage_max": 2.762171938315969
+  },
+  {
+    "query_id": "q116",
+    "execution_time": 0.6730561349540949,
+    "CPU_percentage_mean": 1.275273189861417,
+    "CPU_percentage_max": 2.7940478109054254
+  },
+  {
+    "query_id": "q117",
+    "execution_time": 0.6938754399889149,
+    "CPU_percentage_mean": 1.1717039332427175,
+    "CPU_percentage_max": 2.766260474685393
+  },
+  {
+    "query_id": "q118",
+    "execution_time": 0.6761588749941438,
+    "CPU_percentage_mean": 1.18853182536372,
+    "CPU_percentage_max": 2.5623315892773135
+  },
+  {
+    "query_id": "q119",
+    "execution_time": 0.7094975949730724,
+    "CPU_percentage_mean": 1.181217136129868,
+    "CPU_percentage_max": 2.358659357749777
+  },
+  {
+    "query_id": "q120",
+    "execution_time": 0.1312176149804145,
+    "CPU_percentage_mean": 1.6793285397897393,
+    "CPU_percentage_max": 2.9362106085924955
+  },
+  {
+    "query_id": "q121",
+    "execution_time": 0.08387306600343436,
+    "CPU_percentage_mean": 1.2475098260752335,
+    "CPU_percentage_max": 1.4443863430115988
+  },
+  {
+    "query_id": "q122",
+    "execution_time": 0.08064032503170893,
+    "CPU_percentage_mean": 1.291250689511135,
+    "CPU_percentage_max": 1.3679970404634776
+  },
+  {
+    "query_id": "q123",
+    "execution_time": 0.12256635195808485,
+    "CPU_percentage_mean": 1.1787147718631008,
+    "CPU_percentage_max": 1.3212953780113326
+  },
+  {
+    "query_id": "q124",
+    "execution_time": 0.08004756597802043,
+    "CPU_percentage_mean": 1.554406176895692,
+    "CPU_percentage_max": 1.779851626635615
+  },
+  {
+    "query_id": "q125",
+    "execution_time": 0.07996703102253377,
+    "CPU_percentage_mean": 1.3376825762923206,
+    "CPU_percentage_max": 1.3882672832853384
+  },
+  {
+    "query_id": "q126",
+    "execution_time": 0.13193826301721856,
+    "CPU_percentage_mean": 1.1872589010318002,
+    "CPU_percentage_max": 1.2969500998021166
+  },
+  {
+    "query_id": "q127",
+    "execution_time": 0.1026979349553585,
+    "CPU_percentage_mean": 1.108144521421078,
+    "CPU_percentage_max": 1.201931222606104
+  },
+  {
+    "query_id": "q128",
+    "execution_time": 0.10134954599197954,
+    "CPU_percentage_mean": 1.0513293229797571,
+    "CPU_percentage_max": 1.2296107800559075
+  },
+  {
+    "query_id": "q129",
+    "execution_time": 377.634308430017,
+    "CPU_percentage_mean": 1.217955881633088,
+    "CPU_percentage_max": 47.19845087640235
+  },
+  {
+    "query_id": "q130",
+    "execution_time": 372.675903972995,
+    "CPU_percentage_mean": 1.2330285195143977,
+    "CPU_percentage_max": 28.340944175116572
+  },
+  {
+    "query_id": "q131",
+    "execution_time": 365.91392491798615,
+    "CPU_percentage_mean": 1.0141832635250634,
+    "CPU_percentage_max": 20.90114666149838
+  },
+  {
+    "query_id": "q132",
+    "execution_time": 339.47060493699973,
+    "CPU_percentage_mean": 1.0243890671817035,
+    "CPU_percentage_max": 20.445084846472323
+  },
+  {
+    "query_id": "q133",
+    "execution_time": 373.46832933602855,
+    "CPU_percentage_mean": 1.02085073682431,
+    "CPU_percentage_max": 15.911527892378496
+  },
+  {
+    "query_id": "q134",
+    "execution_time": 374.26940058299806,
+    "CPU_percentage_mean": 1.5785070245020696,
+    "CPU_percentage_max": 35.84187687934885
+  },
+  {
+    "query_id": "q135",
+    "execution_time": 363.47404931503115,
+    "CPU_percentage_mean": 1.0091435447336699,
+    "CPU_percentage_max": 16.29052600149201
+  },
+  {
+    "query_id": "q136",
+    "execution_time": 394.87260341702495,
+    "CPU_percentage_mean": 1.0129438300941047,
+    "CPU_percentage_max": 20.290639749601272
+  },
+  {
+    "query_id": "q137",
+    "execution_time": 369.89640456298366,
+    "CPU_percentage_mean": 1.2265145493841787,
+    "CPU_percentage_max": 47.65046080228716
+  },
+  {
+    "query_id": "q138",
+    "execution_time": 17.79016816901276,
+    "CPU_percentage_mean": 1.3109799656024106,
+    "CPU_percentage_max": 13.469920513881945
+  },
+  {
+    "query_id": "q139",
+    "execution_time": 17.01996876701014,
+    "CPU_percentage_mean": 1.440568093336128,
+    "CPU_percentage_max": 11.874739399562674
+  },
+  {
+    "query_id": "q140",
+    "execution_time": 17.107909411017317,
+    "CPU_percentage_mean": 1.4298406771440941,
+    "CPU_percentage_max": 11.761287981009222
+  },
+  {
+    "query_id": "q141",
+    "execution_time": 17.58582545100944,
+    "CPU_percentage_mean": 1.3529067558219645,
+    "CPU_percentage_max": 11.514252222953667
+  },
+  {
+    "query_id": "q142",
+    "execution_time": 17.361642835021485,
+    "CPU_percentage_mean": 1.188982897145465,
+    "CPU_percentage_max": 7.271040295004147
+  },
+  {
+    "query_id": "q143",
+    "execution_time": 17.116305508010555,
+    "CPU_percentage_mean": 1.4209959728619093,
+    "CPU_percentage_max": 11.417313213024217
+  },
+  {
+    "query_id": "q144",
+    "execution_time": 17.467091759026516,
+    "CPU_percentage_mean": 1.3969441636208162,
+    "CPU_percentage_max": 11.499009083249499
+  },
+  {
+    "query_id": "q145",
+    "execution_time": 17.47700056200847,
+    "CPU_percentage_mean": 1.4200039445351544,
+    "CPU_percentage_max": 12.54316031767004
+  },
+  {
+    "query_id": "q146",
+    "execution_time": 16.573895334964618,
+    "CPU_percentage_mean": 1.4241297170647882,
+    "CPU_percentage_max": 13.354834398288181
+  },
+  {
+    "query_id": "q147",
+    "execution_time": 17.200603872013744,
+    "CPU_percentage_mean": 1.5126973238677655,
+    "CPU_percentage_max": 11.582354833090726
+  },
+  {
+    "query_id": "q148",
+    "execution_time": 2.072554412006866,
+    "CPU_percentage_mean": 1.5403156981386084,
+    "CPU_percentage_max": 5.696071682435258
+  },
+  {
+    "query_id": "q149",
+    "execution_time": 2.01744103099918,
+    "CPU_percentage_mean": 1.4514473783671573,
+    "CPU_percentage_max": 2.0897751895401346
+  },
+  {
+    "query_id": "q150",
+    "execution_time": 2.0628416769905016,
+    "CPU_percentage_mean": 1.0835733415877797,
+    "CPU_percentage_max": 1.5731154826500509
+  },
+  {
+    "query_id": "q151",
+    "execution_time": 2.1439977749832906,
+    "CPU_percentage_mean": 1.0700928000616634,
+    "CPU_percentage_max": 1.5606864597917693
+  },
+  {
+    "query_id": "q152",
+    "execution_time": 2.100717993977014,
+    "CPU_percentage_mean": 1.1268095932304067,
+    "CPU_percentage_max": 2.5063059256699844
+  },
+  {
+    "query_id": "q153",
+    "execution_time": 2.02411945204949,
+    "CPU_percentage_mean": 1.0584305803579375,
+    "CPU_percentage_max": 1.6663605176209
+  },
+  {
+    "query_id": "q154",
+    "execution_time": 2.043428430974018,
+    "CPU_percentage_mean": 1.2716906639471128,
+    "CPU_percentage_max": 2.030881302453372
+  },
+  {
+    "query_id": "q155",
+    "execution_time": 2.1067322539747693,
+    "CPU_percentage_mean": 1.0854735694030961,
+    "CPU_percentage_max": 1.6680957113689567
+  },
+  {
+    "query_id": "q156",
+    "execution_time": 2.0176067519932985,
+    "CPU_percentage_mean": 1.0838911421427482,
+    "CPU_percentage_max": 2.2038775424845336
+  },
+  {
+    "query_id": "q157",
+    "execution_time": 2.0497594439657405,
+    "CPU_percentage_mean": 1.0677798090620072,
+    "CPU_percentage_max": 1.660784569821374
+  },
+  {
+    "query_id": "q158",
+    "execution_time": 0.0,
+    "CPU_percentage_mean": 0.0,
+    "CPU_percentage_max": 0.0,
+    "error": "\u9519\u8bef:  \u5b57\u6bb5 \"lochierarchy\" \u4e0d\u5b58\u5728\nLINE 27:   ,case when lochierarchy = 0 then i_category end\n                      ^\n"
+  },
+  {
+    "query_id": "q159",
+    "execution_time": 0.0,
+    "CPU_percentage_mean": 0.0,
+    "CPU_percentage_max": 0.0,
+    "error": "\u9519\u8bef:  \u5b57\u6bb5 \"lochierarchy\" \u4e0d\u5b58\u5728\nLINE 27:   ,case when lochierarchy = 0 then i_category end\n                      ^\n"
+  },
+  {
+    "query_id": "q160",
+    "execution_time": 0.0,
+    "CPU_percentage_mean": 0.0,
+    "CPU_percentage_max": 0.0,
+    "error": "\u9519\u8bef:  \u5b57\u6bb5 \"lochierarchy\" \u4e0d\u5b58\u5728\nLINE 27:   ,case when lochierarchy = 0 then i_category end\n                      ^\n"
+  },
+  {
+    "query_id": "q161",
+    "execution_time": 0.0,
+    "CPU_percentage_mean": 0.0,
+    "CPU_percentage_max": 0.0,
+    "error": "\u9519\u8bef:  \u5b57\u6bb5 \"lochierarchy\" \u4e0d\u5b58\u5728\nLINE 27:   ,case when lochierarchy = 0 then i_category end\n                      ^\n"
+  },
+  {
+    "query_id": "q162",
+    "execution_time": 0.0,
+    "CPU_percentage_mean": 0.0,
+    "CPU_percentage_max": 0.0,
+    "error": "\u9519\u8bef:  \u5b57\u6bb5 \"lochierarchy\" \u4e0d\u5b58\u5728\nLINE 27:   ,case when lochierarchy = 0 then i_category end\n                      ^\n"
+  },
+  {
+    "query_id": "q163",
+    "execution_time": 0.0,
+    "CPU_percentage_mean": 0.0,
+    "CPU_percentage_max": 0.0,
+    "error": "\u9519\u8bef:  \u5b57\u6bb5 \"lochierarchy\" \u4e0d\u5b58\u5728\nLINE 27:   ,case when lochierarchy = 0 then i_category end\n                      ^\n"
+  },
+  {
+    "query_id": "q164",
+    "execution_time": 0.0,
+    "CPU_percentage_mean": 0.0,
+    "CPU_percentage_max": 0.0,
+    "error": "\u9519\u8bef:  \u5b57\u6bb5 \"lochierarchy\" \u4e0d\u5b58\u5728\nLINE 27:   ,case when lochierarchy = 0 then i_category end\n                      ^\n"
+  },
+  {
+    "query_id": "q165",
+    "execution_time": 0.0,
+    "CPU_percentage_mean": 0.0,
+    "CPU_percentage_max": 0.0,
+    "error": "\u9519\u8bef:  \u5b57\u6bb5 \"lochierarchy\" \u4e0d\u5b58\u5728\nLINE 27:   ,case when lochierarchy = 0 then i_category end\n                      ^\n"
+  },
+  {
+    "query_id": "q166",
+    "execution_time": 0.0,
+    "CPU_percentage_mean": 0.0,
+    "CPU_percentage_max": 0.0,
+    "error": "\u9519\u8bef:  \u5b57\u6bb5 \"lochierarchy\" \u4e0d\u5b58\u5728\nLINE 27:   ,case when lochierarchy = 0 then i_category end\n                      ^\n"
+  },
+  {
+    "query_id": "q167",
+    "execution_time": 0.6635156840202399,
+    "CPU_percentage_mean": 1.1504736928018986,
+    "CPU_percentage_max": 1.729810449819206
+  },
+  {
+    "query_id": "q168",
+    "execution_time": 0.6249875539797358,
+    "CPU_percentage_mean": 1.1428236000113,
+    "CPU_percentage_max": 1.804430819880321
+  },
+  {
+    "query_id": "q169",
+    "execution_time": 0.6389716560370289,
+    "CPU_percentage_mean": 1.2212038865105632,
+    "CPU_percentage_max": 2.8538262875432383
+  },
+  {
+    "query_id": "q170",
+    "execution_time": 0.6511654169880785,
+    "CPU_percentage_mean": 1.127588997061172,
+    "CPU_percentage_max": 2.0228062269257876
+  },
+  {
+    "query_id": "q171",
+    "execution_time": 0.6492469789809547,
+    "CPU_percentage_mean": 1.1311476729032122,
+    "CPU_percentage_max": 1.74101842095724
+  },
+  {
+    "query_id": "q172",
+    "execution_time": 0.6575531549751759,
+    "CPU_percentage_mean": 1.1142690033931548,
+    "CPU_percentage_max": 1.623448388950794
+  },
+  {
+    "query_id": "q173",
+    "execution_time": 0.7005711970268749,
+    "CPU_percentage_mean": 1.220624598893059,
+    "CPU_percentage_max": 2.752924364707852
+  },
+  {
+    "query_id": "q174",
+    "execution_time": 0.6245479270000942,
+    "CPU_percentage_mean": 1.2104157128850963,
+    "CPU_percentage_max": 2.687428196735624
+  },
+  {
+    "query_id": "q175",
+    "execution_time": 0.6408935619983822,
+    "CPU_percentage_mean": 1.12922129668205,
+    "CPU_percentage_max": 1.5524860605539397
+  },
+  {
+    "query_id": "q176",
+    "execution_time": 0.151272639981471,
+    "CPU_percentage_mean": 1.35576689497053,
+    "CPU_percentage_max": 1.8678046275426308
+  },
+  {
+    "query_id": "q177",
+    "execution_time": 0.13699736102716997,
+    "CPU_percentage_mean": 1.464661373150136,
+    "CPU_percentage_max": 1.7709854232221391
+  },
+  {
+    "query_id": "q178",
+    "execution_time": 0.1328678599675186,
+    "CPU_percentage_mean": 1.2314718306894208,
+    "CPU_percentage_max": 1.518935865807464
+  },
+  {
+    "query_id": "q179",
+    "execution_time": 0.13193048298126087,
+    "CPU_percentage_mean": 1.3543866522508303,
+    "CPU_percentage_max": 1.864023476470145
+  },
+  {
+    "query_id": "q180",
+    "execution_time": 0.11598782800137997,
+    "CPU_percentage_mean": 1.3253484538815536,
+    "CPU_percentage_max": 1.7056370192988544
+  },
+  {
+    "query_id": "q181",
+    "execution_time": 0.12265146098798141,
+    "CPU_percentage_mean": 1.4735628792341962,
+    "CPU_percentage_max": 1.7056565430057058
+  },
+  {
+    "query_id": "q182",
+    "execution_time": 0.153717600973323,
+    "CPU_percentage_mean": 1.2322137285024826,
+    "CPU_percentage_max": 1.5730076324959839
+  },
+  {
+    "query_id": "q183",
+    "execution_time": 0.14631445799022913,
+    "CPU_percentage_mean": 1.2325380711031022,
+    "CPU_percentage_max": 1.481634134301132
+  },
+  {
+    "query_id": "q184",
+    "execution_time": 0.13615959003800526,
+    "CPU_percentage_mean": 1.2437556546011093,
+    "CPU_percentage_max": 1.6494754051752072
+  },
+  {
+    "query_id": "q185",
+    "execution_time": 4.23178828204982,
+    "CPU_percentage_mean": 1.6553158154462217,
+    "CPU_percentage_max": 12.530647951329671
+  },
+  {
+    "query_id": "q186",
+    "execution_time": 4.372548451996408,
+    "CPU_percentage_mean": 1.6552588228382983,
+    "CPU_percentage_max": 14.652178403175395
+  },
+  {
+    "query_id": "q187",
+    "execution_time": 4.395763952052221,
+    "CPU_percentage_mean": 1.845274937991575,
+    "CPU_percentage_max": 7.775455723539324
+  },
+  {
+    "query_id": "q188",
+    "execution_time": 4.322825675015338,
+    "CPU_percentage_mean": 1.9831283468105767,
+    "CPU_percentage_max": 11.560044209042212
+  },
+  {
+    "query_id": "q189",
+    "execution_time": 4.285420117957983,
+    "CPU_percentage_mean": 1.7991989917758417,
+    "CPU_percentage_max": 16.97029247309733
+  },
+  {
+    "query_id": "q190",
+    "execution_time": 4.334840039955452,
+    "CPU_percentage_mean": 1.7418165252419398,
+    "CPU_percentage_max": 11.118507348337136
+  },
+  {
+    "query_id": "q191",
+    "execution_time": 4.4416747920331545,
+    "CPU_percentage_mean": 1.7838752009606167,
+    "CPU_percentage_max": 17.04756645254455
+  },
+  {
+    "query_id": "q192",
+    "execution_time": 4.393336237000767,
+    "CPU_percentage_mean": 1.7251928430403707,
+    "CPU_percentage_max": 16.19344780207888
+  },
+  {
+    "query_id": "q193",
+    "execution_time": 4.459458258992527,
+    "CPU_percentage_mean": 1.712488285502299,
+    "CPU_percentage_max": 12.922995309238091
+  },
+  {
+    "query_id": "q194",
+    "execution_time": 4.37259978801012,
+    "CPU_percentage_mean": 1.7867164580991433,
+    "CPU_percentage_max": 13.504694927120484
+  },
+  {
+    "query_id": "q195",
+    "execution_time": 0.8855668430333026,
+    "CPU_percentage_mean": 2.1083482531677404,
+    "CPU_percentage_max": 6.781646653923101
+  },
+  {
+    "query_id": "q196",
+    "execution_time": 0.7951682530110702,
+    "CPU_percentage_mean": 1.1491762124479188,
+    "CPU_percentage_max": 1.6420402198893802
+  },
+  {
+    "query_id": "q197",
+    "execution_time": 0.7695004109991714,
+    "CPU_percentage_mean": 1.1240617445594956,
+    "CPU_percentage_max": 1.5638140677089605
+  },
+  {
+    "query_id": "q198",
+    "execution_time": 0.7930383090279065,
+    "CPU_percentage_mean": 1.1022526544949007,
+    "CPU_percentage_max": 1.6272417427178756
+  },
+  {
+    "query_id": "q199",
+    "execution_time": 0.7648408990353346,
+    "CPU_percentage_mean": 1.0998652846808321,
+    "CPU_percentage_max": 1.5040913650762167
+  },
+  {
+    "query_id": "q200",
+    "execution_time": 0.7602496479521506,
+    "CPU_percentage_mean": 1.0863136689861441,
+    "CPU_percentage_max": 1.6010009745206666
+  },
+  {
+    "query_id": "q201",
+    "execution_time": 0.741977710975334,
+    "CPU_percentage_mean": 1.1796308411036975,
+    "CPU_percentage_max": 2.2972618185118776
+  },
+  {
+    "query_id": "q202",
+    "execution_time": 0.7649545589811169,
+    "CPU_percentage_mean": 1.145907068499918,
+    "CPU_percentage_max": 1.7120864958083288
+  },
+  {
+    "query_id": "q203",
+    "execution_time": 0.7728133189957589,
+    "CPU_percentage_mean": 1.081094004046887,
+    "CPU_percentage_max": 1.6794109288528616
+  },
+  {
+    "query_id": "q204",
+    "execution_time": 7.197914543969091,
+    "CPU_percentage_mean": 1.1767683798058155,
+    "CPU_percentage_max": 2.0901589673850083
+  },
+  {
+    "query_id": "q205",
+    "execution_time": 7.348573387018405,
+    "CPU_percentage_mean": 1.2475032558645094,
+    "CPU_percentage_max": 2.0640813195460335
+  },
+  {
+    "query_id": "q206",
+    "execution_time": 7.003077010973357,
+    "CPU_percentage_mean": 1.2713541065953708,
+    "CPU_percentage_max": 2.172346334856784
+  },
+  {
+    "query_id": "q207",
+    "execution_time": 7.348141971044242,
+    "CPU_percentage_mean": 1.289219122040656,
+    "CPU_percentage_max": 3.400141154268108
+  },
+  {
+    "query_id": "q208",
+    "execution_time": 7.280957234965172,
+    "CPU_percentage_mean": 1.2466687527261433,
+    "CPU_percentage_max": 2.4559665427852986
+  },
+  {
+    "query_id": "q209",
+    "execution_time": 6.99403949995758,
+    "CPU_percentage_mean": 1.2775522979155005,
+    "CPU_percentage_max": 2.0179961325697664
+  },
+  {
+    "query_id": "q210",
+    "execution_time": 7.277027870004531,
+    "CPU_percentage_mean": 1.2673165882137043,
+    "CPU_percentage_max": 2.124213545178644
+  },
+  {
+    "query_id": "q211",
+    "execution_time": 7.157881468010601,
+    "CPU_percentage_mean": 1.2671872361505048,
+    "CPU_percentage_max": 2.3364637770744467
+  },
+  {
+    "query_id": "q212",
+    "execution_time": 7.366917442996055,
+    "CPU_percentage_mean": 1.238962037126131,
+    "CPU_percentage_max": 2.3142056750892617
+  },
+  {
+    "query_id": "q213",
+    "execution_time": 0.0,
+    "CPU_percentage_mean": 0.0,
+    "CPU_percentage_max": 0.0,
+    "error": "\u9519\u8bef:  \u5b57\u6bb5 \"lochierarchy\" \u4e0d\u5b58\u5728\nLINE 35:   ,case when lochierarchy = 0 then s_state end\n                      ^\n"
+  },
+  {
+    "query_id": "q214",
+    "execution_time": 0.0,
+    "CPU_percentage_mean": 0.0,
+    "CPU_percentage_max": 0.0,
+    "error": "\u9519\u8bef:  \u5b57\u6bb5 \"lochierarchy\" \u4e0d\u5b58\u5728\nLINE 35:   ,case when lochierarchy = 0 then s_state end\n                      ^\n"
+  },
+  {
+    "query_id": "q215",
+    "execution_time": 0.0,
+    "CPU_percentage_mean": 0.0,
+    "CPU_percentage_max": 0.0,
+    "error": "\u9519\u8bef:  \u5b57\u6bb5 \"lochierarchy\" \u4e0d\u5b58\u5728\nLINE 35:   ,case when lochierarchy = 0 then s_state end\n                      ^\n"
+  },
+  {
+    "query_id": "q216",
+    "execution_time": 0.0,
+    "CPU_percentage_mean": 0.0,
+    "CPU_percentage_max": 0.0,
+    "error": "\u9519\u8bef:  \u5b57\u6bb5 \"lochierarchy\" \u4e0d\u5b58\u5728\nLINE 35:   ,case when lochierarchy = 0 then s_state end\n                      ^\n"
+  },
+  {
+    "query_id": "q217",
+    "execution_time": 0.0,
+    "CPU_percentage_mean": 0.0,
+    "CPU_percentage_max": 0.0,
+    "error": "\u9519\u8bef:  \u5b57\u6bb5 \"lochierarchy\" \u4e0d\u5b58\u5728\nLINE 35:   ,case when lochierarchy = 0 then s_state end\n                      ^\n"
+  },
+  {
+    "query_id": "q218",
+    "execution_time": 0.0,
+    "CPU_percentage_mean": 0.0,
+    "CPU_percentage_max": 0.0,
+    "error": "\u9519\u8bef:  \u5b57\u6bb5 \"lochierarchy\" \u4e0d\u5b58\u5728\nLINE 35:   ,case when lochierarchy = 0 then s_state end\n                      ^\n"
+  },
+  {
+    "query_id": "q219",
+    "execution_time": 0.0,
+    "CPU_percentage_mean": 0.0,
+    "CPU_percentage_max": 0.0,
+    "error": "\u9519\u8bef:  \u5b57\u6bb5 \"lochierarchy\" \u4e0d\u5b58\u5728\nLINE 35:   ,case when lochierarchy = 0 then s_state end\n                      ^\n"
+  },
+  {
+    "query_id": "q220",
+    "execution_time": 0.0,
+    "CPU_percentage_mean": 0.0,
+    "CPU_percentage_max": 0.0,
+    "error": "\u9519\u8bef:  \u5b57\u6bb5 \"lochierarchy\" \u4e0d\u5b58\u5728\nLINE 35:   ,case when lochierarchy = 0 then s_state end\n                      ^\n"
+  },
+  {
+    "query_id": "q221",
+    "execution_time": 0.0,
+    "CPU_percentage_mean": 0.0,
+    "CPU_percentage_max": 0.0,
+    "error": "\u9519\u8bef:  \u5b57\u6bb5 \"lochierarchy\" \u4e0d\u5b58\u5728\nLINE 35:   ,case when lochierarchy = 0 then s_state end\n                      ^\n"
+  },
+  {
+    "query_id": "q222",
+    "execution_time": 0.0,
+    "CPU_percentage_mean": 0.0,
+    "CPU_percentage_max": 0.0,
+    "error": "\u9519\u8bef:  \u5b57\u6bb5 \"lochierarchy\" \u4e0d\u5b58\u5728\nLINE 35:   ,case when lochierarchy = 0 then s_state end\n                      ^\n"
+  },
+  {
+    "query_id": "q223",
+    "execution_time": 0.0,
+    "CPU_percentage_mean": 0.0,
+    "CPU_percentage_max": 0.0,
+    "error": "\u9519\u8bef:  \u5b57\u6bb5 \"lochierarchy\" \u4e0d\u5b58\u5728\nLINE 23:    case when lochierarchy = 0 then i_category end,\n                      ^\n"
+  },
+  {
+    "query_id": "q224",
+    "execution_time": 0.0,
+    "CPU_percentage_mean": 0.0,
+    "CPU_percentage_max": 0.0,
+    "error": "\u9519\u8bef:  \u5b57\u6bb5 \"lochierarchy\" \u4e0d\u5b58\u5728\nLINE 23:    case when lochierarchy = 0 then i_category end,\n                      ^\n"
+  },
+  {
+    "query_id": "q225",
+    "execution_time": 0.0,
+    "CPU_percentage_mean": 0.0,
+    "CPU_percentage_max": 0.0,
+    "error": "\u9519\u8bef:  \u5b57\u6bb5 \"lochierarchy\" \u4e0d\u5b58\u5728\nLINE 23:    case when lochierarchy = 0 then i_category end,\n                      ^\n"
+  },
+  {
+    "query_id": "q226",
+    "execution_time": 0.0,
+    "CPU_percentage_mean": 0.0,
+    "CPU_percentage_max": 0.0,
+    "error": "\u9519\u8bef:  \u5b57\u6bb5 \"lochierarchy\" \u4e0d\u5b58\u5728\nLINE 23:    case when lochierarchy = 0 then i_category end,\n                      ^\n"
+  },
+  {
+    "query_id": "q227",
+    "execution_time": 0.0,
+    "CPU_percentage_mean": 0.0,
+    "CPU_percentage_max": 0.0,
+    "error": "\u9519\u8bef:  \u5b57\u6bb5 \"lochierarchy\" \u4e0d\u5b58\u5728\nLINE 23:    case when lochierarchy = 0 then i_category end,\n                      ^\n"
+  },
+  {
+    "query_id": "q228",
+    "execution_time": 0.0,
+    "CPU_percentage_mean": 0.0,
+    "CPU_percentage_max": 0.0,
+    "error": "\u9519\u8bef:  \u5b57\u6bb5 \"lochierarchy\" \u4e0d\u5b58\u5728\nLINE 23:    case when lochierarchy = 0 then i_category end,\n                      ^\n"
+  },
+  {
+    "query_id": "q229",
+    "execution_time": 0.0,
+    "CPU_percentage_mean": 0.0,
+    "CPU_percentage_max": 0.0,
+    "error": "\u9519\u8bef:  \u5b57\u6bb5 \"lochierarchy\" \u4e0d\u5b58\u5728\nLINE 23:    case when lochierarchy = 0 then i_category end,\n                      ^\n"
+  },
+  {
+    "query_id": "q230",
+    "execution_time": 0.0,
+    "CPU_percentage_mean": 0.0,
+    "CPU_percentage_max": 0.0,
+    "error": "\u9519\u8bef:  \u5b57\u6bb5 \"lochierarchy\" \u4e0d\u5b58\u5728\nLINE 23:    case when lochierarchy = 0 then i_category end,\n                      ^\n"
+  },
+  {
+    "query_id": "q231",
+    "execution_time": 0.0,
+    "CPU_percentage_mean": 0.0,
+    "CPU_percentage_max": 0.0,
+    "error": "\u9519\u8bef:  \u5b57\u6bb5 \"lochierarchy\" \u4e0d\u5b58\u5728\nLINE 23:    case when lochierarchy = 0 then i_category end,\n                      ^\n"
+  },
+  {
+    "query_id": "q232",
+    "execution_time": 0.009020171011798084,
+    "CPU_percentage_mean": 1.7980401297745288,
+    "CPU_percentage_max": 1.7980401297745288
+  },
+  {
+    "query_id": "q233",
+    "execution_time": 0.011064722028095275,
+    "CPU_percentage_mean": 1.6104754729141186,
+    "CPU_percentage_max": 1.6104754729141186
+  },
+  {
+    "query_id": "q234",
+    "execution_time": 0.011929459986276925,
+    "CPU_percentage_mean": 1.6906088101984031,
+    "CPU_percentage_max": 1.6906088101984031
+  },
+  {
+    "query_id": "q235",
+    "execution_time": 0.010372921999078244,
+    "CPU_percentage_mean": 1.6789948538526875,
+    "CPU_percentage_max": 1.6789948538526875
+  },
+  {
+    "query_id": "q236",
+    "execution_time": 0.009544942993670702,
+    "CPU_percentage_mean": 2.2774217610417247,
+    "CPU_percentage_max": 2.2774217610417247
+  },
+  {
+    "query_id": "q237",
+    "execution_time": 0.008170133049134165,
+    "CPU_percentage_mean": 1.5701631037645336,
+    "CPU_percentage_max": 1.5701631037645336
+  },
+  {
+    "query_id": "q238",
+    "execution_time": 0.011608683038502932,
+    "CPU_percentage_mean": 1.6513509862260498,
+    "CPU_percentage_max": 1.6513509862260498
+  },
+  {
+    "query_id": "q239",
+    "execution_time": 0.011085163976531476,
+    "CPU_percentage_mean": 1.6851496998341642,
+    "CPU_percentage_max": 1.6851496998341642
+  },
+  {
+    "query_id": "q240",
+    "execution_time": 0.007029314001556486,
+    "CPU_percentage_mean": 1.5610129983764056,
+    "CPU_percentage_max": 1.5610129983764056
+  },
+  {
+    "query_id": "q241",
+    "execution_time": 0.00816417601890862,
+    "CPU_percentage_mean": 1.8120714395478794,
+    "CPU_percentage_max": 1.8120714395478794
+  },
+  {
+    "query_id": "q242",
+    "execution_time": 0.010762981022708118,
+    "CPU_percentage_mean": 1.7727266826425299,
+    "CPU_percentage_max": 1.7727266826425299
+  },
+  {
+    "query_id": "q243",
+    "execution_time": 0.00892698101233691,
+    "CPU_percentage_mean": 1.6680557681287456,
+    "CPU_percentage_max": 1.6680557681287456
+  },
+  {
+    "query_id": "q244",
+    "execution_time": 0.009217299986630678,
+    "CPU_percentage_mean": 1.6237677747483914,
+    "CPU_percentage_max": 1.6237677747483914
+  },
+  {
+    "query_id": "q245",
+    "execution_time": 0.007592099020257592,
+    "CPU_percentage_mean": 1.745084226158797,
+    "CPU_percentage_max": 1.745084226158797
+  },
+  {
+    "query_id": "q246",
+    "execution_time": 0.0076665550004690886,
+    "CPU_percentage_mean": 1.7212044244581521,
+    "CPU_percentage_max": 1.7212044244581521
+  },
+  {
+    "query_id": "q247",
+    "execution_time": 0.008029025979340076,
+    "CPU_percentage_mean": 1.7687870786474977,
+    "CPU_percentage_max": 1.7687870786474977
+  },
+  {
+    "query_id": "q248",
+    "execution_time": 0.010302835959009826,
+    "CPU_percentage_mean": 2.005786602660819,
+    "CPU_percentage_max": 2.005786602660819
+  },
+  {
+    "query_id": "q249",
+    "execution_time": 0.00842932699015364,
+    "CPU_percentage_mean": 1.5333713639220348,
+    "CPU_percentage_max": 1.5333713639220348
+  },
+  {
+    "query_id": "q250",
+    "execution_time": 0.0085786739946343,
+    "CPU_percentage_mean": 1.573261155301788,
+    "CPU_percentage_max": 1.573261155301788
+  },
+  {
+    "query_id": "q251",
+    "execution_time": 0.17422769800759852,
+    "CPU_percentage_mean": 1.2119620655286114,
+    "CPU_percentage_max": 1.5432521486118165
+  },
+  {
+    "query_id": "q252",
+    "execution_time": 0.10956688300939277,
+    "CPU_percentage_mean": 1.2684424902403728,
+    "CPU_percentage_max": 1.6141740847748294
+  },
+  {
+    "query_id": "q253",
+    "execution_time": 0.12777265097247437,
+    "CPU_percentage_mean": 1.419077429428014,
+    "CPU_percentage_max": 1.6346477778416018
+  },
+  {
+    "query_id": "q254",
+    "execution_time": 0.2215531659894623,
+    "CPU_percentage_mean": 1.1724043581333172,
+    "CPU_percentage_max": 1.623433065308148
+  },
+  {
+    "query_id": "q255",
+    "execution_time": 0.1368507500155829,
+    "CPU_percentage_mean": 1.2585569571411315,
+    "CPU_percentage_max": 1.573060429768234
+  },
+  {
+    "query_id": "q256",
+    "execution_time": 0.21515144797740504,
+    "CPU_percentage_mean": 1.2979889449286426,
+    "CPU_percentage_max": 1.5561307760625156
+  },
+  {
+    "query_id": "q257",
+    "execution_time": 0.1544724619598128,
+    "CPU_percentage_mean": 1.173637798244079,
+    "CPU_percentage_max": 1.4479308715117525
+  },
+  {
+    "query_id": "q258",
+    "execution_time": 0.10548659297637641,
+    "CPU_percentage_mean": 1.2481651466050872,
+    "CPU_percentage_max": 1.517073528276304
+  },
+  {
+    "query_id": "q259",
+    "execution_time": 0.1438279600115493,
+    "CPU_percentage_mean": 1.347340072796021,
+    "CPU_percentage_max": 1.6029275747867617
+  },
+  {
+    "query_id": "q260",
+    "execution_time": 0.20901907898951322,
+    "CPU_percentage_mean": 1.1600284567770847,
+    "CPU_percentage_max": 1.5431412221286471
+  },
+  {
+    "query_id": "q261",
+    "execution_time": 0.008810856961645186,
+    "CPU_percentage_mean": 1.6217018789625386,
+    "CPU_percentage_max": 1.6217018789625386
+  },
+  {
+    "query_id": "q262",
+    "execution_time": 0.011300438025500625,
+    "CPU_percentage_mean": 1.6720389433539504,
+    "CPU_percentage_max": 1.6720389433539504
+  },
+  {
+    "query_id": "q263",
+    "execution_time": 0.008177834970410913,
+    "CPU_percentage_mean": 1.8062162706755627,
+    "CPU_percentage_max": 1.8062162706755627
+  },
+  {
+    "query_id": "q264",
+    "execution_time": 0.005974764993879944,
+    "CPU_percentage_mean": 1.5879056563108267,
+    "CPU_percentage_max": 1.5879056563108267
+  },
+  {
+    "query_id": "q265",
+    "execution_time": 0.010630937991663814,
+    "CPU_percentage_mean": 1.52668814744991,
+    "CPU_percentage_max": 1.52668814744991
+  },
+  {
+    "query_id": "q266",
+    "execution_time": 0.0103611089871265,
+    "CPU_percentage_mean": 1.4759542740055729,
+    "CPU_percentage_max": 1.4759542740055729
+  },
+  {
+    "query_id": "q267",
+    "execution_time": 0.007712953025475144,
+    "CPU_percentage_mean": 1.8640940023558001,
+    "CPU_percentage_max": 1.8640940023558001
+  },
+  {
+    "query_id": "q268",
+    "execution_time": 0.01052301999880001,
+    "CPU_percentage_mean": 1.498366746075234,
+    "CPU_percentage_max": 1.498366746075234
+  },
+  {
+    "query_id": "q269",
+    "execution_time": 0.00849293899955228,
+    "CPU_percentage_mean": 1.6179586601024496,
+    "CPU_percentage_max": 1.6179586601024496
+  },
+  {
+    "query_id": "q270",
+    "execution_time": 0.4433956610155292,
+    "CPU_percentage_mean": 1.1370847135169795,
+    "CPU_percentage_max": 1.4572675434075752
+  },
+  {
+    "query_id": "q271",
+    "execution_time": 0.4402989470399916,
+    "CPU_percentage_mean": 1.2064476490245593,
+    "CPU_percentage_max": 1.9152729861008897
+  },
+  {
+    "query_id": "q272",
+    "execution_time": 0.4388676239759661,
+    "CPU_percentage_mean": 1.1556819091307458,
+    "CPU_percentage_max": 1.6702234806244083
+  },
+  {
+    "query_id": "q273",
+    "execution_time": 0.4706319250399247,
+    "CPU_percentage_mean": 1.1824525879779828,
+    "CPU_percentage_max": 1.6782734231264564
+  },
+  {
+    "query_id": "q274",
+    "execution_time": 0.46353969001211226,
+    "CPU_percentage_mean": 1.1371149844892656,
+    "CPU_percentage_max": 1.4560688443330425
+  },
+  {
+    "query_id": "q275",
+    "execution_time": 0.4321218049735762,
+    "CPU_percentage_mean": 1.136841783298987,
+    "CPU_percentage_max": 1.6308173420284542
+  },
+  {
+    "query_id": "q276",
+    "execution_time": 0.45767313498072326,
+    "CPU_percentage_mean": 1.1774785651911972,
+    "CPU_percentage_max": 2.2482938566558555
+  },
+  {
+    "query_id": "q277",
+    "execution_time": 0.45894725900143385,
+    "CPU_percentage_mean": 1.1872296763658636,
+    "CPU_percentage_max": 1.58986563437408
+  },
+  {
+    "query_id": "q278",
+    "execution_time": 0.4647642479976639,
+    "CPU_percentage_mean": 1.1234461054319689,
+    "CPU_percentage_max": 1.6215627868807745
+  },
+  {
+    "query_id": "q279",
+    "execution_time": 0.48893466900335625,
+    "CPU_percentage_mean": 1.1925772031797308,
+    "CPU_percentage_max": 1.6208581284828674
+  },
+  {
+    "query_id": "q280",
+    "execution_time": 0.09257706598145887,
+    "CPU_percentage_mean": 1.3401795545000552,
+    "CPU_percentage_max": 1.6161349921454597
+  },
+  {
+    "query_id": "q281",
+    "execution_time": 0.0947264070273377,
+    "CPU_percentage_mean": 1.2843822582600048,
+    "CPU_percentage_max": 1.4985428659483784
+  },
+  {
+    "query_id": "q282",
+    "execution_time": 0.08889512001769617,
+    "CPU_percentage_mean": 1.3857272374476257,
+    "CPU_percentage_max": 1.6403086208103053
+  },
+  {
+    "query_id": "q283",
+    "execution_time": 0.10487511398969218,
+    "CPU_percentage_mean": 1.373797135228143,
+    "CPU_percentage_max": 1.605951343150357
+  },
+  {
+    "query_id": "q284",
+    "execution_time": 0.11442644702037796,
+    "CPU_percentage_mean": 1.2952169103576017,
+    "CPU_percentage_max": 1.8066437538537077
+  },
+  {
+    "query_id": "q285",
+    "execution_time": 0.10753081599250436,
+    "CPU_percentage_mean": 1.8046275891626298,
+    "CPU_percentage_max": 1.9651187453032686
+  },
+  {
+    "query_id": "q286",
+    "execution_time": 0.13856723200296983,
+    "CPU_percentage_mean": 1.3879015966457624,
+    "CPU_percentage_max": 1.9366921013879195
+  },
+  {
+    "query_id": "q287",
+    "execution_time": 0.10152338800253347,
+    "CPU_percentage_mean": 1.3784952833047368,
+    "CPU_percentage_max": 1.4796724904192335
+  },
+  {
+    "query_id": "q288",
+    "execution_time": 0.08307935803895816,
+    "CPU_percentage_mean": 1.3765382031858047,
+    "CPU_percentage_max": 1.610449644647295
+  },
+  {
+    "query_id": "q289",
+    "execution_time": 0.028706796001642942,
+    "CPU_percentage_mean": 1.651331855161007,
+    "CPU_percentage_max": 1.651331855161007
+  },
+  {
+    "query_id": "q290",
+    "execution_time": 0.01756706100422889,
+    "CPU_percentage_mean": 1.531917702141959,
+    "CPU_percentage_max": 1.531917702141959
+  },
+  {
+    "query_id": "q291",
+    "execution_time": 0.005743490997701883,
+    "CPU_percentage_mean": 1.5077635866683308,
+    "CPU_percentage_max": 1.5077635866683308
+  },
+  {
+    "query_id": "q292",
+    "execution_time": 0.005720477958675474,
+    "CPU_percentage_mean": 1.4926603607734374,
+    "CPU_percentage_max": 1.4926603607734374
+  },
+  {
+    "query_id": "q293",
+    "execution_time": 0.005574304959736764,
+    "CPU_percentage_mean": 1.6880999529810932,
+    "CPU_percentage_max": 1.6880999529810932
+  },
+  {
+    "query_id": "q294",
+    "execution_time": 0.00716527400072664,
+    "CPU_percentage_mean": 1.6887645825056536,
+    "CPU_percentage_max": 1.6887645825056536
+  },
+  {
+    "query_id": "q295",
+    "execution_time": 0.009328040003310889,
+    "CPU_percentage_mean": 1.6915663127111322,
+    "CPU_percentage_max": 1.6915663127111322
+  },
+  {
+    "query_id": "q296",
+    "execution_time": 0.007085204008035362,
+    "CPU_percentage_mean": 1.6557934914041443,
+    "CPU_percentage_max": 1.6557934914041443
+  },
+  {
+    "query_id": "q297",
+    "execution_time": 0.010681757994461805,
+    "CPU_percentage_mean": 1.6459457876582366,
+    "CPU_percentage_max": 1.6459457876582366
+  },
+  {
+    "query_id": "q298",
+    "execution_time": 0.5687462360365316,
+    "CPU_percentage_mean": 1.4359340322058332,
+    "CPU_percentage_max": 3.29934269196015
+  },
+  {
+    "query_id": "q299",
+    "execution_time": 0.541578833013773,
+    "CPU_percentage_mean": 1.3496960331855334,
+    "CPU_percentage_max": 2.521201655820915
+  },
+  {
+    "query_id": "q300",
+    "execution_time": 0.5367485049646348,
+    "CPU_percentage_mean": 1.3780330691313656,
+    "CPU_percentage_max": 2.7069890867003776
+  },
+  {
+    "query_id": "q301",
+    "execution_time": 0.5334625170216896,
+    "CPU_percentage_mean": 1.3897253644802066,
+    "CPU_percentage_max": 2.777616132592568
+  },
+  {
+    "query_id": "q302",
+    "execution_time": 0.5354856619960628,
+    "CPU_percentage_mean": 1.3782509357100765,
+    "CPU_percentage_max": 2.794140367986872
+  },
+  {
+    "query_id": "q303",
+    "execution_time": 0.5701918909908272,
+    "CPU_percentage_mean": 1.3655982428064102,
+    "CPU_percentage_max": 2.4693988987416198
+  },
+  {
+    "query_id": "q304",
+    "execution_time": 0.5174943520105444,
+    "CPU_percentage_mean": 1.4233638284378127,
+    "CPU_percentage_max": 3.3383695351228733
+  },
+  {
+    "query_id": "q305",
+    "execution_time": 0.5345186080085114,
+    "CPU_percentage_mean": 1.4277174021500556,
+    "CPU_percentage_max": 2.8552741289138215
+  },
+  {
+    "query_id": "q306",
+    "execution_time": 0.5243145379936323,
+    "CPU_percentage_mean": 1.4535528160228819,
+    "CPU_percentage_max": 2.841828690147906
+  },
+  {
+    "query_id": "q307",
+    "execution_time": 0.22163465403718874,
+    "CPU_percentage_mean": 1.3962425434573933,
+    "CPU_percentage_max": 2.4236643436400067
+  },
+  {
+    "query_id": "q308",
+    "execution_time": 0.22098735900362954,
+    "CPU_percentage_mean": 1.2104972611952605,
+    "CPU_percentage_max": 1.948048291512705
+  },
+  {
+    "query_id": "q309",
+    "execution_time": 0.21449651703005657,
+    "CPU_percentage_mean": 1.1704540686864249,
+    "CPU_percentage_max": 1.4555321589864427
+  },
+  {
+    "query_id": "q310",
+    "execution_time": 0.2473838139558211,
+    "CPU_percentage_mean": 1.3073356094888453,
+    "CPU_percentage_max": 1.5822876685596934
+  },
+  {
+    "query_id": "q311",
+    "execution_time": 0.21233031898736954,
+    "CPU_percentage_mean": 1.267767130836562,
+    "CPU_percentage_max": 1.5744731073271692
+  },
+  {
+    "query_id": "q312",
+    "execution_time": 0.23911508999299258,
+    "CPU_percentage_mean": 1.3073018680359774,
+    "CPU_percentage_max": 1.7884510975945584
+  },
+  {
+    "query_id": "q313",
+    "execution_time": 0.25829299102770165,
+    "CPU_percentage_mean": 1.1497697561586997,
+    "CPU_percentage_max": 1.6906715369957197
+  },
+  {
+    "query_id": "q314",
+    "execution_time": 0.2116645199712366,
+    "CPU_percentage_mean": 1.16059331019574,
+    "CPU_percentage_max": 1.552351292710394
+  },
+  {
+    "query_id": "q315",
+    "execution_time": 0.21852910000598058,
+    "CPU_percentage_mean": 1.2485683898934465,
+    "CPU_percentage_max": 2.0863109510363045
+  },
+  {
+    "query_id": "q316",
+    "execution_time": 0.09829581796657294,
+    "CPU_percentage_mean": 1.3096710731155956,
+    "CPU_percentage_max": 1.4610948679423834
+  },
+  {
+    "query_id": "q317",
+    "execution_time": 0.09409096400486305,
+    "CPU_percentage_mean": 1.3540715290268792,
+    "CPU_percentage_max": 1.7821095237483795
+  },
+  {
+    "query_id": "q318",
+    "execution_time": 0.08989447401836514,
+    "CPU_percentage_mean": 1.4580591799171467,
+    "CPU_percentage_max": 1.7615517651569403
+  },
+  {
+    "query_id": "q319",
+    "execution_time": 0.09128905704710633,
+    "CPU_percentage_mean": 1.6141664243962637,
+    "CPU_percentage_max": 1.7975353696351992
+  },
+  {
+    "query_id": "q320",
+    "execution_time": 0.11449672799790278,
+    "CPU_percentage_mean": 1.2481614787726742,
+    "CPU_percentage_max": 1.6906385117101062
+  },
+  {
+    "query_id": "q321",
+    "execution_time": 0.09528367902385071,
+    "CPU_percentage_mean": 1.3003660734184446,
+    "CPU_percentage_max": 1.4462422104581358
+  },
+  {
+    "query_id": "q322",
+    "execution_time": 0.08945044898428023,
+    "CPU_percentage_mean": 1.4024488166578863,
+    "CPU_percentage_max": 1.7371949741500616
+  },
+  {
+    "query_id": "q323",
+    "execution_time": 0.09280856000259519,
+    "CPU_percentage_mean": 1.3143538009970324,
+    "CPU_percentage_max": 1.660600292375216
+  },
+  {
+    "query_id": "q324",
+    "execution_time": 0.08071929297875613,
+    "CPU_percentage_mean": 1.5927388252245458,
+    "CPU_percentage_max": 1.7653395780577823
+  },
+  {
+    "query_id": "q325",
+    "execution_time": 3.5056284270249307,
+    "CPU_percentage_mean": 1.3405887561131626,
+    "CPU_percentage_max": 5.590394131598924
+  },
+  {
+    "query_id": "q326",
+    "execution_time": 0.9574332140036859,
+    "CPU_percentage_mean": 1.8898924407064088,
+    "CPU_percentage_max": 2.4191890112849554
+  },
+  {
+    "query_id": "q327",
+    "execution_time": 2.7266993560479023,
+    "CPU_percentage_mean": 1.2937407028310122,
+    "CPU_percentage_max": 2.066179803865689
+  },
+  {
+    "query_id": "q328",
+    "execution_time": 3.070527566014789,
+    "CPU_percentage_mean": 1.5197552603846929,
+    "CPU_percentage_max": 2.163653094393091
+  },
+  {
+    "query_id": "q329",
+    "execution_time": 3.4634820600040257,
+    "CPU_percentage_mean": 1.4987667623209942,
+    "CPU_percentage_max": 2.146626992176231
+  },
+  {
+    "query_id": "q330",
+    "execution_time": 3.7295766359893605,
+    "CPU_percentage_mean": 1.4405295692092115,
+    "CPU_percentage_max": 2.1397710455729357
+  },
+  {
+    "query_id": "q331",
+    "execution_time": 3.7408116690348834,
+    "CPU_percentage_mean": 1.481236434779697,
+    "CPU_percentage_max": 2.46892463895398
+  },
+  {
+    "query_id": "q332",
+    "execution_time": 3.3613940229988657,
+    "CPU_percentage_mean": 1.489998895100721,
+    "CPU_percentage_max": 2.3250502204954353
+  },
+  {
+    "query_id": "q333",
+    "execution_time": 3.0638744049938396,
+    "CPU_percentage_mean": 1.6071580809725063,
+    "CPU_percentage_max": 4.6184769146387215
+  },
+  {
+    "query_id": "q334",
+    "execution_time": 3.2767928569810465,
+    "CPU_percentage_mean": 1.4958327042563673,
+    "CPU_percentage_max": 2.320980931242064
+  },
+  {
+    "query_id": "q335",
+    "execution_time": 0.3525754369911738,
+    "CPU_percentage_mean": 1.9113570683337149,
+    "CPU_percentage_max": 2.3148386332756803
+  },
+  {
+    "query_id": "q336",
+    "execution_time": 0.30043326795566827,
+    "CPU_percentage_mean": 1.998949361132152,
+    "CPU_percentage_max": 2.1373270618123317
+  },
+  {
+    "query_id": "q337",
+    "execution_time": 0.3338193339877762,
+    "CPU_percentage_mean": 1.6972932938001988,
+    "CPU_percentage_max": 2.1702422128455576
+  },
+  {
+    "query_id": "q338",
+    "execution_time": 0.3239782409509644,
+    "CPU_percentage_mean": 1.2487431868085948,
+    "CPU_percentage_max": 1.6639032682122883
+  },
+  {
+    "query_id": "q339",
+    "execution_time": 0.28206866199616343,
+    "CPU_percentage_mean": 1.1525524661161446,
+    "CPU_percentage_max": 1.573122923655434
+  },
+  {
+    "query_id": "q340",
+    "execution_time": 0.3203986659646034,
+    "CPU_percentage_mean": 1.2336659732561839,
+    "CPU_percentage_max": 1.7858952436748923
+  },
+  {
+    "query_id": "q341",
+    "execution_time": 0.29846339602954686,
+    "CPU_percentage_mean": 1.1277962530826275,
+    "CPU_percentage_max": 1.4667043147068144
+  },
+  {
+    "query_id": "q342",
+    "execution_time": 0.30098630202701315,
+    "CPU_percentage_mean": 1.2045984654834057,
+    "CPU_percentage_max": 1.5613496765461279
+  },
+  {
+    "query_id": "q343",
+    "execution_time": 0.298798636009451,
+    "CPU_percentage_mean": 1.1770255725967138,
+    "CPU_percentage_max": 1.5882274878106555
+  },
+  {
+    "query_id": "q344",
+    "execution_time": 0.291621200973168,
+    "CPU_percentage_mean": 1.2626484084815466,
+    "CPU_percentage_max": 1.6588756072599404
+  },
+  {
+    "query_id": "q345",
+    "execution_time": 0.1001262619975023,
+    "CPU_percentage_mean": 1.399791612024743,
+    "CPU_percentage_max": 1.701853728865006
+  },
+  {
+    "query_id": "q346",
+    "execution_time": 0.10037117201136425,
+    "CPU_percentage_mean": 1.2658457018354943,
+    "CPU_percentage_max": 1.5096385946209672
+  },
+  {
+    "query_id": "q347",
+    "execution_time": 0.116278414032422,
+    "CPU_percentage_mean": 1.284836886575017,
+    "CPU_percentage_max": 1.6083807017127516
+  },
+  {
+    "query_id": "q348",
+    "execution_time": 0.21688725403510034,
+    "CPU_percentage_mean": 1.2525703073781655,
+    "CPU_percentage_max": 2.019468512838658
+  },
+  {
+    "query_id": "q349",
+    "execution_time": 0.11374373099533841,
+    "CPU_percentage_mean": 1.2933663576448693,
+    "CPU_percentage_max": 1.599000522791893
+  },
+  {
+    "query_id": "q350",
+    "execution_time": 0.14282644802005962,
+    "CPU_percentage_mean": 1.2222060544502191,
+    "CPU_percentage_max": 1.6366026641769436
+  },
+  {
+    "query_id": "q351",
+    "execution_time": 0.1234607610385865,
+    "CPU_percentage_mean": 1.4159149887751752,
+    "CPU_percentage_max": 1.8941014133337442
+  },
+  {
+    "query_id": "q352",
+    "execution_time": 0.09856387000763789,
+    "CPU_percentage_mean": 1.329631669115726,
+    "CPU_percentage_max": 1.631009372851531
+  },
+  {
+    "query_id": "q353",
+    "execution_time": 0.09390197601169348,
+    "CPU_percentage_mean": 1.3779234315433597,
+    "CPU_percentage_max": 1.7130408547451799
+  },
+  {
+    "query_id": "q354",
+    "execution_time": 0.28199896996375173,
+    "CPU_percentage_mean": 1.2507178519408058,
+    "CPU_percentage_max": 1.7485071467236002
+  },
+  {
+    "query_id": "q355",
+    "execution_time": 0.2759157399996184,
+    "CPU_percentage_mean": 1.2127775467998287,
+    "CPU_percentage_max": 1.5749821807139828
+  },
+  {
+    "query_id": "q356",
+    "execution_time": 0.2765932920156047,
+    "CPU_percentage_mean": 1.1595761872855428,
+    "CPU_percentage_max": 1.5096505041281307
+  },
+  {
+    "query_id": "q357",
+    "execution_time": 0.30112536903470755,
+    "CPU_percentage_mean": 1.218357120004532,
+    "CPU_percentage_max": 1.5916750223326201
+  },
+  {
+    "query_id": "q358",
+    "execution_time": 0.296299971989356,
+    "CPU_percentage_mean": 1.2107283883126898,
+    "CPU_percentage_max": 1.6254448043042318
+  },
+  {
+    "query_id": "q359",
+    "execution_time": 0.2866292569669895,
+    "CPU_percentage_mean": 1.169142035249015,
+    "CPU_percentage_max": 1.7595696433521473
+  },
+  {
+    "query_id": "q360",
+    "execution_time": 0.2672008479712531,
+    "CPU_percentage_mean": 1.1932134949587117,
+    "CPU_percentage_max": 1.5953987213172558
+  },
+  {
+    "query_id": "q361",
+    "execution_time": 0.3005697089829482,
+    "CPU_percentage_mean": 1.196199255306379,
+    "CPU_percentage_max": 1.61605508270583
+  },
+  {
+    "query_id": "q362",
+    "execution_time": 0.2952368180267513,
+    "CPU_percentage_mean": 1.2416144007998389,
+    "CPU_percentage_max": 1.748364826659754
+  },
+  {
+    "query_id": "q363",
+    "execution_time": 0.3043108810088597,
+    "CPU_percentage_mean": 1.146194668553937,
+    "CPU_percentage_max": 1.530170040270756
+  },
+  {
+    "query_id": "q364",
+    "execution_time": 0.1394395789830014,
+    "CPU_percentage_mean": 1.3242128985129644,
+    "CPU_percentage_max": 1.653173012019928
+  },
+  {
+    "query_id": "q365",
+    "execution_time": 0.2686503159929998,
+    "CPU_percentage_mean": 1.2263984066656108,
+    "CPU_percentage_max": 1.6625349072730449
+  },
+  {
+    "query_id": "q366",
+    "execution_time": 0.27630600897828117,
+    "CPU_percentage_mean": 1.1334974959600026,
+    "CPU_percentage_max": 1.5040737294326407
+  },
+  {
+    "query_id": "q367",
+    "execution_time": 0.18984076601918787,
+    "CPU_percentage_mean": 1.3301258923758739,
+    "CPU_percentage_max": 1.6345199987534313
+  },
+  {
+    "query_id": "q368",
+    "execution_time": 0.2661212439998053,
+    "CPU_percentage_mean": 1.9737428636821546,
+    "CPU_percentage_max": 5.652375653062728
+  },
+  {
+    "query_id": "q369",
+    "execution_time": 0.2941389260231517,
+    "CPU_percentage_mean": 1.2616565903349666,
+    "CPU_percentage_max": 1.8049479560092359
+  },
+  {
+    "query_id": "q370",
+    "execution_time": 0.13821120403008536,
+    "CPU_percentage_mean": 1.2580706524083027,
+    "CPU_percentage_max": 1.6568847293856745
+  },
+  {
+    "query_id": "q371",
+    "execution_time": 0.2774022159865126,
+    "CPU_percentage_mean": 1.1606334327846721,
+    "CPU_percentage_max": 1.728239918899359
+  },
+  {
+    "query_id": "q372",
+    "execution_time": 0.2724628110299818,
+    "CPU_percentage_mean": 1.2514115677149726,
+    "CPU_percentage_max": 2.1143865496456726
+  },
+  {
+    "query_id": "q373",
+    "execution_time": 0.09279232402332127,
+    "CPU_percentage_mean": 1.3556516989597305,
+    "CPU_percentage_max": 1.5936282752077786
+  },
+  {
+    "query_id": "q374",
+    "execution_time": 0.04123879800317809,
+    "CPU_percentage_mean": 1.5692658116003018,
+    "CPU_percentage_max": 1.5692658116003018
+  },
+  {
+    "query_id": "q375",
+    "execution_time": 0.09455719200195745,
+    "CPU_percentage_mean": 1.3879100652920684,
+    "CPU_percentage_max": 1.7298053974464636
+  },
+  {
+    "query_id": "q376",
+    "execution_time": 0.09808780200546607,
+    "CPU_percentage_mean": 1.538100766525411,
+    "CPU_percentage_max": 1.8932761260023432
+  },
+  {
+    "query_id": "q377",
+    "execution_time": 0.11044825700810179,
+    "CPU_percentage_mean": 1.2586286451288726,
+    "CPU_percentage_max": 1.569323836048711
+  },
+  {
+    "query_id": "q378",
+    "execution_time": 0.09456630802014843,
+    "CPU_percentage_mean": 1.3226049792536552,
+    "CPU_percentage_max": 1.4984400037003205
+  },
+  {
+    "query_id": "q379",
+    "execution_time": 0.10584795096656308,
+    "CPU_percentage_mean": 1.3303378586124273,
+    "CPU_percentage_max": 1.6512992076928177
+  },
+  {
+    "query_id": "q380",
+    "execution_time": 0.09697676601354033,
+    "CPU_percentage_mean": 1.4675317592115076,
+    "CPU_percentage_max": 1.658968279530311
+  },
+  {
+    "query_id": "q381",
+    "execution_time": 0.016937457025051117,
+    "CPU_percentage_mean": 2.0561460196474965,
+    "CPU_percentage_max": 2.0561460196474965
+  },
+  {
+    "query_id": "q382",
+    "execution_time": 0.1227212370140478,
+    "CPU_percentage_mean": 1.3479034579415892,
+    "CPU_percentage_max": 1.8083688520912424
+  },
+  {
+    "query_id": "q383",
+    "execution_time": 0.11824353295378387,
+    "CPU_percentage_mean": 1.214265948741242,
+    "CPU_percentage_max": 1.3808211991903125
+  },
+  {
+    "query_id": "q384",
+    "execution_time": 0.1174052589922212,
+    "CPU_percentage_mean": 1.3368202352055354,
+    "CPU_percentage_max": 1.685027903312914
+  },
+  {
+    "query_id": "q385",
+    "execution_time": 0.10991899803048,
+    "CPU_percentage_mean": 1.282031569217092,
+    "CPU_percentage_max": 1.3767882883917864
+  },
+  {
+    "query_id": "q386",
+    "execution_time": 0.09819578396854922,
+    "CPU_percentage_mean": 1.5433072979208653,
+    "CPU_percentage_max": 1.8792275774982512
+  },
+  {
+    "query_id": "q387",
+    "execution_time": 0.09072689898312092,
+    "CPU_percentage_mean": 1.2834213081938257,
+    "CPU_percentage_max": 1.570944299127677
+  },
+  {
+    "query_id": "q388",
+    "execution_time": 0.09516449098009616,
+    "CPU_percentage_mean": 1.46065941797995,
+    "CPU_percentage_max": 1.7878388555504665
+  },
+  {
+    "query_id": "q389",
+    "execution_time": 0.10242706903954968,
+    "CPU_percentage_mean": 1.3616858741736866,
+    "CPU_percentage_max": 1.6570169928240008
+  },
+  {
+    "query_id": "q390",
+    "execution_time": 0.10350041295168921,
+    "CPU_percentage_mean": 1.5025266546165374,
+    "CPU_percentage_max": 1.8033966875709215
+  },
+  {
+    "query_id": "q391",
+    "execution_time": 0.29896329302573577,
+    "CPU_percentage_mean": 1.1427981629940633,
+    "CPU_percentage_max": 1.6195395512141288
+  },
+  {
+    "query_id": "q392",
+    "execution_time": 0.30322469997918233,
+    "CPU_percentage_mean": 1.2230082545609224,
+    "CPU_percentage_max": 1.729678642820171
+  },
+  {
+    "query_id": "q393",
+    "execution_time": 0.2831422759918496,
+    "CPU_percentage_mean": 1.1733624320094345,
+    "CPU_percentage_max": 1.7429537298810602
+  },
+  {
+    "query_id": "q394",
+    "execution_time": 0.2488526410306804,
+    "CPU_percentage_mean": 1.2221217403625417,
+    "CPU_percentage_max": 1.6623708971006381
+  },
+  {
+    "query_id": "q395",
+    "execution_time": 0.25414825102780014,
+    "CPU_percentage_mean": 1.2413162478183903,
+    "CPU_percentage_max": 2.2785323129265596
+  },
+  {
+    "query_id": "q396",
+    "execution_time": 0.2473068839753978,
+    "CPU_percentage_mean": 1.2115469287166243,
+    "CPU_percentage_max": 1.524430336392646
+  },
+  {
+    "query_id": "q397",
+    "execution_time": 0.2628619289607741,
+    "CPU_percentage_mean": 1.2078558620939863,
+    "CPU_percentage_max": 1.4796811060307613
+  },
+  {
+    "query_id": "q398",
+    "execution_time": 0.2795083960518241,
+    "CPU_percentage_mean": 1.209243725549601,
+    "CPU_percentage_max": 1.727967279576414
+  },
+  {
+    "query_id": "q399",
+    "execution_time": 0.2611874009598978,
+    "CPU_percentage_mean": 1.240168545121868,
+    "CPU_percentage_max": 1.7868462407312768
+  },
+  {
+    "query_id": "q400",
+    "execution_time": 0.2739455819828436,
+    "CPU_percentage_mean": 1.2071380405504237,
+    "CPU_percentage_max": 1.706493009343214
+  },
+  {
+    "query_id": "q401",
+    "execution_time": 0.31486019503790885,
+    "CPU_percentage_mean": 1.1667113093708381,
+    "CPU_percentage_max": 1.981087980839526
+  },
+  {
+    "query_id": "q402",
+    "execution_time": 0.2877304329886101,
+    "CPU_percentage_mean": 1.252483359905462,
+    "CPU_percentage_max": 1.6291479077750735
+  },
+  {
+    "query_id": "q403",
+    "execution_time": 0.31065631803357974,
+    "CPU_percentage_mean": 1.157351571102898,
+    "CPU_percentage_max": 1.5021500057993697
+  },
+  {
+    "query_id": "q404",
+    "execution_time": 0.29509175301063806,
+    "CPU_percentage_mean": 1.2504884409682349,
+    "CPU_percentage_max": 1.5637490369848632
+  },
+  {
+    "query_id": "q405",
+    "execution_time": 0.2765241659944877,
+    "CPU_percentage_mean": 1.1399799264143275,
+    "CPU_percentage_max": 1.5413152426726064
+  },
+  {
+    "query_id": "q406",
+    "execution_time": 0.2630446199909784,
+    "CPU_percentage_mean": 1.2823901179724893,
+    "CPU_percentage_max": 1.6550886711861543
+  },
+  {
+    "query_id": "q407",
+    "execution_time": 0.2578292649704963,
+    "CPU_percentage_mean": 1.1432629119671303,
+    "CPU_percentage_max": 1.5077959771033664
+  },
+  {
+    "query_id": "q408",
+    "execution_time": 0.25304667302407324,
+    "CPU_percentage_mean": 1.1845596363744995,
+    "CPU_percentage_max": 1.4815903700358912
+  },
+  {
+    "query_id": "q409",
+    "execution_time": 0.2884012319846079,
+    "CPU_percentage_mean": 1.1718411906877249,
+    "CPU_percentage_max": 1.5954135375617235
+  },
+  {
+    "query_id": "q410",
+    "execution_time": 0.26053218997549266,
+    "CPU_percentage_mean": 1.2715202186599137,
+    "CPU_percentage_max": 1.6159828863042842
+  },
+  {
+    "query_id": "q411",
+    "execution_time": 0.2644289669697173,
+    "CPU_percentage_mean": 1.1596998325140269,
+    "CPU_percentage_max": 1.5464530134522991
+  },
+  {
+    "query_id": "q412",
+    "execution_time": 0.2551534280064516,
+    "CPU_percentage_mean": 1.2344014064271496,
+    "CPU_percentage_max": 1.6365048023850552
+  },
+  {
+    "query_id": "q413",
+    "execution_time": 0.25218802300514653,
+    "CPU_percentage_mean": 1.1576413920731758,
+    "CPU_percentage_max": 1.7600106277281022
+  },
+  {
+    "query_id": "q414",
+    "execution_time": 0.2649937670212239,
+    "CPU_percentage_mean": 1.2035633866733446,
+    "CPU_percentage_max": 1.6737834568972456
+  },
+  {
+    "query_id": "q415",
+    "execution_time": 0.2747524899896234,
+    "CPU_percentage_mean": 1.1045490277678043,
+    "CPU_percentage_max": 1.4742163948960751
+  },
+  {
+    "query_id": "q416",
+    "execution_time": 0.024975234002340585,
+    "CPU_percentage_mean": 1.7465640880219335,
+    "CPU_percentage_max": 1.7465640880219335
+  },
+  {
+    "query_id": "q417",
+    "execution_time": 0.01793431001715362,
+    "CPU_percentage_mean": 2.981372552102553,
+    "CPU_percentage_max": 2.981372552102553
+  },
+  {
+    "query_id": "q418",
+    "execution_time": 0.015028813970275223,
+    "CPU_percentage_mean": 1.5580632231016518,
+    "CPU_percentage_max": 1.5580632231016518
+  },
+  {
+    "query_id": "q419",
+    "execution_time": 0.01505494600860402,
+    "CPU_percentage_mean": 1.7149476644600128,
+    "CPU_percentage_max": 1.7149476644600128
+  },
+  {
+    "query_id": "q420",
+    "execution_time": 0.01976417499827221,
+    "CPU_percentage_mean": 1.6523176425817263,
+    "CPU_percentage_max": 1.6523176425817263
+  },
+  {
+    "query_id": "q421",
+    "execution_time": 0.015485059993807226,
+    "CPU_percentage_mean": 2.1908100652599694,
+    "CPU_percentage_max": 2.1908100652599694
+  },
+  {
+    "query_id": "q422",
+    "execution_time": 0.017531433957628906,
+    "CPU_percentage_mean": 1.6849509236069962,
+    "CPU_percentage_max": 1.6849509236069962
+  },
+  {
+    "query_id": "q423",
+    "execution_time": 0.016866005025804043,
+    "CPU_percentage_mean": 1.3864571174456912,
+    "CPU_percentage_max": 1.3864571174456912
+  },
+  {
+    "query_id": "q424",
+    "execution_time": 0.017601427040062845,
+    "CPU_percentage_mean": 1.7128840321963292,
+    "CPU_percentage_max": 1.7128840321963292
+  },
+  {
+    "query_id": "q425",
+    "execution_time": 0.028821234009228647,
+    "CPU_percentage_mean": 1.7541781879124962,
+    "CPU_percentage_max": 1.7541781879124962
+  },
+  {
+    "query_id": "q426",
+    "execution_time": 0.339246732997708,
+    "CPU_percentage_mean": 1.1411427344435283,
+    "CPU_percentage_max": 1.6905305680988236
+  },
+  {
+    "query_id": "q427",
+    "execution_time": 0.31441711401566863,
+    "CPU_percentage_mean": 1.1570667417744285,
+    "CPU_percentage_max": 1.7373290975613405
+  },
+  {
+    "query_id": "q428",
+    "execution_time": 0.3183603719808161,
+    "CPU_percentage_mean": 1.1709859068037816,
+    "CPU_percentage_max": 1.5768845993862226
+  },
+  {
+    "query_id": "q429",
+    "execution_time": 0.3103612610138953,
+    "CPU_percentage_mean": 1.1164277635563822,
+    "CPU_percentage_max": 1.5824379217857658
+  },
+  {
+    "query_id": "q430",
+    "execution_time": 0.3126872809953056,
+    "CPU_percentage_mean": 1.2384510973317724,
+    "CPU_percentage_max": 1.5339022993962115
+  },
+  {
+    "query_id": "q431",
+    "execution_time": 0.12568043102510273,
+    "CPU_percentage_mean": 1.16295076284088,
+    "CPU_percentage_max": 1.3677888036916408
+  },
+  {
+    "query_id": "q432",
+    "execution_time": 0.12568963802186772,
+    "CPU_percentage_mean": 1.2085045031963828,
+    "CPU_percentage_max": 1.4722141347604154
+  },
+  {
+    "query_id": "q433",
+    "execution_time": 0.20907924399944022,
+    "CPU_percentage_mean": 1.212027395665693,
+    "CPU_percentage_max": 1.5824233537332706
+  },
+  {
+    "query_id": "q434",
+    "execution_time": 0.13286655599949881,
+    "CPU_percentage_mean": 1.4624746975092433,
+    "CPU_percentage_max": 1.9992404528628624
+  },
+  {
+    "query_id": "q435",
+    "execution_time": 0.13622271799249575,
+    "CPU_percentage_mean": 1.2917323856038532,
+    "CPU_percentage_max": 1.7111080926619153
+  },
+  {
+    "query_id": "q436",
+    "execution_time": 0.223721539019607,
+    "CPU_percentage_mean": 1.208966956339729,
+    "CPU_percentage_max": 1.6496243924622807
+  },
+  {
+    "query_id": "q437",
+    "execution_time": 0.18679153599077836,
+    "CPU_percentage_mean": 1.353838588141396,
+    "CPU_percentage_max": 1.6848920306835657
+  },
+  {
+    "query_id": "q438",
+    "execution_time": 0.18390484701376408,
+    "CPU_percentage_mean": 1.249527222789601,
+    "CPU_percentage_max": 1.604764896590617
+  },
+  {
+    "query_id": "q439",
+    "execution_time": 0.159368080960121,
+    "CPU_percentage_mean": 1.1951073336550315,
+    "CPU_percentage_max": 1.5619057792110342
+  },
+  {
+    "query_id": "q440",
+    "execution_time": 0.16060288302833214,
+    "CPU_percentage_mean": 1.3608303136559226,
+    "CPU_percentage_max": 1.5867963514838213
+  },
+  {
+    "query_id": "q441",
+    "execution_time": 0.0015155950095504522,
+    "CPU_percentage_mean": 1.6214223965088703,
+    "CPU_percentage_max": 1.6214223965088703
+  },
+  {
+    "query_id": "q442",
+    "execution_time": 0.0015912899980321527,
+    "CPU_percentage_mean": 1.4481095960815666,
+    "CPU_percentage_max": 1.4481095960815666
+  },
+  {
+    "query_id": "q443",
+    "execution_time": 0.001107811986003071,
+    "CPU_percentage_mean": 1.5899088569782571,
+    "CPU_percentage_max": 1.5899088569782571
+  },
+  {
+    "query_id": "q444",
+    "execution_time": 0.0012861660216003656,
+    "CPU_percentage_mean": 1.5470052591438512,
+    "CPU_percentage_max": 1.5470052591438512
+  },
+  {
+    "query_id": "q445",
+    "execution_time": 0.0014571979991160333,
+    "CPU_percentage_mean": 1.4331843851482031,
+    "CPU_percentage_max": 1.4331843851482031
+  },
+  {
+    "query_id": "q446",
+    "execution_time": 0.0013947290135547519,
+    "CPU_percentage_mean": 1.6420149622439633,
+    "CPU_percentage_max": 1.6420149622439633
+  },
+  {
+    "query_id": "q447",
+    "execution_time": 0.0011725779622793198,
+    "CPU_percentage_mean": 1.627175435779365,
+    "CPU_percentage_max": 1.627175435779365
+  },
+  {
+    "query_id": "q448",
+    "execution_time": 0.001034321030601859,
+    "CPU_percentage_mean": 1.6960887794798971,
+    "CPU_percentage_max": 1.6960887794798971
+  },
+  {
+    "query_id": "q449",
+    "execution_time": 0.0014287660014815629,
+    "CPU_percentage_mean": 1.6012807725855096,
+    "CPU_percentage_max": 1.6012807725855096
+  },
+  {
+    "query_id": "q450",
+    "execution_time": 0.0013223040150478482,
+    "CPU_percentage_mean": 2.04464704381475,
+    "CPU_percentage_max": 2.04464704381475
+  },
+  {
+    "query_id": "q451",
+    "execution_time": 0.009236686979420483,
+    "CPU_percentage_mean": 1.8400578826728655,
+    "CPU_percentage_max": 1.8400578826728655
+  },
+  {
+    "query_id": "q452",
+    "execution_time": 0.009726405958645046,
+    "CPU_percentage_mean": 1.5841668889261942,
+    "CPU_percentage_max": 1.5841668889261942
+  },
+  {
+    "query_id": "q453",
+    "execution_time": 0.005553722963668406,
+    "CPU_percentage_mean": 1.6477543626246711,
+    "CPU_percentage_max": 1.6477543626246711
+  },
+  {
+    "query_id": "q454",
+    "execution_time": 0.005117188033182174,
+    "CPU_percentage_mean": 1.5095741573178123,
+    "CPU_percentage_max": 1.5095741573178123
+  },
+  {
+    "query_id": "q455",
+    "execution_time": 0.009717084001749754,
+    "CPU_percentage_mean": 1.548849152446017,
+    "CPU_percentage_max": 1.548849152446017
+  },
+  {
+    "query_id": "q456",
+    "execution_time": 0.007824896019883454,
+    "CPU_percentage_mean": 1.7115188481934078,
+    "CPU_percentage_max": 1.7115188481934078
+  },
+  {
+    "query_id": "q457",
+    "execution_time": 0.009859920013695955,
+    "CPU_percentage_mean": 1.5968556372908334,
+    "CPU_percentage_max": 1.5968556372908334
+  },
+  {
+    "query_id": "q458",
+    "execution_time": 0.008029414049815387,
+    "CPU_percentage_mean": 1.6211945752837897,
+    "CPU_percentage_max": 1.6211945752837897
+  },
+  {
+    "query_id": "q459",
+    "execution_time": 0.008011874044314027,
+    "CPU_percentage_mean": 1.6952668055369835,
+    "CPU_percentage_max": 1.6952668055369835
+  },
+  {
+    "query_id": "q460",
+    "execution_time": 0.008847095014061779,
+    "CPU_percentage_mean": 1.607892665801803,
+    "CPU_percentage_max": 1.607892665801803
+  },
+  {
+    "query_id": "q461",
+    "execution_time": 0.0012505559716373682,
+    "CPU_percentage_mean": 1.9327374234639791,
+    "CPU_percentage_max": 1.9327374234639791
+  },
+  {
+    "query_id": "q462",
+    "execution_time": 0.0014674669946543872,
+    "CPU_percentage_mean": 1.7673872374664779,
+    "CPU_percentage_max": 1.7673872374664779
+  },
+  {
+    "query_id": "q463",
+    "execution_time": 0.09637624002061784,
+    "CPU_percentage_mean": 1.4702118463729872,
+    "CPU_percentage_max": 1.666470967506364
+  },
+  {
+    "query_id": "q464",
+    "execution_time": 0.1275268510216847,
+    "CPU_percentage_mean": 1.2930210974839402,
+    "CPU_percentage_max": 1.5842352015506946
+  },
+  {
+    "query_id": "q465",
+    "execution_time": 0.09140396397560835,
+    "CPU_percentage_mean": 1.3912800504350376,
+    "CPU_percentage_max": 1.6328275431260857
+  },
+  {
+    "query_id": "q466",
+    "execution_time": 0.1032385400030762,
+    "CPU_percentage_mean": 1.2550775101321003,
+    "CPU_percentage_max": 1.722335249762007
+  },
+  {
+    "query_id": "q467",
+    "execution_time": 0.0994856029865332,
+    "CPU_percentage_mean": 1.610202043681901,
+    "CPU_percentage_max": 2.013540319668446
+  },
+  {
+    "query_id": "q468",
+    "execution_time": 0.4485382710117847,
+    "CPU_percentage_mean": 1.1728748001372826,
+    "CPU_percentage_max": 1.8527654497706665
+  },
+  {
+    "query_id": "q469",
+    "execution_time": 0.45486539200646803,
+    "CPU_percentage_mean": 1.174590640505369,
+    "CPU_percentage_max": 1.6346548913666974
+  },
+  {
+    "query_id": "q470",
+    "execution_time": 0.4462583399727009,
+    "CPU_percentage_mean": 1.2018450535884817,
+    "CPU_percentage_max": 1.821294911301629
+  },
+  {
+    "query_id": "q471",
+    "execution_time": 0.4452521009952761,
+    "CPU_percentage_mean": 1.1446551311164324,
+    "CPU_percentage_max": 1.6084160819544977
+  },
+  {
+    "query_id": "q472",
+    "execution_time": 0.44318077503703535,
+    "CPU_percentage_mean": 1.134547660391971,
+    "CPU_percentage_max": 1.8546220114320857
+  },
+  {
+    "query_id": "q473",
+    "execution_time": 0.4958774569677189,
+    "CPU_percentage_mean": 1.1624893343932405,
+    "CPU_percentage_max": 1.8041315561433673
+  },
+  {
+    "query_id": "q474",
+    "execution_time": 0.45498244499322027,
+    "CPU_percentage_mean": 1.1794179229491517,
+    "CPU_percentage_max": 1.785159330255079
+  },
+  {
+    "query_id": "q475",
+    "execution_time": 0.4269392169662751,
+    "CPU_percentage_mean": 1.1744420328207166,
+    "CPU_percentage_max": 1.62525376261584
+  },
+  {
+    "query_id": "q476",
+    "execution_time": 0.4285552400397137,
+    "CPU_percentage_mean": 1.733148436417524,
+    "CPU_percentage_max": 6.788080796940349
+  },
+  {
+    "query_id": "q477",
+    "execution_time": 0.4476607399992645,
+    "CPU_percentage_mean": 1.2185891587924564,
+    "CPU_percentage_max": 2.758983737054481
+  },
+  {
+    "query_id": "q478",
+    "execution_time": 0.42617983202217147,
+    "CPU_percentage_mean": 1.1941077998068255,
+    "CPU_percentage_max": 1.6888244236995718
+  },
+  {
+    "query_id": "q479",
+    "execution_time": 0.42448448500363156,
+    "CPU_percentage_mean": 1.2155161589275087,
+    "CPU_percentage_max": 1.6774481338104867
+  },
+  {
+    "query_id": "q480",
+    "execution_time": 0.4480065399548039,
+    "CPU_percentage_mean": 1.119337314789687,
+    "CPU_percentage_max": 1.5113687308268111
+  },
+  {
+    "query_id": "q481",
+    "execution_time": 0.4500396630028263,
+    "CPU_percentage_mean": 1.1113900547903262,
+    "CPU_percentage_max": 1.8362200715545756
+  },
+  {
+    "query_id": "q482",
+    "execution_time": 0.4551928709843196,
+    "CPU_percentage_mean": 1.1301424379222544,
+    "CPU_percentage_max": 1.7002457192427296
+  },
+  {
+    "query_id": "q483",
+    "execution_time": 0.44704447500407696,
+    "CPU_percentage_mean": 1.176452848970337,
+    "CPU_percentage_max": 1.8379813231954958
+  },
+  {
+    "query_id": "q484",
+    "execution_time": 0.48793167201802135,
+    "CPU_percentage_mean": 1.0951571329958925,
+    "CPU_percentage_max": 1.5991676946069018
+  },
+  {
+    "query_id": "q485",
+    "execution_time": 0.48801162402378395,
+    "CPU_percentage_mean": 1.1433050326063265,
+    "CPU_percentage_max": 1.587911463902084
+  },
+  {
+    "query_id": "q486",
+    "execution_time": 0.45271686202613637,
+    "CPU_percentage_mean": 1.1192675549637647,
+    "CPU_percentage_max": 1.5338508150648427
+  },
+  {
+    "query_id": "q487",
+    "execution_time": 0.4665290020057,
+    "CPU_percentage_mean": 1.1905382768403139,
+    "CPU_percentage_max": 1.639919523063496
+  },
+  {
+    "query_id": "q488",
+    "execution_time": 0.474838363006711,
+    "CPU_percentage_mean": 1.1477284088503577,
+    "CPU_percentage_max": 1.58808364099498
+  },
+  {
+    "query_id": "q489",
+    "execution_time": 0.46241321798879653,
+    "CPU_percentage_mean": 1.102973971423703,
+    "CPU_percentage_max": 1.690517500426373
+  },
+  {
+    "query_id": "q490",
+    "execution_time": 0.4623046849737875,
+    "CPU_percentage_mean": 1.1407433494780492,
+    "CPU_percentage_max": 1.8548814662253938
+  },
+  {
+    "query_id": "q491",
+    "execution_time": 0.48261427000397816,
+    "CPU_percentage_mean": 1.145862989144821,
+    "CPU_percentage_max": 1.5712129718692291
+  },
+  {
+    "query_id": "q492",
+    "execution_time": 0.5131120380247012,
+    "CPU_percentage_mean": 1.1466975658176095,
+    "CPU_percentage_max": 1.5414241063032699
+  },
+  {
+    "query_id": "q493",
+    "execution_time": 0.43278424796881154,
+    "CPU_percentage_mean": 1.173987436112416,
+    "CPU_percentage_max": 1.5117068911336118
+  },
+  {
+    "query_id": "q494",
+    "execution_time": 0.47856017196318135,
+    "CPU_percentage_mean": 1.1435931453204282,
+    "CPU_percentage_max": 1.7111513147995008
+  },
+  {
+    "query_id": "q495",
+    "execution_time": 0.491634392994456,
+    "CPU_percentage_mean": 1.1981346827806973,
+    "CPU_percentage_max": 1.692530655196399
+  },
+  {
+    "query_id": "q496",
+    "execution_time": 0.48007987602613866,
+    "CPU_percentage_mean": 1.1276442900743602,
+    "CPU_percentage_max": 1.677489599072137
+  },
+  {
+    "query_id": "q497",
+    "execution_time": 0.4220429540146142,
+    "CPU_percentage_mean": 1.1620613879440962,
+    "CPU_percentage_max": 1.595496257101614
+  },
+  {
+    "query_id": "q498",
+    "execution_time": 0.4367886239779182,
+    "CPU_percentage_mean": 1.1589325880324488,
+    "CPU_percentage_max": 1.7987271959903022
+  },
+  {
+    "query_id": "q499",
+    "execution_time": 0.4550746729946695,
+    "CPU_percentage_mean": 1.1849362783888207,
+    "CPU_percentage_max": 1.7427695844651727
+  },
+  {
+    "query_id": "q500",
+    "execution_time": 0.4350438209949061,
+    "CPU_percentage_mean": 1.1228196357795055,
+    "CPU_percentage_max": 1.623465617126825
+  },
+  {
+    "query_id": "q501",
+    "execution_time": 10.224243333970662,
+    "CPU_percentage_mean": 1.1003038342954523,
+    "CPU_percentage_max": 2.140458496916454
+  },
+  {
+    "query_id": "q502",
+    "execution_time": 9.777299167006277,
+    "CPU_percentage_mean": 1.2212518698828656,
+    "CPU_percentage_max": 4.022209809803459
+  },
+  {
+    "query_id": "q503",
+    "execution_time": 9.988872214977164,
+    "CPU_percentage_mean": 1.1764217455233927,
+    "CPU_percentage_max": 2.006450517885724
+  },
+  {
+    "query_id": "q504",
+    "execution_time": 3.6296055680140853,
+    "CPU_percentage_mean": 1.7519673951701908,
+    "CPU_percentage_max": 12.977085194339969
+  },
+  {
+    "query_id": "q505",
+    "execution_time": 3.3800993490149267,
+    "CPU_percentage_mean": 1.8466259829320157,
+    "CPU_percentage_max": 12.888605043403889
+  },
+  {
+    "query_id": "q506",
+    "execution_time": 3.4536632079980336,
+    "CPU_percentage_mean": 2.383128383334232,
+    "CPU_percentage_max": 20.247857777969966
+  },
+  {
+    "query_id": "q507",
+    "execution_time": 3.657447064993903,
+    "CPU_percentage_mean": 2.2872509811394592,
+    "CPU_percentage_max": 11.425090626860035
+  },
+  {
+    "query_id": "q508",
+    "execution_time": 3.328789315011818,
+    "CPU_percentage_mean": 2.6052919652776625,
+    "CPU_percentage_max": 15.118547074645324
+  },
+  {
+    "query_id": "q509",
+    "execution_time": 3.026493292010855,
+    "CPU_percentage_mean": 2.0611325812117935,
+    "CPU_percentage_max": 15.926409205138404
+  },
+  {
+    "query_id": "q510",
+    "execution_time": 3.329219484992791,
+    "CPU_percentage_mean": 2.6809633190688476,
+    "CPU_percentage_max": 17.50762238024365
+  },
+  {
+    "query_id": "q511",
+    "execution_time": 3.3210577110294253,
+    "CPU_percentage_mean": 2.5017557628173934,
+    "CPU_percentage_max": 11.423732114490363
+  },
+  {
+    "query_id": "q512",
+    "execution_time": 3.3258051680168137,
+    "CPU_percentage_mean": 1.892915361224553,
+    "CPU_percentage_max": 12.97486704099109
+  },
+  {
+    "query_id": "q513",
+    "execution_time": 1.366066305025015,
+    "CPU_percentage_mean": 2.1319659869571717,
+    "CPU_percentage_max": 6.122613535273081
+  },
+  {
+    "query_id": "q514",
+    "execution_time": 1.277488597028423,
+    "CPU_percentage_mean": 1.3751482112682687,
+    "CPU_percentage_max": 4.500313872122768
+  },
+  {
+    "query_id": "q515",
+    "execution_time": 1.4715904599870555,
+    "CPU_percentage_mean": 1.3738422800619596,
+    "CPU_percentage_max": 5.036636937825721
+  },
+  {
+    "query_id": "q516",
+    "execution_time": 1.3299379289965145,
+    "CPU_percentage_mean": 1.5030214024885924,
+    "CPU_percentage_max": 5.011258451242233
+  },
+  {
+    "query_id": "q517",
+    "execution_time": 1.3466591910109855,
+    "CPU_percentage_mean": 1.3176213158037164,
+    "CPU_percentage_max": 3.691196365540376
+  },
+  {
+    "query_id": "q518",
+    "execution_time": 1.444091226963792,
+    "CPU_percentage_mean": 1.8434067524781814,
+    "CPU_percentage_max": 10.93493404184187
+  },
+  {
+    "query_id": "q519",
+    "execution_time": 1.3134259859798476,
+    "CPU_percentage_mean": 2.362628075477731,
+    "CPU_percentage_max": 13.932595106501793
+  },
+  {
+    "query_id": "q520",
+    "execution_time": 1.4539264109916985,
+    "CPU_percentage_mean": 2.5877180120380827,
+    "CPU_percentage_max": 13.95518828104125
+  },
+  {
+    "query_id": "q521",
+    "execution_time": 1.315902066999115,
+    "CPU_percentage_mean": 2.2272882508214544,
+    "CPU_percentage_max": 14.229630982521407
+  },
+  {
+    "query_id": "q522",
+    "execution_time": 1.0575089390040375,
+    "CPU_percentage_mean": 2.2361522579325075,
+    "CPU_percentage_max": 11.307038106023978
+  },
+  {
+    "query_id": "q523",
+    "execution_time": 0.8335127489990555,
+    "CPU_percentage_mean": 1.2218890143739554,
+    "CPU_percentage_max": 3.4678980547009526
+  },
+  {
+    "query_id": "q524",
+    "execution_time": 0.7622539320145734,
+    "CPU_percentage_mean": 1.0923136542815415,
+    "CPU_percentage_max": 1.6346086659049648
+  },
+  {
+    "query_id": "q525",
+    "execution_time": 0.8382269479916431,
+    "CPU_percentage_mean": 1.0744958841947598,
+    "CPU_percentage_max": 1.5749867500883636
+  },
+  {
+    "query_id": "q526",
+    "execution_time": 0.8428043299936689,
+    "CPU_percentage_mean": 1.128878155821483,
+    "CPU_percentage_max": 1.6104392991925267
+  },
+  {
+    "query_id": "q527",
+    "execution_time": 0.8445420120260678,
+    "CPU_percentage_mean": 1.1057028317893123,
+    "CPU_percentage_max": 1.6405893407053205
+  },
+  {
+    "query_id": "q528",
+    "execution_time": 0.8384720500325784,
+    "CPU_percentage_mean": 1.1051890001262408,
+    "CPU_percentage_max": 1.4871336758749962
+  },
+  {
+    "query_id": "q529",
+    "execution_time": 0.7416981670539826,
+    "CPU_percentage_mean": 1.1285193541594853,
+    "CPU_percentage_max": 1.7055999363385563
+  },
+  {
+    "query_id": "q530",
+    "execution_time": 0.7483655469841324,
+    "CPU_percentage_mean": 1.1059077184380812,
+    "CPU_percentage_max": 1.5056016710964257
+  },
+  {
+    "query_id": "q531",
+    "execution_time": 0.7105498739983886,
+    "CPU_percentage_mean": 1.1119337149734372,
+    "CPU_percentage_max": 1.6625845664527235
+  },
+  {
+    "query_id": "q532",
+    "execution_time": 3066.0219458540087,
+    "CPU_percentage_mean": 1.1142359871759517,
+    "CPU_percentage_max": 29.2205265871815
+  },
+  {
+    "query_id": "q533",
+    "execution_time": 3303.9156972450437,
+    "CPU_percentage_mean": 1.1008881306299736,
+    "CPU_percentage_max": 48.10963391363983
+  },
+  {
+    "query_id": "q534",
+    "execution_time": 2773.0294694029726,
+    "CPU_percentage_mean": 1.0064646437975375,
+    "CPU_percentage_max": 20.532040869735884
+  },
+  {
+    "query_id": "q535",
+    "execution_time": 3370.492225335038,
+    "CPU_percentage_mean": 1.0090468513750883,
+    "CPU_percentage_max": 21.015262815833232
+  },
+  {
+    "query_id": "q536",
+    "execution_time": 3426.0460362209706,
+    "CPU_percentage_mean": 1.0104848559118313,
+    "CPU_percentage_max": 21.017894708999652
+  },
+  {
+    "query_id": "q537",
+    "execution_time": 3307.024924130994,
+    "CPU_percentage_mean": 1.0577728332714977,
+    "CPU_percentage_max": 35.75622168259993
+  },
+  {
+    "query_id": "q538",
+    "execution_time": 3173.8800213229842,
+    "CPU_percentage_mean": 1.0631321845053583,
+    "CPU_percentage_max": 48.01390579311966
+  },
+  {
+    "query_id": "q539",
+    "execution_time": 3068.5685730730183,
+    "CPU_percentage_mean": 1.2270330546719932,
+    "CPU_percentage_max": 50.394066199458095
+  },
+  {
+    "query_id": "q540",
+    "execution_time": 3449.7243118749466,
+    "CPU_percentage_mean": 1.034893989589391,
+    "CPU_percentage_max": 27.96510255422808
+  },
+  {
+    "query_id": "q541",
+    "execution_time": 2781.7775641190237,
+    "CPU_percentage_mean": 1.0107396193452853,
+    "CPU_percentage_max": 19.898066084779924
+  },
+  {
+    "query_id": "q542",
+    "execution_time": 0.03931476199068129,
+    "CPU_percentage_mean": 3.327475026700229,
+    "CPU_percentage_max": 3.327475026700229
+  },
+  {
+    "query_id": "q543",
+    "execution_time": 0.014828146027866751,
+    "CPU_percentage_mean": 2.0641855341132,
+    "CPU_percentage_max": 2.0641855341132
+  },
+  {
+    "query_id": "q544",
+    "execution_time": 0.016239218006376177,
+    "CPU_percentage_mean": 2.01954189007662,
+    "CPU_percentage_max": 2.01954189007662
+  },
+  {
+    "query_id": "q545",
+    "execution_time": 0.010875082050915807,
+    "CPU_percentage_mean": 2.050431652668349,
+    "CPU_percentage_max": 2.050431652668349
+  },
+  {
+    "query_id": "q546",
+    "execution_time": 0.014798837015405297,
+    "CPU_percentage_mean": 2.0470345345971035,
+    "CPU_percentage_max": 2.0470345345971035
+  },
+  {
+    "query_id": "q547",
+    "execution_time": 0.014548362989444286,
+    "CPU_percentage_mean": 2.027984655438071,
+    "CPU_percentage_max": 2.027984655438071
+  },
+  {
+    "query_id": "q548",
+    "execution_time": 0.016181433980818838,
+    "CPU_percentage_mean": 2.0783407537817498,
+    "CPU_percentage_max": 2.0783407537817498
+  },
+  {
+    "query_id": "q549",
+    "execution_time": 0.018648124998435378,
+    "CPU_percentage_mean": 2.0698662446742286,
+    "CPU_percentage_max": 2.0698662446742286
+  },
+  {
+    "query_id": "q550",
+    "execution_time": 0.01609694299986586,
+    "CPU_percentage_mean": 1.9142550474262923,
+    "CPU_percentage_max": 1.9142550474262923
+  }
+]
