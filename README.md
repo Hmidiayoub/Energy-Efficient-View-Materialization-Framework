@@ -180,5 +180,5 @@ calling the step modules.
   similarity − storage%/10`; `pipeline.py` currently implements a slightly different
   weighted combination) — treat the numbers as internally consistent, not normative.
 - Junk candidates built only from `nation`/`region` are filtered out in step 2.
-- Materialized-view definitions that cannot safely be generalized (aggregates,
+- Materialized-view definitions that cannot safely be generalized (
   windows, CTEs, set ops) are kept as exact per-query views (`_preserve_semantic_view_definitions`).
